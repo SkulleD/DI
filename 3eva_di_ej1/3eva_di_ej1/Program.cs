@@ -70,7 +70,6 @@ namespace _3eva_di_ej1
                         break;
                     case 4:
                         genero = juegos.eligeEstilo();
-
                         Console.WriteLine(juegos.Busqueda(genero));
                         break;
                     case 5:
@@ -92,6 +91,8 @@ namespace _3eva_di_ej1
                         } while (flag == true);
 
                         juegos.juegosLista.RemoveAt(pos);
+                        Console.WriteLine("Elige el nuevo nombre, año y estilo del videojuego.");
+                        juegos.crearVideojuego();
                         break;
                     case 6:
                         Console.WriteLine("Saliendo del programa...");

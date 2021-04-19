@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace _3eva_di_ej1
@@ -7,42 +8,42 @@ namespace _3eva_di_ej1
     class Videojuegos
     {
         public List<Videojuego> juegosLista = new List<Videojuego>();
-        int generoNum = 0;
+        //int generoNum = 0;
         int year;
         string titulo;
         estilo genero = estilo.Arcade;
 
         public int Posicion(int year)
         {
-            for (int i = 0; i <= juegosLista.Count-1; i++)
+            for (int i = 0; i <= juegosLista.Count - 1; i++)
             {
                 if (year <= juegosLista[i].year)
                 {
                     return i;
                 }
             }
-            return 1;
+            return juegosLista.Count;
         }
 
         public bool Eliminar(int min, int max)
         {
             string respuesta = "";
 
-            Console.WriteLine("Videojuegos a eliminar:");
             try
             {
                 for (int i = min; i <= max; i++)
                 {
                     Console.WriteLine(juegosLista[i].titulo + " Año: " + juegosLista[i].year + " Estilo: " + juegosLista[i].generos); // Falla
                 }
-            } catch (ArgumentOutOfRangeException e)
-            {
-                Console.WriteLine("\nError. Límite de rango superado.\n" +
-                    "Se eliminarán los videojuegos dentro del rango realizable\n");
             }
-             
-            
-            while (!respuesta.Equals("S") && !respuesta.Equals("N")) {
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine("\nError. Límite de rango superado.\n");
+                return false;
+            }
+
+            while (!respuesta.Equals("S") && !respuesta.Equals("N"))
+            {
                 Console.WriteLine("¿Quieres eliminar los videojuegos seleccionados? S/N");
                 respuesta = Console.ReadLine();
                 respuesta.ToUpper();
@@ -51,7 +52,8 @@ namespace _3eva_di_ej1
             if (respuesta == "S" || respuesta == "s")
             {
                 return true;
-            } else
+            }
+            else
             {
                 return false;
             }
@@ -59,11 +61,27 @@ namespace _3eva_di_ej1
 
         public List<Videojuego> Busqueda(estilo generos)
         {
+            List<Videojuego> estilos = new List<Videojuego>();
+            Videojuego newJuego;
+
             for (int i = 0; i <= juegosLista.Count; i++)
             {
-                return juegosLista; // Coger los juegos de la lista que tengan ese género y meterlos en una nueva lista
+                //if (juegosLista.Any(n => n.generos == generos))
+                //{
+                string title = juegosLista[i].titulo;
+                int yiar = juegosLista[i].year;
+                estilo style = juegosLista[i].generos;
+                //}
+
+                newJuego = new Videojuego(title, yiar, style);
+                estilos.Add(newJuego);
+                foreach (Videojuego coleccion in estilos)
+                {
+                    Console.WriteLine("Posición: {0} Título: {1} Estilo: {2}", coleccion.year, coleccion.titulo, coleccion.generos);
+                }
+
             }
-            return juegosLista;
+            return estilos;
         }
 
         public estilo eligeEstilo()
@@ -81,19 +99,19 @@ namespace _3eva_di_ej1
                     "5- Deportivo");
                 try
                 {
-                    generoNum = Convert.ToInt32(Console.ReadLine());
+                    genero = (estilo)Convert.ToInt32(Console.ReadLine());
                 }
                 catch (FormatException e)
                 {
                     Console.WriteLine("Error. Tiene que ser número del 1 al 5");
                 }
             } while (flag == true);
-            for (int i = 0; i < Enum.GetNames(typeof(estilo)).Length; i++)
-            {
-                int extra = i;
-                genero = (estilo)extra;
-                return genero;
-            }
+            //for (int i = 0; i < Enum.GetNames(typeof(estilo)).Length; i++)
+            //{
+            //    int extra = i;
+            //    genero = (estilo)extra;
+            //    return genero;
+            //}
             return genero;
         }
 

@@ -25,6 +25,5 @@ namespace _3eva_di_ej1
             this.year = year;
             this.generos = generos;
         }
-
     }
 }

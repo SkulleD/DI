@@ -8,7 +8,6 @@ namespace _3eva_di_ej1
     class Videojuegos
     {
         public List<Videojuego> juegosLista = new List<Videojuego>();
-        //int generoNum = 0;
         int year;
         string titulo;
         estilo genero = estilo.Arcade;
@@ -29,29 +28,46 @@ namespace _3eva_di_ej1
         {
             string respuesta = "";
 
-            try
+            if (juegosLista.Count > 0)
             {
-                for (int i = min; i <= max; i++)
+                try
                 {
-                    Console.WriteLine(juegosLista[i].titulo + " Año: " + juegosLista[i].year + " Estilo: " + juegosLista[i].generos); // Falla
+                    for (int i = min; i <= max; i++)
+                    {
+                        Console.WriteLine(juegosLista[i].titulo + " Año: " + juegosLista[i].year + " Estilo: " + juegosLista[i].generos);
+                    }
                 }
-            }
-            catch (ArgumentOutOfRangeException e)
-            {
-                Console.WriteLine("\nError. Límite de rango superado.\n");
-                return false;
-            }
+                catch (ArgumentOutOfRangeException e)
+                {
+                    Console.WriteLine("\nError. Límite de rango superado.\n");
+                    return false;
+                }
 
-            while (!respuesta.Equals("S") && !respuesta.Equals("N"))
-            {
-                Console.WriteLine("¿Quieres eliminar los videojuegos seleccionados? S/N");
-                respuesta = Console.ReadLine();
-                respuesta.ToUpper();
-            }
+                while (!respuesta.Equals("S") && !respuesta.Equals("N"))
+                {
+                    Console.WriteLine("¿Quieres eliminar los videojuegos seleccionados? S/N");
+                    respuesta = Console.ReadLine().ToUpper();
+                }
 
-            if (respuesta == "S" || respuesta == "s")
-            {
-                return true;
+                if (respuesta == "S" || respuesta == "s")
+                {
+                    try
+                    {
+                        for (int i = max; i >= min; i--)
+                        {
+                            juegosLista.RemoveAt(i);
+                        }
+                    }
+                    catch (ArgumentOutOfRangeException e)
+                    {
+
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
@@ -76,17 +92,18 @@ namespace _3eva_di_ej1
                         newJuego = new Videojuego(title, yiar, style);
                         estilos.Add(newJuego);
                     }
-                } catch (ArgumentOutOfRangeException e)
+                }
+                catch (ArgumentOutOfRangeException e)
                 {
-                    Console.WriteLine("");
+
                 }
             }
 
             foreach (Videojuego coleccion in estilos)
             {
-                Console.WriteLine("Posición: {0} Título: {1} Estilo: {2}", coleccion.year, coleccion.titulo, coleccion.generos);
+                return estilos;
             }
-            return null;
+            return estilos;
         }
 
         public estilo eligeEstilo()
@@ -104,7 +121,10 @@ namespace _3eva_di_ej1
                     "5- Deportivo");
                 try
                 {
-                    genero = (estilo)Convert.ToInt32(Console.ReadLine());
+                    do
+                    {
+                        genero = (estilo)Convert.ToInt32(Console.ReadLine());
+                    } while ((int)genero < 1 || (int)genero > 5);
                 }
                 catch (FormatException e)
                 {

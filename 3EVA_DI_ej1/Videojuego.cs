@@ -15,13 +15,13 @@ namespace _3eva_di_ej1
 
     class Videojuego
     {
-        public string titulo;
+        public string Titulo { set; get; }
         public int year;
         public estilo generos;
 
         public Videojuego(string titulo, int year, estilo generos)
         {
-            this.titulo = titulo;
+            this.Titulo = titulo;
             this.year = year;
             this.generos = generos;
         }

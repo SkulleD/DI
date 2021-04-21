@@ -33,22 +33,32 @@ namespace _3eva_di_ej1
             {
                 //try
                 //{
-                    if (juegosLista[i].generos == generos)
-                    {
-                        string title = juegosLista[i].Titulo;
-                        int yiar = juegosLista[i].year;
-                        estilo style = juegosLista[i].generos;
-                        newJuego = new Videojuego(title, yiar, style);
-                        estilos.Add(newJuego);
-                    }
+                if (juegosLista[i].generos == generos)
+                {
+                    string title = juegosLista[i].Titulo;
+                    int yiar = juegosLista[i].year;
+                    estilo style = juegosLista[i].generos;
+                    newJuego = new Videojuego(title, yiar, style);
+                    estilos.Add(newJuego);
+                }
                 //}
                 //catch (ArgumentOutOfRangeException e)
                 //{
                 //}
             }
-
-        
             return estilos;
+        }
+
+        public bool Eliminar(string respuesta, int min, int max)
+        {
+            if (respuesta == "S" || respuesta == "s")
+            {
+                for (int i = max; i >= min; i--)
+                {
+                    juegosLista.RemoveAt(i);
+                }
+            }
+            return true;
         }
     }
 }

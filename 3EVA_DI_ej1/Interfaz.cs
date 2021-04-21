@@ -5,7 +5,7 @@ using System.Text;
 
 namespace _3eva_di_ej1
 {
-    // rango en eliminar, devolver buscar, repetir ultima oipcion, funcion pedir entero, elimnar en Videojuegos, sin excepciones de fuera de rango
+    //devolver buscar, repetir ultima opcion
     class Interfaz
     {
         Videojuegos juegos = new Videojuegos();
@@ -46,22 +46,26 @@ namespace _3eva_di_ej1
                 switch (menu)
                 {
                     case 1:
-                        crearVideojuego();
+                        CrearVideojuego();
                         break;
                     case 2:
-                        int inicio;
-                        int final;
+                        int inicio = 0;
+                        int final = 0;
                         bool eliminar;
 
                         if (juegos.juegosLista.Count >= 1)
                         {
                             try
                             {
-                                Console.WriteLine("¿Desde qué videojuego hasta cuál quieres eliminar?\n" +
+                                do
+                                {
+                                    Console.WriteLine("¿Desde qué videojuego hasta cuál quieres eliminar?\n" +
                                     "Posición de videojuego inicial: ");
-                                inicio = Convert.ToInt32(Console.ReadLine());
-                                Console.WriteLine("Posición de videojuego final: ");
-                                final = Convert.ToInt32(Console.ReadLine());
+                                    inicio = PideInt(inicio);
+                                    Console.WriteLine("Posición de videojuego final: ");
+                                    final = PideInt(final);
+                                } while (inicio < 0 || inicio > juegos.juegosLista.Count || final < 0 || final > juegos.juegosLista.Count);
+
                                 eliminar = Eliminar(inicio, final);
                             }
                             catch (FormatException e)
@@ -111,7 +115,7 @@ namespace _3eva_di_ej1
                                 Console.WriteLine("Escribe la posición del videojuego que quieres modificar");
                                 try
                                 {
-                                    pos = Convert.ToInt32(Console.ReadLine());
+                                    pos = PideInt(pos);
                                 }
                                 catch (FormatException e)
                                 {
@@ -123,7 +127,7 @@ namespace _3eva_di_ej1
                             {
                                 juegos.juegosLista.RemoveAt(pos);
                                 Console.WriteLine("Elige el nuevo nombre, año y estilo del videojuego.");
-                                crearVideojuego();
+                                CrearVideojuego();
                             }
                             catch (ArgumentOutOfRangeException e)
                             {
@@ -151,55 +155,24 @@ namespace _3eva_di_ej1
 
             if (juegos.juegosLista.Count > 0)
             {
-                try
+                for (int i = min; i <= max; i++)
                 {
-                    for (int i = min; i <= max; i++)
-                    {
-                        Console.WriteLine(juegos.juegosLista[i].Titulo + " Año: " + juegos.juegosLista[i].year + " Estilo: " + juegos.juegosLista[i].generos);
-                    }
-                }
-                catch (ArgumentOutOfRangeException e)
-                {
-                    Console.WriteLine("\nError. Límite de rango superado.\n");
-                    return false;
-                }
-
-                while (!respuesta.Equals("S") && !respuesta.Equals("N"))
-                {
-                    Console.WriteLine("¿Quieres eliminar los videojuegos seleccionados? S/N");
-                    respuesta = Console.ReadLine().ToUpper();
-                }
-
-                if (respuesta == "S" || respuesta == "s")
-                {
-                    try
-                    {
-                        for (int i = max; i >= min; i--)
-                        {
-                            juegos.juegosLista.RemoveAt(i);
-                        }
-                    }
-                    catch (ArgumentOutOfRangeException e)
-                    {
-                        Console.WriteLine("Error. Fuera de rango");
-                    }
-                    return true;
-                }
-                else
-                {
-                    return false;
+                    Console.WriteLine(juegos.juegosLista[i].Titulo + " Año: " + juegos.juegosLista[i].year + " Estilo: " + juegos.juegosLista[i].generos);
                 }
             }
-            else
+
+            while (!respuesta.Equals("S") && !respuesta.Equals("N"))
             {
-                return false;
+                Console.WriteLine("¿Quieres eliminar los videojuegos seleccionados? S/N");
+                respuesta = Console.ReadLine().ToUpper();
             }
+            juegos.Eliminar(respuesta, min, max);
+            return true;
         }
 
         public estilo EligeEstilo()
         {
             bool flag;
-
             do
             {
                 flag = false;
@@ -238,27 +211,19 @@ namespace _3eva_di_ej1
             }
         }
 
-        public void crearVideojuego()
+        public void CrearVideojuego()
         {
-            bool flag;
+            //bool flag;
 
             Console.WriteLine("¿Nombre del videojuego?");
             titulo = Console.ReadLine();
+            //flag = false;
             do
             {
-                flag = false;
-
                 Console.WriteLine("¿Año de lanzamiento del videojuego?");
-                try
-                {
-                    year = Convert.ToInt32(Console.ReadLine());
-                }
-                catch (FormatException e)
-                {
-                    flag = true;
-                    Console.WriteLine("Error. El año solo permite números.");
-                }
-            } while (flag == true);
+                year = PideInt(year);
+            } while (year < 1950 || year > 2100);
+
             genero = EligeEstilo();
 
             Videojuego juegoNuevo = new Videojuego(titulo, year, genero);
@@ -266,6 +231,22 @@ namespace _3eva_di_ej1
 
             juegos.juegosLista.Insert(insertado, juegoNuevo);
             Console.WriteLine("Se ha añadido el videojuego \"" + titulo + "\"");
+        }
+
+        public int PideInt(int num)
+        {
+            try
+            {
+                num = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException e)
+            {
+            }
+            catch (OverflowException e)
+            {
+            }
+
+            return num;
         }
     }
 }

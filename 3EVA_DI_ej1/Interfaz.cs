@@ -5,43 +5,39 @@ using System.Text;
 
 namespace _3eva_di_ej1
 {
-    //devolver buscar, repetir ultima opcion
+    // Revisar rango eliminar, funcion pedir entero completa (y usarla)
     class Interfaz
     {
         Videojuegos juegos = new Videojuegos();
         string titulo;
         int year;
         estilo genero;
+        bool bandera;
+        int inicio = 0;
+        int final = 0;
+        bool flag = false;
 
         public void principal()
         {
             int menu = 0;
-            bool flag = false;
 #if iniciajuegos
-            Videojuego juego1 = new Videojuego("Xenoblade", 2010, estilo.Videoaventura);
-            Videojuego juego2 = new Videojuego("Space Invaders", 1978, estilo.Arcade);
-            Videojuego juego3 = new Videojuego("Fire Emblem", 1990, estilo.Estrategia);
+            Videojuego juego1 = new Videojuego("Space Invaders", 1978, estilo.Arcade);
+            Videojuego juego2 = new Videojuego("Fire Emblem", 1990, estilo.Estrategia);
+            Videojuego juego3 = new Videojuego("Xenoblade", 2010, estilo.Videoaventura);
+            juegos.juegosLista.Add(juego1);
             juegos.juegosLista.Add(juego2);
             juegos.juegosLista.Add(juego3);
-            juegos.juegosLista.Add(juego1);
 #endif
             do
             {
-                try
-                {
-                    Console.WriteLine("---ELIJA UNA OPCIÓN---\n" +
-                    "1- Insertar nuevo videojuego\n" +
-                    "2- Eliminar videojuegos\n" +
-                    "3- Visualizar lista de videojuegos\n" +
-                    "4- Visualizar videojuegos de un estilo\n" +
-                    "5- Modificar videojuego\n" +
-                    "6- Salir del programa");
-                    menu = Convert.ToInt32(Console.ReadLine());
-                }
-                catch (FormatException e)
-                {
-                    Console.WriteLine("\nError de formato. Elige un número del 1 al 6");
-                }
+                Console.WriteLine("---ELIJA UNA OPCIÓN---\n" +
+                "1- Insertar nuevo videojuego\n" +
+                "2- Eliminar videojuegos\n" +
+                "3- Visualizar lista de videojuegos\n" +
+                "4- Visualizar videojuegos de un estilo\n" +
+                "5- Modificar videojuego\n" +
+                "6- Salir del programa");
+                menu = PideInt();
 
                 switch (menu)
                 {
@@ -49,33 +45,18 @@ namespace _3eva_di_ej1
                         CrearVideojuego();
                         break;
                     case 2:
-                        int inicio = 0;
-                        int final = 0;
+
                         bool eliminar;
 
                         if (juegos.juegosLista.Count >= 1)
                         {
-                            try
-                            {
-                                do
-                                {
-                                    Console.WriteLine("¿Desde qué videojuego hasta cuál quieres eliminar?\n" +
-                                    "Posición de videojuego inicial: ");
-                                    inicio = PideInt(inicio);
-                                    Console.WriteLine("Posición de videojuego final: ");
-                                    final = PideInt(final);
-                                } while (inicio < 0 || inicio > juegos.juegosLista.Count || final < 0 || final > juegos.juegosLista.Count);
+                            Console.WriteLine("¿Desde qué videojuego hasta cuál quieres eliminar?\n" +
+                            "Posición de videojuego inicial: ");
+                            inicio = PideInt(juegos.juegosLista.IndexOf(0), juegos.juegosLista.Count);
+                            Console.WriteLine("Posición de videojuego final: ");
+                            final = PideInt();
 
-                                eliminar = Eliminar(inicio, final);
-                            }
-                            catch (FormatException e)
-                            {
-                                Console.WriteLine("Error de formato");
-                            }
-                            catch (OverflowException e)
-                            {
-                                Console.WriteLine("Error de desbordamiento");
-                            }
+                            eliminar = Eliminar(inicio, final);
                         }
                         else
                         {
@@ -85,7 +66,7 @@ namespace _3eva_di_ej1
                     case 3:
                         if (juegos.juegosLista.Count >= 1)
                         {
-                            muestraJuegos();
+                            MuestraJuegos(juegos.juegosLista);
                         }
                         else
                         {
@@ -96,7 +77,7 @@ namespace _3eva_di_ej1
                         if (juegos.juegosLista.Count >= 1)
                         {
                             genero = EligeEstilo();
-                            Console.WriteLine(juegos.Busqueda(genero));
+                            MuestraJuegos(juegos.Busqueda(genero));
                         }
                         else
                         {
@@ -107,22 +88,9 @@ namespace _3eva_di_ej1
                         if (juegos.juegosLista.Count >= 1)
                         {
                             int pos = 0;
-                            do
-                            {
 
-                                flag = false;
-
-                                Console.WriteLine("Escribe la posición del videojuego que quieres modificar");
-                                try
-                                {
-                                    pos = PideInt(pos);
-                                }
-                                catch (FormatException e)
-                                {
-                                    flag = true;
-                                    Console.WriteLine("Error. Solo se permiten números.");
-                                }
-                            } while (flag == true);
+                            Console.WriteLine("Escribe la posición del videojuego que quieres modificar");
+                            pos = PideInt();
                             try
                             {
                                 juegos.juegosLista.RemoveAt(pos);
@@ -131,7 +99,7 @@ namespace _3eva_di_ej1
                             }
                             catch (ArgumentOutOfRangeException e)
                             {
-                                Console.WriteLine("Error: Esa posición está vacía.");
+                                Console.WriteLine("\nError: Esa posición está vacía.");
                             }
                         }
                         else
@@ -153,12 +121,9 @@ namespace _3eva_di_ej1
         {
             string respuesta = "";
 
-            if (juegos.juegosLista.Count > 0)
+            for (int i = min; i <= max; i++)
             {
-                for (int i = min; i <= max; i++)
-                {
-                    Console.WriteLine(juegos.juegosLista[i].Titulo + " Año: " + juegos.juegosLista[i].year + " Estilo: " + juegos.juegosLista[i].generos);
-                }
+                Console.WriteLine(juegos.juegosLista[i].Titulo + " Año: " + juegos.juegosLista[i].year + " Estilo: " + juegos.juegosLista[i].generos);
             }
 
             while (!respuesta.Equals("S") && !respuesta.Equals("N"))
@@ -166,7 +131,10 @@ namespace _3eva_di_ej1
                 Console.WriteLine("¿Quieres eliminar los videojuegos seleccionados? S/N");
                 respuesta = Console.ReadLine().ToUpper();
             }
-            juegos.Eliminar(respuesta, min, max);
+            if (respuesta == "S" || respuesta == "s")
+            {
+                juegos.Eliminar(min, max);
+            }
             return true;
         }
 
@@ -186,7 +154,14 @@ namespace _3eva_di_ej1
                 {
                     do
                     {
-                        genero = (estilo)Convert.ToInt32(Console.ReadLine());
+                        try
+                        {
+                            genero = (estilo)Convert.ToInt32(Console.ReadLine());
+                        }
+                        catch (OverflowException e)
+                        {
+                            Console.WriteLine("\nError de desbordamiento");
+                        }
                     } while ((int)genero < 1 || (int)genero > 5);
                 }
                 catch (FormatException e)
@@ -194,35 +169,24 @@ namespace _3eva_di_ej1
                     Console.WriteLine("Error. Tiene que ser número del 1 al 5");
                 }
             } while (flag == true);
-            //for (int i = 0; i < Enum.GetNames(typeof(estilo)).Length; i++)
-            //{
-            //    int extra = i;
-            //    genero = (estilo)extra;
-            //    return genero;
-            //}
             return genero;
         }
 
-        public void muestraJuegos()
+        public void MuestraJuegos(List<Videojuego> coleccion)
         {
-            foreach (Videojuego coleccion in juegos.juegosLista)
+            foreach (Videojuego juego in coleccion)
             {
-                Console.WriteLine("Posición: {0} Título: {1} Estilo: {2}", coleccion.year, coleccion.Titulo, coleccion.generos);
+                Console.WriteLine("Posición: {0} Título: {1} Estilo: {2}", juego.year, juego.Titulo, juego.generos);
             }
         }
 
         public void CrearVideojuego()
         {
-            //bool flag;
-
             Console.WriteLine("¿Nombre del videojuego?");
             titulo = Console.ReadLine();
-            //flag = false;
-            do
-            {
-                Console.WriteLine("¿Año de lanzamiento del videojuego?");
-                year = PideInt(year);
-            } while (year < 1950 || year > 2100);
+
+            Console.WriteLine("¿Año de lanzamiento del videojuego?");
+            year = PideInt();
 
             genero = EligeEstilo();
 
@@ -233,19 +197,53 @@ namespace _3eva_di_ej1
             Console.WriteLine("Se ha añadido el videojuego \"" + titulo + "\"");
         }
 
-        public int PideInt(int num)
+        public int PideInt()
         {
-            try
+            int num = 0;
+            do
             {
-                num = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (FormatException e)
-            {
-            }
-            catch (OverflowException e)
-            {
-            }
+                bandera = false;
+                try
+                {
+                    num = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    bandera = true;
+                    Console.WriteLine("\nError de formato. Elige un número del 1 al 6");
+                }
+                catch (OverflowException)
+                {
+                    bandera = true;
+                    Console.WriteLine("\nError de desbordamiento");
+                }
+            } while (bandera);
+            return num;
+        }
 
+
+        public int PideInt(int min, int max)
+        {
+            int num = 0;
+            do
+            {
+                flag = false;
+                bandera = false;
+                try
+                {
+                    num = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    bandera = true;
+                    Console.WriteLine("\nError de formato. Elige un número del 1 al 6");
+                }
+                catch (OverflowException)
+                {
+                    bandera = true;
+                    Console.WriteLine("\nError de desbordamiento");
+                }
+            } while (bandera || num < min || num > max); // ((bandera) && (inicio < 0 || inicio > juegos.juegosLista.Count || final < 0 || final > juegos.juegosLista.Count - 1) && (flag == true) && (year < 1950 || year > 2100));
             return num;
         }
     }

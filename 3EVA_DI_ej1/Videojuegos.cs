@@ -8,9 +8,6 @@ namespace _3eva_di_ej1
     class Videojuegos
     {
         public List<Videojuego> juegosLista = new List<Videojuego>();
-        int year;
-        string titulo;
-        estilo genero = estilo.Arcade;
 
         public int Posicion(int year)
         {
@@ -31,8 +28,6 @@ namespace _3eva_di_ej1
 
             for (int i = 0; i < juegosLista.Count; i++)
             {
-                //try
-                //{
                 if (juegosLista[i].generos == generos)
                 {
                     string title = juegosLista[i].Titulo;
@@ -40,23 +35,18 @@ namespace _3eva_di_ej1
                     estilo style = juegosLista[i].generos;
                     newJuego = new Videojuego(title, yiar, style);
                     estilos.Add(newJuego);
+
                 }
-                //}
-                //catch (ArgumentOutOfRangeException e)
-                //{
-                //}
             }
             return estilos;
+
         }
 
-        public bool Eliminar(string respuesta, int min, int max)
+        public bool Eliminar(int min, int max)
         {
-            if (respuesta == "S" || respuesta == "s")
+            for (int i = max; i >= min; i--)
             {
-                for (int i = max; i >= min; i--)
-                {
-                    juegosLista.RemoveAt(i);
-                }
+                juegosLista.RemoveAt(i);
             }
             return true;
         }

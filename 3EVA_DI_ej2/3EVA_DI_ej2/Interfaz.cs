@@ -6,6 +6,7 @@ namespace _3EVA_DI_ej2
 {
     class Interfaz
     {
+        Funciones func = new Funciones();
         public void menuPrincipal()
         {
             int menu = 0;
@@ -26,7 +27,7 @@ namespace _3EVA_DI_ej2
                 switch (menu)
                 {
                     case 1:
-
+                        Console.WriteLine(func.RellenaTabla());
                         break;
                     case 2:
 

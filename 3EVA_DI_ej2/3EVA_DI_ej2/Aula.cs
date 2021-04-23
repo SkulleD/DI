@@ -11,7 +11,7 @@ namespace _3EVA_DI_ej2
 
         public enum Asignaturas
         {
-            Matemáticas = 1,
+            Matemáticas,
             Biología,
             Tecnología,
             Inglés

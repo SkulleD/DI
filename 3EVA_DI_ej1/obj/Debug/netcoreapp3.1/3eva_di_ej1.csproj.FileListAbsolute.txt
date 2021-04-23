@@ -7,10 +7,8 @@ C:\Users\skull\source\repos\3eva_di_ej1\3eva_di_ej1\bin\Debug\netcoreapp3.1\3eva
 C:\Users\skull\source\repos\3eva_di_ej1\3eva_di_ej1\obj\Debug\netcoreapp3.1\3eva_di_ej1.csprojAssemblyReference.cache
 C:\Users\skull\source\repos\3eva_di_ej1\3eva_di_ej1\obj\Debug\netcoreapp3.1\3eva_di_ej1.AssemblyInfoInputs.cache
 C:\Users\skull\source\repos\3eva_di_ej1\3eva_di_ej1\obj\Debug\netcoreapp3.1\3eva_di_ej1.AssemblyInfo.cs
-C:\Users\skull\source\repos\3eva_di_ej1\3eva_di_ej1\obj\Debug\netcoreapp3.1\3eva_di_ej1.csproj.CoreCompileInputs.cache
 C:\Users\skull\source\repos\3eva_di_ej1\3eva_di_ej1\obj\Debug\netcoreapp3.1\3eva_di_ej1.dll
 C:\Users\skull\source\repos\3eva_di_ej1\3eva_di_ej1\obj\Debug\netcoreapp3.1\3eva_di_ej1.pdb
-C:\Users\skull\source\repos\3eva_di_ej1\3eva_di_ej1\obj\Debug\netcoreapp3.1\3eva_di_ej1.genruntimeconfig.cache
 C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej1\obj\Debug\netcoreapp3.1\3eva_di_ej1.dll
 C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej1\obj\Debug\netcoreapp3.1\3eva_di_ej1.pdb
 C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej1\bin\Debug\netcoreapp3.1\3eva_di_ej1.exe

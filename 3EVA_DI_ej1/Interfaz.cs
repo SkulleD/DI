@@ -5,7 +5,6 @@ using System.Text;
 
 namespace _3eva_di_ej1
 {
-    // Revisar rango eliminar, funcion pedir entero completa (y usarla)
     class Interfaz
     {
         Videojuegos juegos = new Videojuegos();
@@ -45,16 +44,17 @@ namespace _3eva_di_ej1
                         CrearVideojuego();
                         break;
                     case 2:
-
                         bool eliminar;
 
                         if (juegos.juegosLista.Count >= 1)
                         {
                             Console.WriteLine("¿Desde qué videojuego hasta cuál quieres eliminar?\n" +
                             "Posición de videojuego inicial: ");
-                            inicio = PideInt(juegos.juegosLista.IndexOf(0), juegos.juegosLista.Count);
+                            Console.WriteLine("(El límite de la colección es " + (juegos.juegosLista.Count - 1) + ")");
+                            inicio = PideInt(0, juegos.juegosLista.Count);
                             Console.WriteLine("Posición de videojuego final: ");
-                            final = PideInt();
+                            Console.WriteLine("(El límite de la colección es " + (juegos.juegosLista.Count - 1) + ")");
+                            final = PideInt(0, juegos.juegosLista.Count);
 
                             eliminar = Eliminar(inicio, final);
                         }
@@ -210,7 +210,7 @@ namespace _3eva_di_ej1
                 catch (FormatException)
                 {
                     bandera = true;
-                    Console.WriteLine("\nError de formato. Elige un número del 1 al 6");
+                    Console.WriteLine("\nError de formato.");
                 }
                 catch (OverflowException)
                 {
@@ -221,13 +221,11 @@ namespace _3eva_di_ej1
             return num;
         }
 
-
         public int PideInt(int min, int max)
         {
             int num = 0;
             do
             {
-                flag = false;
                 bandera = false;
                 try
                 {
@@ -236,14 +234,14 @@ namespace _3eva_di_ej1
                 catch (FormatException)
                 {
                     bandera = true;
-                    Console.WriteLine("\nError de formato. Elige un número del 1 al 6");
+                    Console.WriteLine("\nError de formato. Solo se pueden introducir números");
                 }
                 catch (OverflowException)
                 {
                     bandera = true;
                     Console.WriteLine("\nError de desbordamiento");
                 }
-            } while (bandera || num < min || num > max); // ((bandera) && (inicio < 0 || inicio > juegos.juegosLista.Count || final < 0 || final > juegos.juegosLista.Count - 1) && (flag == true) && (year < 1950 || year > 2100));
+            } while (bandera || num < min || num > max - 1); // (inicio < 0 || inicio > juegos.juegosLista.Count || final < 0 || final > juegos.juegosLista.Count - 1) && (year < 1950 || year > 2100));
             return num;
         }
     }

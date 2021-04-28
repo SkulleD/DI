@@ -9,6 +9,18 @@ namespace _3EVA_DI_ej2
         public string[] alumnos = new string[12];
         public int[,] notas = new int[12, 4];
 
+        //public int this[int indice]
+        //{
+        //    set
+        //    {
+        //        alumnos[indice] = Convert.ToInt32(value);
+        //    }
+        //    get
+        //    {
+        //        return [indice];
+        //    }
+        //}
+
         public enum Asignaturas
         {
             Matemáticas,

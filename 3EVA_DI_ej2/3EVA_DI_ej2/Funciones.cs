@@ -56,29 +56,61 @@ namespace _3EVA_DI_ej2
             return acu;
         }
 
-        public void CalculaMedia()
+        public int CalculaMedia()
         {
             RellenaTabla();
+            int acu = 0;
+
+            for (int i = 0; i < aula.notas.GetLength(0); i++)
+            {
+                acu = acu + aula.notas[i, 0];
+                //Console.WriteLine(aula.notas[i, 0]);
+            }
+            return acu;
         }
 
-        public void MediaAlumno()
+        public int MediaAlumno(int alumno)
         {
+            RellenaTabla();
+            int acu = 0;
 
+            for (int i = 0; i < aula.notas.GetLength(1); i++)
+            {
+                acu = acu + aula.notas[alumno, i];
+            }
+            return acu;
         }
 
-        public void MediaAsignatura()
+        public int MediaAsignatura(int asignatura)
         {
+            RellenaTabla();
+            int acu = 0;
 
+            for (int i = 0; i < aula.notas.GetLength(0); i++)
+            {
+                acu = acu + aula.notas[i, asignatura];
+            }
+            return acu;
         }
 
-        public void VerNotasAlumno()
+        public void VerNotasAlumno(int alumno)
         {
+            RellenaTabla();
 
+            for (int i = 0; i < aula.notas.GetLength(1); i++)
+            {
+                Console.WriteLine(aula.notas[alumno, i]);
+            }
         }
 
-        public void VerNotasAsignatura()
+        public void VerNotasAsignatura(int asignatura)
         {
+            RellenaTabla();
 
+            for (int i = 0; i < aula.notas.GetLength(0); i++)
+            {
+                Console.WriteLine(aula.notas[i, asignatura]);
+            }
         }
 
         public void NotaMinMax()
@@ -88,7 +120,16 @@ namespace _3EVA_DI_ej2
 
         public void TablaAprobados()
         {
+            RellenaTabla();
 
+            for (int i = 0; i < aula.notas.GetLength(0); i++)
+            {
+                Console.WriteLine(aula.notas[i, 0] + Environment.NewLine);
+                for (int j = 0; i < aula.notas.GetLength(1); i++)
+                {
+                    Console.WriteLine(aula.notas[0, j]);
+                }
+            }
         }
 
         public void TablaCompleta()

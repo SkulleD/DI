@@ -113,28 +113,41 @@ namespace _3EVA_DI_ej2
             }
         }
 
-        public void NotaMinMax()
+        public void NotaMinMax(int alumno, ref int min, ref int max)
         {
+            RellenaTabla();
+            int extra = 0;
+            min = 10;
+            max = 0;
 
+            for (int i = 0; i < aula.notas.GetLength(1); i++)
+            {
+                extra = aula.notas[alumno, i];
+
+                if (extra < min) min = extra;
+                if (extra > max) max = extra;
+            }
+            Console.WriteLine("Mínima: {0}\nMáxima: {1}", min, max);
         }
 
         public void TablaAprobados()
         {
             RellenaTabla();
 
-            for (int i = 0; i < aula.notas.GetLength(0); i++)
-            {
-                Console.WriteLine(aula.notas[i, 0] + Environment.NewLine);
-                for (int j = 0; i < aula.notas.GetLength(1); i++)
-                {
-                    Console.WriteLine(aula.notas[0, j]);
-                }
-            }
         }
 
         public void TablaCompleta()
         {
+            RellenaTabla();
 
+            for (int i = 0; i < aula.notas.GetLength(0); i++)
+            {
+                Console.Write(aula.notas[i, 0] + " ");
+                for (int j = 0; i < aula.notas.GetLength(1); i++)
+                {
+                    Console.Write(aula.notas[0, j] + Environment.NewLine);
+                }
+            }
         }
     }
 }

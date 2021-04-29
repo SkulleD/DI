@@ -13,10 +13,11 @@ namespace _3EVA_DI_ej2
         public void menuPrincipal()
         {
             aula.CrearAlumnos();
-            int menu = 0;
+            int menu;
             bandera = false;
-            int alumno = 0;
-            int asignatura = 0;
+            int numero;
+            int min = 0;
+            int max = 0;
 
             do
             {
@@ -31,7 +32,7 @@ namespace _3EVA_DI_ej2
                 "8- Visualizar tabla completa\n" +
                 "9- Salir del programa");
 
-                menu = Convert.ToInt32(Console.ReadLine());
+                menu = PideInt();
                 switch (menu)
                 {
                     case 1:
@@ -39,32 +40,34 @@ namespace _3EVA_DI_ej2
                         break;
                     case 2:
                         Console.Write("¿Nº del alumno?");
-                        alumno = PideInt();
-                        Console.WriteLine(func.MediaAlumno(alumno) / 4);
+                        numero = PideInt();
+                        Console.WriteLine(func.MediaAlumno(numero) / 4);
                         break;
                     case 3:
                         Console.Write("¿Nº de la asignatura?");
-                        asignatura = PideInt();
-                        Console.WriteLine(func.MediaAlumno(alumno) / 4);
+                        numero = PideInt();
+                        Console.WriteLine(func.MediaAlumno(numero) / 4);
                         break;
                     case 4:
                         Console.Write("¿Nº del alumno?");
-                        alumno = PideInt();
-                        func.VerNotasAlumno(alumno);
+                        numero = PideInt();
+                        func.VerNotasAlumno(numero);
                         break;
                     case 5:
                         Console.Write("¿Nº de la asignatura?");
-                        asignatura = PideInt();
-                        func.VerNotasAsignatura(asignatura);
+                        numero = PideInt();
+                        func.VerNotasAsignatura(numero);
                         break;
                     case 6:
-
+                        Console.Write("¿Nº del alumno?");
+                        numero = PideInt();
+                        func.NotaMinMax(numero, ref min, ref max);
                         break;
                     case 7:
                         func.TablaAprobados();
                         break;
                     case 8:
-
+                        func.TablaCompleta();
                         break;
                     case 9:
                         Console.WriteLine("Saliendo del programa...");
@@ -89,12 +92,12 @@ namespace _3EVA_DI_ej2
                 catch (FormatException)
                 {
                     bandera = true;
-                    Console.WriteLine("\nError de formato. Solo se pueden introducir números");
+                    Console.Write("\nError de formato. Solo se pueden introducir números");
                 }
                 catch (OverflowException)
                 {
                     bandera = true;
-                    Console.WriteLine("\nError de desbordamiento");
+                    Console.Write("\nError de desbordamiento");
                 }
             } while (bandera);
             return num;

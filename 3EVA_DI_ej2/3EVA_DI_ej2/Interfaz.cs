@@ -99,6 +99,11 @@ namespace _3EVA_DI_ej2
                     bandera = true;
                     Console.Write("\nError de desbordamiento");
                 }
+                catch (IndexOutOfRangeException)
+                {
+                    bandera = true;
+                    Console.Write("\nRecuerda que hay no hay más de 12 alumnos ni más de 4 asignaturas.");
+                }
             } while (bandera);
             return num;
         }

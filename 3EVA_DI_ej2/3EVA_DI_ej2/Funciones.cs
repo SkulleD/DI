@@ -116,7 +116,7 @@ namespace _3EVA_DI_ej2
         public void NotaMinMax(int alumno, ref int min, ref int max)
         {
             RellenaTabla();
-            int extra = 0;
+            int extra;
             min = 10;
             max = 0;
 
@@ -134,6 +134,18 @@ namespace _3EVA_DI_ej2
         {
             RellenaTabla();
 
+            for (int i = 0; i < aula.notas.GetLength(0); i++)
+            {
+                for (int j = 0; j < aula.notas.GetLength(1); j++)
+                    if (aula.notas[i, j] > 5)
+                    {
+                        Console.Write("{0,4}", aula.notas[i, j]);
+                    } else
+                    {
+
+                    }
+                Console.WriteLine();
+            }
         }
 
         public void TablaCompleta()
@@ -142,11 +154,9 @@ namespace _3EVA_DI_ej2
 
             for (int i = 0; i < aula.notas.GetLength(0); i++)
             {
-                Console.Write(aula.notas[i, 0] + " ");
-                for (int j = 0; i < aula.notas.GetLength(1); i++)
-                {
-                    Console.Write(aula.notas[0, j] + Environment.NewLine);
-                }
+                for (int j = 0; j < aula.notas.GetLength(1); j++)
+                    Console.Write("{0,4}", aula.notas[i, j]);
+                Console.WriteLine();
             }
         }
     }

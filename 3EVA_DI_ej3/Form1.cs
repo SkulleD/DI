@@ -14,13 +14,19 @@ namespace _3EVA_DI_ej3
     {
         int red, green, blue;
         Image imagen;
+
         public Form1()
         {
             InitializeComponent();
             this.CenterToScreen();
+            this.ShowInTaskbar = false;
+            this.KeyPreview = true;
             label1.ForeColor = System.Drawing.Color.Red;
             label2.ForeColor = System.Drawing.Color.Green;
             label3.ForeColor = System.Drawing.Color.Blue;
+            button1.BackColor = System.Drawing.Color.LightGray;
+            button2.BackColor = System.Drawing.Color.LightGray;
+            button3.BackColor = System.Drawing.Color.LightGray;
 
         }
 
@@ -72,7 +78,7 @@ namespace _3EVA_DI_ej3
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -81,7 +87,8 @@ namespace _3EVA_DI_ej3
             {
                 imagen = new Bitmap(textBox4.Text);
                 this.BackgroundImage = imagen;
-            } catch (System.ArgumentException)
+            }
+            catch (System.ArgumentException)
             {
 
             }
@@ -105,16 +112,7 @@ namespace _3EVA_DI_ej3
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string message = "¿Realmente quieres cerrar el programa?";
-            string caption = "Salir del Programa";
-            var result = MessageBox.Show(message, caption,
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
         private void onKeyEnterDown(object sender, KeyEventArgs e)
@@ -125,9 +123,66 @@ namespace _3EVA_DI_ej3
             }
         }
 
-        private void onKeyEscDown(object sender, KeyEventArgs e)
+        private void button1_MouseHover(object sender, System.EventArgs e)
         {
+            button1.BackColor = System.Drawing.Color.Goldenrod;
+        }
 
+        private void button2_MouseHover(object sender, System.EventArgs e)
+        {
+            button2.BackColor = System.Drawing.Color.Goldenrod;
+        }
+
+        private void button3_MouseHover(object sender, System.EventArgs e)
+        {
+            button3.BackColor = System.Drawing.Color.Goldenrod;
+        }
+
+        private void button1_MouseLeave(object sender, System.EventArgs e)
+        {
+            button1.BackColor = System.Drawing.Color.LightGray;
+        }
+
+        private void button2_MouseLeave(object sender, System.EventArgs e)
+        {
+            button2.BackColor = System.Drawing.Color.LightGray;
+        }
+
+        private void button3_MouseLeave(object sender, System.EventArgs e)
+        {
+            button3.BackColor = System.Drawing.Color.LightGray;
+        }
+
+        private void onKeyTDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.T))
+            {
+                this.Text = "Colores e Imágenes";
+            }
+
+            if (e.KeyCode.Equals(Keys.Escape))
+            {
+                this.Close();
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            string message = "¿Realmente quieres cerrar el programa?";
+            string caption = "Salir del Programa";
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.Text = $"{e.X},{e.Y}";
         }
     }
 }

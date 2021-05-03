@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "3EVA_DI_ej3/1.0.0": {
+        "runtime": {
+          "3EVA_DI_ej3.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "3EVA_DI_ej3/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

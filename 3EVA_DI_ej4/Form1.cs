@@ -15,8 +15,8 @@ namespace _3EVA_DI_ej4
         int calculo = 0;
         public Form1()
         {
-            InitializeComponent();
-            var hashmap = new Dictionary<string, int>();
+            InitializeComponent(); 
+            var hashmap = new Dictionary<string, int>(); //Esto no sé por qué funciona si deberían ser 2 ints, no?
             hashmap.Add(radioButton1.Text, Calcular(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)));
             hashmap.Add(radioButton2.Text, Calcular(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)));
             hashmap.Add(radioButton3.Text, Calcular(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)));

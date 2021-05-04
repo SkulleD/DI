@@ -182,7 +182,19 @@ namespace _3EVA_DI_ej3
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            this.Text = $"{e.X},{e.Y}";
+            Point location;
+            if (sender == this)
+            {
+                this.Text = $"{e.X},{e.Y}";
+            } else
+            {
+                if (sender == textBox1)
+                {
+                    location = new Point(textBox1.Size);
+                    this.Text = $"{e.X + location.X},{e.Y + location.Y}";
+                }
+            }
+
         }
     }
 }

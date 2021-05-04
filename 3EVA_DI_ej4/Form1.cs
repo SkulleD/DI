@@ -12,15 +12,19 @@ namespace _3EVA_DI_ej4
 {
     public partial class Form1 : Form
     {
-        int calculo = 0;
+        public delegate int delCalcular(int n1, int n2);
+        delCalcular calculo;
+
+        int elegirCalcu = 0;
         public Form1()
         {
-            InitializeComponent(); 
-            var hashmap = new Dictionary<string, int>(); //Esto no sé por qué funciona si deberían ser 2 ints, no?
-            hashmap.Add(radioButton1.Text, Calcular(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)));
-            hashmap.Add(radioButton2.Text, Calcular(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)));
-            hashmap.Add(radioButton3.Text, Calcular(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)));
-            hashmap.Add(radioButton4.Text, Calcular(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)));
+            InitializeComponent();
+            var hashmap = new Dictionary<string, int>();
+            hashmap.Add(radioButton1.Text, Calcu(calculo, Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)));
+            hashmap.Add(radioButton2.Text, Calcu(calculo, Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)));
+            hashmap.Add(radioButton3.Text, Calcu(calculo, Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)));
+            hashmap.Add(radioButton4.Text, Calcu(calculo, Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)));
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -45,25 +49,26 @@ namespace _3EVA_DI_ej4
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            calculo = 1;
+            elegirCalcu = 1;
             label1.Text = "+";
+
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            calculo = 2;
+            elegirCalcu = 2;
             label1.Text = "-";
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            calculo = 3;
+            elegirCalcu = 3;
             label1.Text = "*";
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-            calculo = 4;
+            elegirCalcu = 4;
             label1.Text = "/";
         }
 
@@ -81,26 +86,31 @@ namespace _3EVA_DI_ej4
             }
         }
 
+        private int Calcu(delCalcular calculo, int n1, int n2)
+        {
+            return Calcular(n1, n2);
+        }
+
         private int Calcular(int n1, int n2)
         {
             int result = 0;
 
-            if (calculo == 1)
+            if (elegirCalcu == 1)
             {
                 result = n1 + n2;
             }
 
-            if (calculo == 2)
+            if (elegirCalcu == 2)
             {
                 result = n1 - n2;
             }
 
-            if (calculo == 3)
+            if (elegirCalcu == 3)
             {
                 result = n1 * n2;
             }
 
-            if (calculo == 4)
+            if (elegirCalcu == 4)
             {
                 result = n1 / n2;
             }

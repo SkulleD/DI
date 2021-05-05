@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,18 +14,25 @@ namespace _3EVA_DI_ej4
     public partial class Form1 : Form
     {
         public delegate int delCalcular(int n1, int n2);
-        delCalcular calculo;
+        Timer timerino;
+        public Hashtable tabla;
 
-        int elegirCalcu = 0;
         public Form1()
         {
             InitializeComponent();
-            var hashmap = new Dictionary<string, int>();
-            hashmap.Add(radioButton1.Text, Calcu(calculo, Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)));
-            hashmap.Add(radioButton2.Text, Calcu(calculo, Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)));
-            hashmap.Add(radioButton3.Text, Calcu(calculo, Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)));
-            hashmap.Add(radioButton4.Text, Calcu(calculo, Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text)));
+            //timerino.Start();
+            tabla = new Hashtable();
+            tabla.Add(radioButton1.Text, (delCalcular)Suma);
+            tabla.Add(radioButton2.Text, (delCalcular)Resta);
+            tabla.Add(radioButton3.Text, (delCalcular)Multiplicacion);
+            tabla.Add(radioButton4.Text, (delCalcular)Division);
 
+            this.Text = "aa";
+
+            radioButton1.Tag = "+";
+            radioButton2.Tag = "-";
+            radioButton3.Tag = "*";
+            radioButton4.Tag = "/";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -49,27 +57,27 @@ namespace _3EVA_DI_ej4
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            elegirCalcu = 1;
-            label1.Text = "+";
 
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            elegirCalcu = 2;
-            label1.Text = "-";
+
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            elegirCalcu = 3;
-            label1.Text = "*";
+
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-            elegirCalcu = 4;
-            label1.Text = "/";
+
+        }
+
+        private void radioButtons(object sender, EventArgs e)
+        {
+            label1.Text = (string)((RadioButton)sender).Tag;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -86,35 +94,33 @@ namespace _3EVA_DI_ej4
             }
         }
 
-        private int Calcu(delCalcular calculo, int n1, int n2)
-        {
-            return Calcular(n1, n2);
+        private int Suma(int n1, int n2) {
+
+            return n1 + n2;
         }
 
-        private int Calcular(int n1, int n2)
+        private int Resta(int n1, int n2)
         {
-            int result = 0;
 
-            if (elegirCalcu == 1)
-            {
-                result = n1 + n2;
-            }
+            return n1 - n2;
+        }
 
-            if (elegirCalcu == 2)
-            {
-                result = n1 - n2;
-            }
+        private int Multiplicacion(int n1, int n2)
+        {
 
-            if (elegirCalcu == 3)
-            {
-                result = n1 * n2;
-            }
+            return n1 * n2;
+        }
 
-            if (elegirCalcu == 4)
-            {
-                result = n1 / n2;
-            }
-            return result;
+        private int Division(int n1, int n2)
+        {
+
+            return n1 / n2;
+        }
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

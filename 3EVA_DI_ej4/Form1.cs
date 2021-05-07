@@ -57,7 +57,7 @@ namespace _3EVA_DI_ej4
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-
+            tabla.ContainsKey("Suma");
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)

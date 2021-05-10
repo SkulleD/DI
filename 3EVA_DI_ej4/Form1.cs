@@ -14,12 +14,16 @@ namespace _3EVA_DI_ej4
     public partial class Form1 : Form
     {
         public delegate int delCalcular(int n1, int n2);
+        public delCalcular funcion;
         Timer timerino;
         public Hashtable tabla;
+        int resultado;
 
         public Form1()
         {
             InitializeComponent();
+            this.CenterToScreen();
+            funcion = Suma;
             //timerino.Start();
             tabla = new Hashtable();
             tabla.Add(radioButton1.Text, (delCalcular)Suma);
@@ -52,27 +56,35 @@ namespace _3EVA_DI_ej4
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                resultado = funcion(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text));
+                label3.Text = resultado.ToString();
+            }
+            catch (FormatException)
+            {
 
+            }
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            tabla.ContainsKey("Suma");
+            funcion = Suma;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-
+            funcion = Resta;
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-
+            funcion = Multiplicacion;
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-
+            funcion = Division;
         }
 
         private void radioButtons(object sender, EventArgs e)

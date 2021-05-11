@@ -182,6 +182,7 @@ namespace _3EVA_DI_ej3
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
+            Control control = new Control();
             Point location;
             if (sender == this)
             {

@@ -8,13 +8,3 @@ C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej4\obj\Debug\3EVA_DI_ej4.csproj.Gene
 C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej4\obj\Debug\3EVA_DI_ej4.csproj.CoreCompileInputs.cache
 C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej4\obj\Debug\3EVA_DI_ej4.exe
 C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej4\obj\Debug\3EVA_DI_ej4.pdb
-C:\Users\skull\source\repos\3EVA_DI_ej4\3EVA_DI_ej4\obj\Debug\3EVA_DI_ej4.exe
-C:\Users\skull\source\repos\3EVA_DI_ej4\3EVA_DI_ej4\obj\Debug\3EVA_DI_ej4.pdb
-C:\Users\skull\source\repos\3EVA_DI_ej4\3EVA_DI_ej4\bin\Debug\3EVA_DI_ej4.exe.config
-C:\Users\skull\source\repos\3EVA_DI_ej4\3EVA_DI_ej4\bin\Debug\3EVA_DI_ej4.exe
-C:\Users\skull\source\repos\3EVA_DI_ej4\3EVA_DI_ej4\bin\Debug\3EVA_DI_ej4.pdb
-C:\Users\skull\source\repos\3EVA_DI_ej4\3EVA_DI_ej4\obj\Debug\3EVA_DI_ej4.csprojAssemblyReference.cache
-C:\Users\skull\source\repos\3EVA_DI_ej4\3EVA_DI_ej4\obj\Debug\_3EVA_DI_ej4.Form1.resources
-C:\Users\skull\source\repos\3EVA_DI_ej4\3EVA_DI_ej4\obj\Debug\_3EVA_DI_ej4.Properties.Resources.resources
-C:\Users\skull\source\repos\3EVA_DI_ej4\3EVA_DI_ej4\obj\Debug\3EVA_DI_ej4.csproj.GenerateResource.cache
-C:\Users\skull\source\repos\3EVA_DI_ej4\3EVA_DI_ej4\obj\Debug\3EVA_DI_ej4.csproj.CoreCompileInputs.cache

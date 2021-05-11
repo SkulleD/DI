@@ -69,22 +69,22 @@ namespace _3EVA_DI_ej4
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            funcion = Suma;
+            funcion = (n1, n2) => n1 + n2;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            funcion = Resta;
+            funcion = (n1, n2) => n1 - n2;
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
-            funcion = Multiplicacion;
+            funcion = (n1, n2) => n1 * n2;
         }
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
-            funcion = Division;
+            funcion = (n1, n2) => n1 / n2;
         }
 
         private void radioButtons(object sender, EventArgs e)

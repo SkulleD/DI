@@ -15,23 +15,24 @@ namespace _3EVA_DI_ej4
     {
         public delegate int delCalcular(int n1, int n2);
         public delCalcular funcion;
-        Timer timerino;
         public Hashtable tabla;
         int resultado;
+        int minutos = 0, segundos = 0;
 
         public Form1()
         {
             InitializeComponent();
+
             this.CenterToScreen();
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Interval = 1000;
+            timer1.Start();
             funcion = Suma;
-            //timerino.Start();
             tabla = new Hashtable();
             tabla.Add(radioButton1.Text, (delCalcular)Suma);
             tabla.Add(radioButton2.Text, (delCalcular)Resta);
             tabla.Add(radioButton3.Text, (delCalcular)Multiplicacion);
             tabla.Add(radioButton4.Text, (delCalcular)Division);
-
-            this.Text = "aa";
 
             radioButton1.Tag = "+";
             radioButton2.Tag = "-";
@@ -40,16 +41,6 @@ namespace _3EVA_DI_ej4
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -106,7 +97,8 @@ namespace _3EVA_DI_ej4
             }
         }
 
-        private int Suma(int n1, int n2) {
+        private int Suma(int n1, int n2)
+        {
 
             return n1 + n2;
         }
@@ -132,7 +124,15 @@ namespace _3EVA_DI_ej4
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            for (int i = 0; i <= 99; i++) // SE PETA EL PC
+            {
 
+                for (int j = 0; j <= 59; j++)
+                {
+                    segundos++;
+                    this.Text = String.Format("{0}:{1}", minutos, segundos);
+                }
+            }
         }
     }
 }

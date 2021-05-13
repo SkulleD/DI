@@ -27,7 +27,8 @@ namespace _3EVA_DI_ej3
             button1.BackColor = System.Drawing.Color.LightGray;
             button2.BackColor = System.Drawing.Color.LightGray;
             button3.BackColor = System.Drawing.Color.LightGray;
-
+            this.AcceptButton = button1;
+            this.CancelButton = button3;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -73,12 +74,14 @@ namespace _3EVA_DI_ej3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.BackColor = Color.FromArgb(red, green, blue);
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
+            try
+            {
+                this.BackColor = Color.FromArgb(red, green, blue);
+            }
+            catch (ArgumentException)
+            {
+                label5.Text = "Error: tiene que ser en un valor entre 0 y 255";
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -95,74 +98,26 @@ namespace _3EVA_DI_ej3
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void onKeyEnterDown(object sender, KeyEventArgs e)
+        private void buttons_MouseEnter(object sender, EventArgs e)
         {
-            if (e.KeyCode.Equals(Keys.Return))
-            {
-                button1_Click(this, e);
-            }
+            ((Button)sender).BackColor = System.Drawing.Color.Goldenrod;
         }
 
-        private void button1_MouseHover(object sender, System.EventArgs e)
+        private void buttons_MouseLeave(object sender, EventArgs e)
         {
-            button1.BackColor = System.Drawing.Color.Goldenrod;
+            ((Button)sender).BackColor = System.Drawing.Color.LightGray;
         }
 
-        private void button2_MouseHover(object sender, System.EventArgs e)
-        {
-            button2.BackColor = System.Drawing.Color.Goldenrod;
-        }
-
-        private void button3_MouseHover(object sender, System.EventArgs e)
-        {
-            button3.BackColor = System.Drawing.Color.Goldenrod;
-        }
-
-        private void button1_MouseLeave(object sender, System.EventArgs e)
-        {
-            button1.BackColor = System.Drawing.Color.LightGray;
-        }
-
-        private void button2_MouseLeave(object sender, System.EventArgs e)
-        {
-            button2.BackColor = System.Drawing.Color.LightGray;
-        }
-
-        private void button3_MouseLeave(object sender, System.EventArgs e)
-        {
-            button3.BackColor = System.Drawing.Color.LightGray;
-        }
-
-        private void onKeyTDown(object sender, KeyEventArgs e)
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode.Equals(Keys.T))
             {
                 this.Text = "Colores e Imágenes";
-            }
-
-            if (e.KeyCode.Equals(Keys.Escape))
-            {
-                this.Close();
             }
         }
 
@@ -180,22 +135,23 @@ namespace _3EVA_DI_ej3
             }
         }
 
-        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        private void Form1_MouseMove(object sender, MouseEventArgs e) //Se usa el polimorfismo para obtener la propiedad Location de Control en el sender
         {
-            Control control = new Control();
             Point location;
             if (sender == this)
             {
                 this.Text = $"{e.X},{e.Y}";
-            } else
-            {
-                if (sender == textBox1)
-                {
-                    location = new Point(textBox1.Size);
-                    this.Text = $"{e.X + location.X},{e.Y + location.Y}";
-                }
             }
+            else
+            {
+                location = ((Control)sender).Location;
+                this.Text = $"{e.X + location.X},{e.Y + location.Y}";
+            }
+        }
 
+        private void Form1_MouseLeave(object sender, EventArgs e)
+        {
+            this.Text = "Colores e Imágenes";
         }
     }
 }

@@ -124,14 +124,14 @@ namespace _3EVA_DI_ej4
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            for (int i = 0; i <= 99; i++) // SE PETA EL PC
+            if (segundos == 59)
             {
-
-                for (int j = 0; j <= 59; j++)
-                {
-                    segundos++;
-                    this.Text = String.Format("{0}:{1}", minutos, segundos);
-                }
+                segundos = 0;
+                minutos++;
+            } else
+            {
+                segundos++;
+                this.Text = String.Format("{0:d2}:{1:d2}", minutos, segundos);
             }
         }
     }

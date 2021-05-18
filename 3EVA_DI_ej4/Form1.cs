@@ -74,25 +74,11 @@ namespace _3EVA_DI_ej4
         private void radioButtons(object sender, EventArgs e)
         {
             label1.Text = (string)((RadioButton)sender).Tag;
-            
+            fFinal = (delCalcular)tabla[((RadioButton)sender).Text];
+
             if (tabla.ContainsKey("+"))
             {
                 fFinal = fSuma;
-            }
-
-            if (tabla.ContainsKey("-"))
-            {
-                fFinal = fResta;
-            }
-
-            if (tabla.ContainsKey("*"))
-            {
-                fFinal = fMulti;
-            }
-
-            if (tabla.ContainsKey("/"))
-            {
-                fFinal = fDivision;
             }
         }
 

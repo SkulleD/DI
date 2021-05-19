@@ -41,17 +41,24 @@ namespace _3EVA_DI_ej5
 
         private void button2_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Remove(listBox1.SelectedItem);
+            foreach (string elemento in listBox1.Items)
+            {
+                listBox1.Items.Remove(listBox1.SelectedItem);
+            }
+
             label2.Text = "Índice: " + listBox1.SelectedIndex.ToString();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < listBox1.Items.Count; i++)
+            if (listBox1.SelectedItem != null)
             {
-                listBox2.Items.Insert(i, listBox1.Items.ToString());
+                for (int i = 0; i < listBox1.Items.Count; i++)
+                {
+                    listBox2.Items.Insert(i, listBox1.SelectedItem);
+                }
+                listBox1.Items.Clear();
             }
-            listBox1.Items.Clear();
         }
 
         private void button4_Click(object sender, EventArgs e)

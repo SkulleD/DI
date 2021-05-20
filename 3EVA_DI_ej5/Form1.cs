@@ -66,5 +66,25 @@ namespace _3EVA_DI_ej5
             listBox1.Items.AddRange(listBox2.Items);
             listBox2.Items.Clear();
         }
+
+        private void aÑADIRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void qUITARToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tRASPASARToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tRASPASARToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

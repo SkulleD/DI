@@ -11,42 +11,34 @@ using System.Windows.Forms;
 
 namespace _3EVA_DI_ej4
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form //timer, overflow, if de /0
     {
         public delegate int delCalcular(int n1, int n2);
-        public delCalcular fSuma;
-        public delCalcular fResta;
-        public delCalcular fMulti;
-        public delCalcular fDivision;
         public delCalcular fFinal;
         public Hashtable tabla;
         int resultado;
-        int minutos = 0, segundos = 0;
+        int minutos = 0, segundos = 55;
 
         public Form1()
         {
             InitializeComponent();
 
             this.CenterToScreen();
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 1000;
-            timer1.Start();
+     
             label1.Text = "+";
 
             tabla = new Hashtable();
-            tabla.Add(radioButton1.Text, (delCalcular)fSuma);
-            tabla.Add(radioButton2.Text, (delCalcular)fResta);
-            tabla.Add(radioButton3.Text, (delCalcular)fMulti);
-            tabla.Add(radioButton4.Text, (delCalcular)fDivision);
+            tabla.Add(radioButton1.Text, (delCalcular)((n1, n2) => n1 + n2));
+            tabla.Add(radioButton2.Text, (delCalcular)((n1, n2) => n1 - n2));
+            tabla.Add(radioButton3.Text, (delCalcular)((n1, n2) => n1 * n2));
+            tabla.Add(radioButton4.Text, (delCalcular)((n1, n2) => n1 / n2));
 
+            fFinal = (delCalcular)tabla[radioButton1.Text];
+                ;
             radioButton1.Tag = "+";
             radioButton2.Tag = "-";
             radioButton3.Tag = "*";
             radioButton4.Tag = "/";
-            fSuma = (n1, n2) => n1 + n2;
-            fResta = (n1, n2) => n1 - n2;
-            fMulti = (n1, n2) => n1 * n2;
-            fDivision = (n1, n2) => n1 / n2;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -57,17 +49,23 @@ namespace _3EVA_DI_ej4
         private void button1_Click(object sender, EventArgs e)
         {
             try
-            {
-                resultado = fFinal(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text));
-                label3.Text = resultado.ToString();
+            {   if (Convert.ToInt32(textBox2.Text) == 0 && label1.Text == "/")
+                {
+                    label4.Text = "(!) No se puede dividir entre 0.";
+                } else
+                {
+                    resultado = fFinal(Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text));
+                    label3.Text = resultado.ToString();
+                    label4.Text = "";
+                }
             }
             catch (FormatException)
             {
-
+                label4.Text = "(!) Valor/es no válido/s.";
             }
-            catch (NullReferenceException) // No la captura ????
+            catch (OverflowException)
             {
-
+                label4.Text = "(!) Cantidad demasiado grande.";
             }
         }
 
@@ -75,11 +73,6 @@ namespace _3EVA_DI_ej4
         {
             label1.Text = (string)((RadioButton)sender).Tag;
             fFinal = (delCalcular)tabla[((RadioButton)sender).Text];
-
-            if (tabla.ContainsKey("+"))
-            {
-                fFinal = fSuma;
-            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -105,8 +98,8 @@ namespace _3EVA_DI_ej4
             } else
             {
                 segundos++;
-                this.Text = String.Format("{0:d2}:{1:d2}", minutos, segundos);
             }
+                this.Text = String.Format("{0:d2}:{1:d2}", minutos, segundos);
         }
     }
 }

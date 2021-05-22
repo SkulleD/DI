@@ -7,12 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace _3EVA_DI_ej5
 {
     public partial class Form1 : Form
     {
         ToolTip tip;
+        string[] titulo;
+        string espacios = "            ";
+        string espacios2;
+        int i = 13;
+        string directorio = Directory.GetCurrentDirectory();
+        double ms = 0;
+
         public Form1()
         {
             InitializeComponent();
@@ -22,6 +30,9 @@ namespace _3EVA_DI_ej5
             tip.SetToolTip(this.button2, "Elimina un elemento de la lista 1");
             tip.SetToolTip(this.button3, "Mueve todos los elementos de la lista 1 a la lista 2");
             tip.SetToolTip(this.button4, "Mueve todos los elementos de la lista 2 a la lista 1");
+            titulo = this.Text.Split();
+            espacios2 = espacios;
+            timer1.Start();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -69,7 +80,12 @@ namespace _3EVA_DI_ej5
 
         private void aÑADIRToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                listBox1.Items.Add(textBox1.Text);
+                textBox1.Text = "";
+                label1.Text = "Nº elementos: " + listBox1.Items.Count.ToString();
+            }
         }
 
         private void qUITARToolStripMenuItem_Click(object sender, EventArgs e)
@@ -85,6 +101,25 @@ namespace _3EVA_DI_ej5
         private void tRASPASARToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            ms = 0.2;
+
+            if (i != -1 && espacios2.Length != 0)
+            {
+                Text = espacios2 + titulo[i];
+                espacios2 = espacios2.Remove(0, 1);
+                i--;
+            } else
+            {
+                i = 13;
+                espacios2 = espacios;
+            }
+
+            this.Icon = new Icon(directorio + "\\burgallina.ico");
+            //this.Icon = new Icon(directorio + "\\bocatagarto.ico");
         }
     }
 }

@@ -1,0 +1,13 @@
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej2_bien\bin\Debug\netcoreapp3.1\3EVA_DI_ej2_bien.exe
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej2_bien\bin\Debug\netcoreapp3.1\3EVA_DI_ej2_bien.deps.json
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej2_bien\bin\Debug\netcoreapp3.1\3EVA_DI_ej2_bien.runtimeconfig.json
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej2_bien\bin\Debug\netcoreapp3.1\3EVA_DI_ej2_bien.runtimeconfig.dev.json
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej2_bien\bin\Debug\netcoreapp3.1\3EVA_DI_ej2_bien.dll
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej2_bien\bin\Debug\netcoreapp3.1\3EVA_DI_ej2_bien.pdb
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej2_bien\obj\Debug\netcoreapp3.1\3EVA_DI_ej2_bien.csprojAssemblyReference.cache
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej2_bien\obj\Debug\netcoreapp3.1\3EVA_DI_ej2_bien.AssemblyInfoInputs.cache
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej2_bien\obj\Debug\netcoreapp3.1\3EVA_DI_ej2_bien.AssemblyInfo.cs
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej2_bien\obj\Debug\netcoreapp3.1\3EVA_DI_ej2_bien.csproj.CoreCompileInputs.cache
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej2_bien\obj\Debug\netcoreapp3.1\3EVA_DI_ej2_bien.dll
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej2_bien\obj\Debug\netcoreapp3.1\3EVA_DI_ej2_bien.pdb
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej2_bien\obj\Debug\netcoreapp3.1\3EVA_DI_ej2_bien.genruntimeconfig.cache

@@ -22,6 +22,11 @@ namespace _3EVA_DI_ej2_bien
             Inglés
         }
 
+        public Aula()
+        {
+            RellenaTabla();
+        }
+
         public void CrearAlumnos()
         {
             for (int i = 0; i < 12; i++)
@@ -81,7 +86,6 @@ namespace _3EVA_DI_ej2_bien
 
         public int CalculaMedia()
         {
-
             int acu = 0;
 
             for (int i = 0; i < notas.GetLength(0); i++)
@@ -89,6 +93,87 @@ namespace _3EVA_DI_ej2_bien
                 acu = acu + notas[i, 0];
             }
             return acu;
+        }
+
+        public int MediaAlumno(int alumno)
+        {
+            int acu = 0;
+
+            for (int i = 0; i < notas.GetLength(1); i++)
+            {
+                acu = acu + notas[alumno, i];
+            }
+            return acu;
+        }
+
+        public int MediaAsignatura(int asignatura)
+        {
+            int acu = 0;
+
+            for (int i = 0; i < notas.GetLength(0); i++)
+            {
+                acu = acu + notas[i, asignatura];
+            }
+            return acu;
+        }
+
+        public void VerNotasAlumno(int alumno)
+        {
+            for (int i = 0; i < notas.GetLength(1); i++)
+            {
+                Console.WriteLine(notas[alumno, i]);
+            }
+        }
+
+        public void VerNotasAsignatura(int asignatura)
+        {
+            for (int i = 0; i < notas.GetLength(0); i++)
+            {
+                Console.WriteLine(notas[i, asignatura]);
+            }
+        }
+
+        public void NotaMinMax(int alumno, ref int min, ref int max)
+        {
+            int extra;
+            min = 10;
+            max = 0;
+
+            for (int i = 0; i < notas.GetLength(1); i++)
+            {
+                extra = notas[alumno, i];
+
+                if (extra < min) min = extra;
+                if (extra > max) max = extra;
+            }
+            Console.WriteLine("Mínima: {0}\nMáxima: {1}", min, max);
+        }
+
+        public void TablaAprobados()
+        {
+            for (int i = 0; i < notas.GetLength(0); i++)
+            {
+                for (int j = 0; j < notas.GetLength(1); j++)
+                    if (notas[i, j] > 5)
+                    {
+                        Console.Write("{0,4}", notas[i, j]);
+                    }
+                    else
+                    {
+
+                    }
+                Console.WriteLine();
+            }
+        }
+
+        public void TablaCompleta()
+        {
+            for (int i = 0; i < notas.GetLength(0); i++)
+            {
+                for (int j = 0; j < notas.GetLength(1); j++)
+                    Console.Write("{0,4}", notas[i, j]);
+                Console.WriteLine();
+            }
         }
     }
 }

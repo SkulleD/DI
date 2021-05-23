@@ -35,11 +35,11 @@ namespace _3EVA_DI_ej2_bien
                         break;
                     case 2:
                         Console.Write("¿Nº del alumno?");
-
+                        Console.WriteLine(aula.MediaAlumno(PideInt()));
                         break;
                     case 3:
                         Console.Write("¿Nº de la asignatura?");
-
+                        Console.WriteLine(aula.MediaAsignatura(PideInt()));
                         break;
                     case 4:
                         Console.Write("¿Nº del alumno?");

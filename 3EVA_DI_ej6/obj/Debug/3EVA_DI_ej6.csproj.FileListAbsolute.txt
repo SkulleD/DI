@@ -1,0 +1,10 @@
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej6\bin\Debug\3EVA_DI_ej6.exe.config
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej6\bin\Debug\3EVA_DI_ej6.exe
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej6\bin\Debug\3EVA_DI_ej6.pdb
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej6\obj\Debug\3EVA_DI_ej6.csprojAssemblyReference.cache
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej6\obj\Debug\_3EVA_DI_ej6.Form1.resources
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej6\obj\Debug\_3EVA_DI_ej6.Properties.Resources.resources
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej6\obj\Debug\3EVA_DI_ej6.csproj.GenerateResource.cache
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej6\obj\Debug\3EVA_DI_ej6.csproj.CoreCompileInputs.cache
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej6\obj\Debug\3EVA_DI_ej6.exe
+C:\Users\Álvaro Vila\source\repos\3EVA_DI_ej6\obj\Debug\3EVA_DI_ej6.pdb

@@ -40,7 +40,7 @@ namespace _3EVA_DI_ej5
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) // AÑADIR
         {
             if (!string.IsNullOrWhiteSpace(textBox1.Text))
             {
@@ -50,7 +50,7 @@ namespace _3EVA_DI_ej5
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) // QUITAR
         {
             foreach (string elemento in listBox1.Items)
             {
@@ -60,9 +60,9 @@ namespace _3EVA_DI_ej5
             label2.Text = "Índice: " + listBox1.SelectedIndex.ToString();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) // TRASPASAR ->
         {
-            if (listBox1.SelectedItem != null)
+            if (listBox1.SelectedItems != null)
             {
                 for (int i = 0; i < listBox1.Items.Count; i++)
                 {
@@ -72,7 +72,7 @@ namespace _3EVA_DI_ej5
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) // <- TRASPASAR
         {
             listBox1.Items.AddRange(listBox2.Items);
             listBox2.Items.Clear();
@@ -105,7 +105,7 @@ namespace _3EVA_DI_ej5
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            ms = 0.2;
+            ms += 0.1;
 
             if (i != -1 && espacios2.Length != 0)
             {
@@ -118,8 +118,13 @@ namespace _3EVA_DI_ej5
                 espacios2 = espacios;
             }
 
-            this.Icon = new Icon(directorio + "\\burgallina.ico");
-            //this.Icon = new Icon(directorio + "\\bocatagarto.ico");
+            if ((ms % 2) == 0) 
+            {
+                this.Icon = new Icon(directorio + "\\bocatagarto.ico");
+            } else
+            {
+                this.Icon = new Icon(directorio + "\\burgallina.ico");
+            }
         }
     }
 }

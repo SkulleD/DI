@@ -42,86 +42,112 @@ namespace _3EVA_DI_ej5
 
         private void button1_Click(object sender, EventArgs e) // AÑADIR
         {
-            if (!string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-                listBox1.Items.Add(textBox1.Text);
-                textBox1.Text = "";
-                label1.Text = "Nº elementos: " + listBox1.Items.Count.ToString();
-            }
+            Anadir();
         }
 
         private void button2_Click(object sender, EventArgs e) // QUITAR
         {
-            foreach (string elemento in listBox1.Items)
-            {
-                listBox1.Items.Remove(listBox1.SelectedItem);
-            }
-
-            label2.Text = "Índice: " + listBox1.SelectedIndex.ToString();
+            Quitar();
         }
 
         private void button3_Click(object sender, EventArgs e) // TRASPASAR ->
         {
-            if (listBox1.SelectedItems != null)
-            {
-                for (int i = 0; i < listBox1.Items.Count; i++)
-                {
-                    listBox2.Items.Insert(i, listBox1.SelectedItem);
-                }
-                listBox1.Items.Clear();
-            }
+            TraspasarDER();
         }
 
         private void button4_Click(object sender, EventArgs e) // <- TRASPASAR
         {
-            listBox1.Items.AddRange(listBox2.Items);
-            listBox2.Items.Clear();
+            TraspasarIZQ();
         }
 
         private void aÑADIRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Anadir();
+        }
+
+        private void qUITARToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Quitar();
+        }
+
+        private void tRASPASARToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TraspasarDER();
+        }
+
+        private void tRASPASARToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            TraspasarIZQ();
+        }
+
+        private void Anadir()
         {
             if (!string.IsNullOrWhiteSpace(textBox1.Text))
             {
                 listBox1.Items.Add(textBox1.Text);
                 textBox1.Text = "";
-                label1.Text = "Nº elementos: " + listBox1.Items.Count.ToString();
             }
         }
 
-        private void qUITARToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Quitar()
         {
-
+            listBox1.Items.RemoveAt(listBox1.SelectedIndex);
         }
 
-        private void tRASPASARToolStripMenuItem_Click(object sender, EventArgs e)
+        private void TraspasarDER() // FALTA ARREGLAR EL DETALLE DE ELEMENTOS CLONADOS
         {
-
+            if (listBox1.SelectedItem != null)
+            {
+                for (int i = 0; i < listBox1.SelectedItems.Count; i++)
+                {
+                    listBox2.Items.Insert(i, listBox1.SelectedItem);
+                }
+                listBox1.Items.Remove(listBox1.SelectedItem);
+            }
         }
 
-        private void tRASPASARToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void TraspasarIZQ() // FALTA ARREGLAR EL DETALLE DE ELEMENTOS CLONADOS
         {
+            if (listBox2.SelectedItem != null)
+            {
+                for (int i = 0; i < listBox2.SelectedItems.Count; i++)
+                {
+                    listBox1.Items.Insert(i, listBox2.SelectedItem);
+                }
+                listBox2.Items.Remove(listBox2.SelectedItem);
 
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            ms += 0.1;
+            label1.Text = "Nº elementos: " + listBox1.Items.Count.ToString();
+            label2.Text = "Índice: " + listBox1.SelectedIndex.ToString();
 
-            if (i != -1 && espacios2.Length != 0)
+            if (i != -1 && espacios2.Length != 0) // FALTA QUE MUESTRE EL "EJ" DE EJERCICIO
             {
                 Text = espacios2 + titulo[i];
                 espacios2 = espacios2.Remove(0, 1);
                 i--;
-            } else
+            }
+            else
             {
                 i = 13;
                 espacios2 = espacios;
             }
 
-            if ((ms % 2) == 0) 
+            if (ms == 100) // Para que no llegue a valores súper altos
+            {
+                ms = 0;
+            }
+
+            ms++;
+
+            if ((ms % 2) == 0)
             {
                 this.Icon = new Icon(directorio + "\\bocatagarto.ico");
-            } else
+            }
+            else
             {
                 this.Icon = new Icon(directorio + "\\burgallina.ico");
             }

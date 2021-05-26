@@ -15,11 +15,11 @@ namespace _3EVA_DI_ej5
     {
         ToolTip tip;
         string[] titulo;
-        string espacios = "            ";
-        string espacios2;
-        int i = 13;
+        string titleChange;
         string directorio = Directory.GetCurrentDirectory();
         double ms = 0;
+        int lista2_items;
+        int i = 13;
 
         public Form1()
         {
@@ -28,10 +28,9 @@ namespace _3EVA_DI_ej5
             this.AcceptButton = button1;
             tip.SetToolTip(this.button1, "Añade un nuevo elemento a la lista 1");
             tip.SetToolTip(this.button2, "Elimina un elemento de la lista 1");
-            tip.SetToolTip(this.button3, "Mueve todos los elementos de la lista 1 a la lista 2");
-            tip.SetToolTip(this.button4, "Mueve todos los elementos de la lista 2 a la lista 1");
+            tip.SetToolTip(this.button3, "Mueve los elementos seleccionados de la lista 1 a la lista 2");
+            tip.SetToolTip(this.button4, "Mueve un elemento seleccionado de la lista 2 a la lista 1\nNº elementos: " + lista2_items);
             titulo = this.Text.Split();
-            espacios2 = espacios;
             timer1.Start();
         }
 
@@ -94,19 +93,23 @@ namespace _3EVA_DI_ej5
             listBox1.Items.RemoveAt(listBox1.SelectedIndex);
         }
 
-        private void TraspasarDER() // FALTA ARREGLAR EL DETALLE DE ELEMENTOS CLONADOS
+        private void TraspasarDER()
         {
             if (listBox1.SelectedItem != null)
             {
                 for (int i = 0; i < listBox1.SelectedItems.Count; i++)
                 {
-                    listBox2.Items.Insert(i, listBox1.SelectedItem);
+                    listBox2.Items.Insert(i, listBox1.SelectedItems[i]);
                 }
-                listBox1.Items.Remove(listBox1.SelectedItem);
+
+                for (int i = listBox1.SelectedItems.Count - 1; i >= 0; i--)
+                {
+                    listBox1.Items.Remove(listBox1.SelectedItems[i]);
+                }
             }
         }
 
-        private void TraspasarIZQ() // FALTA ARREGLAR EL DETALLE DE ELEMENTOS CLONADOS
+        private void TraspasarIZQ()
         {
             if (listBox2.SelectedItem != null)
             {
@@ -115,7 +118,6 @@ namespace _3EVA_DI_ej5
                     listBox1.Items.Insert(i, listBox2.SelectedItem);
                 }
                 listBox2.Items.Remove(listBox2.SelectedItem);
-
             }
         }
 
@@ -123,18 +125,18 @@ namespace _3EVA_DI_ej5
         {
             label1.Text = "Nº elementos: " + listBox1.Items.Count.ToString();
             label2.Text = "Índice: " + listBox1.SelectedIndex.ToString();
+            lista2_items = listBox2.Items.Count;
 
-            if (i != -1 && espacios2.Length != 0) // FALTA QUE MUESTRE EL "EJ" DE EJERCICIO
-            {
-                Text = espacios2 + titulo[i];
-                espacios2 = espacios2.Remove(0, 1);
-                i--;
-            }
-            else
+            if (i == 0 && titleChange.Equals("EjercicioDI5"))
             {
                 i = 13;
-                espacios2 = espacios;
+                this.Text = "";
+                titleChange = "";
             }
+
+            titleChange = titulo[i] + titleChange;
+            this.Text = titleChange;
+            i--;
 
             if (ms == 100) // Para que no llegue a valores súper altos
             {
@@ -154,3 +156,13 @@ namespace _3EVA_DI_ej5
         }
     }
 }
+
+/*
+ EjercicioDI5
+
+5
+I5
+DI5
+oDI5
+ioDI5
+ */

@@ -10,16 +10,17 @@ using System.Windows.Forms;
 using System.IO;
 
 namespace _3EVA_DI_ej5
-{
+{ // menú, lista indices, quitar (DONE), icono, TraspasarIZQ sin bucle (DONE)
     public partial class Form1 : Form
     {
         ToolTip tip;
-        string[] titulo;
-        string titleChange;
+        string titulo;
+        string titleChanged = "";
+        char chara;
         string directorio = Directory.GetCurrentDirectory();
         double ms = 0;
-        int lista2_items;
-        int i = 13;
+        int i = 11;
+        bool iconChange = false;
 
         public Form1()
         {
@@ -29,8 +30,9 @@ namespace _3EVA_DI_ej5
             tip.SetToolTip(this.button1, "Añade un nuevo elemento a la lista 1");
             tip.SetToolTip(this.button2, "Elimina un elemento de la lista 1");
             tip.SetToolTip(this.button3, "Mueve los elementos seleccionados de la lista 1 a la lista 2");
-            tip.SetToolTip(this.button4, "Mueve un elemento seleccionado de la lista 2 a la lista 1\nNº elementos: " + lista2_items);
-            titulo = this.Text.Split();
+            tip.SetToolTip(this.button4, "Mueve un elemento seleccionado de la lista 2 a la lista 1");
+            tip.SetToolTip(this.listBox2, "Nº de elementos: " + listBox2.Items.Count);
+            titulo = this.Text;
             timer1.Start();
         }
 
@@ -90,7 +92,13 @@ namespace _3EVA_DI_ej5
 
         private void Quitar()
         {
-            listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+            if (listBox1.Items.Count > 0)
+            {
+                for (int i = listBox1.SelectedItems.Count - 1; i >= 0; i--)
+                {
+                    listBox1.Items.Remove(listBox1.SelectedItems[i]);
+                }
+            }
         }
 
         private void TraspasarDER()
@@ -107,35 +115,45 @@ namespace _3EVA_DI_ej5
                     listBox1.Items.Remove(listBox1.SelectedItems[i]);
                 }
             }
+            tip.SetToolTip(this.listBox2, "Nº de elementos: " + listBox2.Items.Count);
         }
 
         private void TraspasarIZQ()
         {
             if (listBox2.SelectedItem != null)
             {
-                for (int i = 0; i < listBox2.SelectedItems.Count; i++)
-                {
-                    listBox1.Items.Insert(i, listBox2.SelectedItem);
-                }
+
+                listBox1.Items.Insert(0, listBox2.SelectedItem);
                 listBox2.Items.Remove(listBox2.SelectedItem);
             }
+            tip.SetToolTip(this.listBox2, "Nº de elementos: " + listBox2.Items.Count);
+        }
+
+        private string listIndexes()
+        {
+            string indices = "";
+            for (int i = 0; i < listBox1.SelectedItems.Count; i++)
+            {
+                indices = indices + " " + i.ToString();
+            }
+
+            return indices;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             label1.Text = "Nº elementos: " + listBox1.Items.Count.ToString();
-            label2.Text = "Índice: " + listBox1.SelectedIndex.ToString();
-            lista2_items = listBox2.Items.Count;
+            label2.Text = listIndexes();
 
-            if (i == 0 && titleChange.Equals("EjercicioDI5"))
+            if (this.Text.Equals("EjercicioDI5"))
             {
-                i = 13;
-                this.Text = "";
-                titleChange = "";
+                i = 11;
+                titleChanged = "";
             }
 
-            titleChange = titulo[i] + titleChange;
-            this.Text = titleChange;
+            chara = titulo[i];
+            titleChanged = chara + titleChanged;
+            this.Text = titleChanged;
             i--;
 
             if (ms == 100) // Para que no llegue a valores súper altos
@@ -145,24 +163,18 @@ namespace _3EVA_DI_ej5
 
             ms++;
 
-            if ((ms % 2) == 0)
+            if ((ms % 2) == 0 && iconChange == true)
             {
                 this.Icon = new Icon(directorio + "\\bocatagarto.ico");
+                iconChange = false;
+
             }
             else
             {
                 this.Icon = new Icon(directorio + "\\burgallina.ico");
+                iconChange = true;
+
             }
         }
     }
 }
-
-/*
- EjercicioDI5
-
-5
-I5
-DI5
-oDI5
-ioDI5
- */

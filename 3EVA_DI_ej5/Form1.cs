@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections;
 
 namespace _3EVA_DI_ej5
 { // menú, lista indices, quitar (DONE), icono, TraspasarIZQ sin bucle (DONE)
@@ -21,6 +22,9 @@ namespace _3EVA_DI_ej5
         double ms = 0;
         int i = 11;
         bool iconChange = false;
+        delegate void Delegado();
+        Delegado funcion;
+        public Hashtable hash;
 
         public Form1()
         {
@@ -34,6 +38,11 @@ namespace _3EVA_DI_ej5
             tip.SetToolTip(this.listBox2, "Nº de elementos: " + listBox2.Items.Count);
             titulo = this.Text;
             timer1.Start();
+            hash = new Hashtable();
+            hash.Add("Add", (Delegado)Anadir);
+            hash.Add("Remove", (Delegado)funcion);
+            hash.Add("mRight", (Delegado)funcion);
+            hash.Add("mLeft", (Delegado)funcion);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -43,7 +52,7 @@ namespace _3EVA_DI_ej5
 
         private void button1_Click(object sender, EventArgs e) // AÑADIR
         {
-            Anadir();
+            funcion();
         }
 
         private void button2_Click(object sender, EventArgs e) // QUITAR
@@ -61,24 +70,9 @@ namespace _3EVA_DI_ej5
             TraspasarIZQ();
         }
 
-        private void aÑADIRToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Funciones(object sender, EventArgs e)
         {
-            Anadir();
-        }
-
-        private void qUITARToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Quitar();
-        }
-
-        private void tRASPASARToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TraspasarDER();
-        }
-
-        private void tRASPASARToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            TraspasarIZQ();
+            funcion = (Delegado)hash[((Button)sender)];
         }
 
         private void Anadir()

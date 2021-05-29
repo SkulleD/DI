@@ -4,27 +4,27 @@ using System.Text;
 
 namespace _3EVA_DI_ej2_bien
 {
+    public enum Asignaturas
+    {
+        Matemáticas,
+        Biología,
+        Lengua,
+        Inglés
+    }
+
     class Aula
     {
-        //public delegate int delegado(int a);
-        //public delegado tabla;
         Random random = new Random();
         int rand;
         int porcentaje;
         int acu = 0;
         public int[,] notas = new int[12, 4];
         public string[] alumnos = new string[12];
-        public enum Asignaturas
-        {
-            Matemáticas,
-            Biología,
-            Lengua,
-            Inglés
-        }
 
         public Aula()
         {
             RellenaTabla();
+            CrearAlumnos();
         }
 
         public void CrearAlumnos()
@@ -99,9 +99,16 @@ namespace _3EVA_DI_ej2_bien
         {
             int acu = 0;
 
-            for (int i = 0; i < notas.GetLength(1); i++)
+            try
             {
-                acu = acu + notas[alumno, i];
+                for (int i = 0; i < notas.GetLength(1); i++)
+                {
+                    acu = acu + notas[alumno, i];
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+
             }
             return acu;
         }
@@ -110,70 +117,18 @@ namespace _3EVA_DI_ej2_bien
         {
             int acu = 0;
 
-            for (int i = 0; i < notas.GetLength(0); i++)
+            try
             {
-                acu = acu + notas[i, asignatura];
+                for (int i = 0; i < notas.GetLength(0); i++)
+                {
+                    acu = acu + notas[i, asignatura];
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+
             }
             return acu;
-        }
-
-        public void VerNotasAlumno(int alumno)
-        {
-            for (int i = 0; i < notas.GetLength(1); i++)
-            {
-                Console.WriteLine(notas[alumno, i]);
-            }
-        }
-
-        public void VerNotasAsignatura(int asignatura)
-        {
-            for (int i = 0; i < notas.GetLength(0); i++)
-            {
-                Console.WriteLine(notas[i, asignatura]);
-            }
-        }
-
-        public void NotaMinMax(int alumno, ref int min, ref int max)
-        {
-            int extra;
-            min = 10;
-            max = 0;
-
-            for (int i = 0; i < notas.GetLength(1); i++)
-            {
-                extra = notas[alumno, i];
-
-                if (extra < min) min = extra;
-                if (extra > max) max = extra;
-            }
-            Console.WriteLine("Mínima: {0}\nMáxima: {1}", min, max);
-        }
-
-        public void TablaAprobados()
-        {
-            for (int i = 0; i < notas.GetLength(0); i++)
-            {
-                for (int j = 0; j < notas.GetLength(1); j++)
-                    if (notas[i, j] > 5)
-                    {
-                        Console.Write("{0,4}", notas[i, j]);
-                    }
-                    else
-                    {
-
-                    }
-                Console.WriteLine();
-            }
-        }
-
-        public void TablaCompleta()
-        {
-            for (int i = 0; i < notas.GetLength(0); i++)
-            {
-                for (int j = 0; j < notas.GetLength(1); j++)
-                    Console.Write("{0,4}", notas[i, j]);
-                Console.WriteLine();
-            }
         }
     }
 }

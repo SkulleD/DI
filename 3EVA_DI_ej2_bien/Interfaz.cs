@@ -8,6 +8,7 @@ namespace _3EVA_DI_ej2_bien
     {
         Aula aula = new Aula();
         bool bandera;
+        Asignaturas materias;
 
         public void menuPrincipal()
         {
@@ -43,21 +44,21 @@ namespace _3EVA_DI_ej2_bien
                         break;
                     case 4:
                         Console.Write("¿Nº del alumno?");
-
+                        VerNotasAlumno(PideInt());
                         break;
                     case 5:
                         Console.Write("¿Nº de la asignatura?");
-
+                        VerNotasAsignatura(PideInt());
                         break;
                     case 6:
                         Console.Write("¿Nº del alumno?");
-
+                        NotaMinMax(PideInt(), ref PideInt(), ref PideInt()); // Cómo se llama a PideInt() siendo los parámetros ref
                         break;
                     case 7:
-
+                        TablaAprobados();
                         break;
                     case 8:
-
+                        TablaCompleta();
                         break;
                     case 9:
                         Console.WriteLine("Saliendo del programa...");
@@ -69,7 +70,87 @@ namespace _3EVA_DI_ej2_bien
             } while (menu != 9);
         }
 
-        public int PideInt()
+        public void VerNotasAlumno(int alumno)
+        {
+            for (int i = 0; i < aula.notas.GetLength(1); i++)
+            {
+                Console.Write("{0, 3}", aula.notas[alumno, i]);
+            }
+            Console.WriteLine(Environment.NewLine);
+        }
+
+        public void VerNotasAsignatura(int asignatura)
+        {
+            for (int i = 0; i < aula.notas.GetLength(0); i++)
+            {
+                Console.Write("{0, 3}", aula.notas[i, asignatura]);
+            }
+            Console.WriteLine(Environment.NewLine);
+        }
+
+        public void NotaMinMax(int alumno, ref int min, ref int max)
+        {
+            int extra;
+            min = 10;
+            max = 0;
+
+            for (int i = 0; i < aula.notas.GetLength(1); i++)
+            {
+                extra = aula.notas[alumno, i];
+
+                if (extra < min)
+                {
+                    min = extra;
+                }
+
+                if (extra > max)
+                {
+                    max = extra;
+                }
+            }
+            Console.WriteLine("Mínima: {0}\nMáxima: {1}", min, max);
+        }
+
+        public void TablaAprobados() // CASI NUNCA MUESTRA ÚLTIMA COLUMNA
+        {
+            for (int i = 0; i < aula.notas.GetLength(0); i++)
+            {
+                for (int j = 0; j < aula.notas.GetLength(1); j++)
+                    if (aula.notas[i, j] > 5)
+                    {
+                        Console.Write("{0,4}", aula.notas[i, j]);
+                    }
+                Console.WriteLine();
+            }
+        }
+
+        public void TablaCompleta()
+        {
+            bool tab = false;
+
+            foreach (string element in aula.alumnos)
+            {
+                Console.Write("{0,10}", element);
+            }
+
+            for (int i = 0; i < aula.notas.GetLength(1); i++)
+            {
+                materias = (Asignaturas)i;
+                Console.WriteLine("{0}", materias);
+                for (int j = 0; j < aula.notas.GetLength(0); j++)
+                {
+                    //if (!tab)
+                    //{
+                    //    Console.Write("\t\t");
+                    //    tab = true;
+                    //}
+                    Console.Write("{0,10}", aula.notas[j, i]);
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public int PideInt() // Pide un número todo el rato mientras no lo pongan de manera correcta
         {
             int num = 0;
             do

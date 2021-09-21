@@ -1,0 +1,7 @@
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej4\bin\Debug\bol1_ej4.exe.config
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej4\bin\Debug\bol1_ej4.exe
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej4\bin\Debug\bol1_ej4.pdb
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej4\obj\Debug\bol1_ej4.csproj.AssemblyReference.cache
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej4\obj\Debug\bol1_ej4.csproj.CoreCompileInputs.cache
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej4\obj\Debug\bol1_ej4.exe
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej4\obj\Debug\bol1_ej4.pdb

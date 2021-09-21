@@ -1,0 +1,6 @@
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej2\bin\Debug\bol1_ej2.exe.config
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej2\bin\Debug\bol1_ej2.exe
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej2\bin\Debug\bol1_ej2.pdb
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej2\obj\Debug\bol1_ej2.csproj.CoreCompileInputs.cache
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej2\obj\Debug\bol1_ej2.exe
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej2\obj\Debug\bol1_ej2.pdb

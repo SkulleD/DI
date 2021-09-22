@@ -32,43 +32,52 @@ namespace bol1_ej3
 
         private void btn_jugar_Click(object sender, EventArgs e)
         {
-            creditos = creditos - 2;
-            label1.Text = "Créditos: " + creditos;
-
-            n1 = random.Next(1, 8);
-            n2 = random.Next(1, 8);
-            n3 = random.Next(1, 8);
-
-            textBox1.Text = n1.ToString();
-            textBox2.Text = n2.ToString();
-            textBox3.Text = n3.ToString();
-
-            if (n1 == n2 && n1 == n3)
+            if (creditos <= 1)
             {
-                creditos = creditos + 20;
-                label1.Text = "Créditos: " + creditos;
-                label_premio.Text = "GANAS 20 €!!!";
-            } else if (n1 == n2 || n1 == n3 || n2 == n3)
-            {
-#if CINCO
-                creditos = creditos - 5;
-                label1.Text = "Créditos: " + creditos;
-                label_premio.Text = "Pierdes 5 €!";
-#else
-                creditos = creditos + 5;
-                label1.Text = "Créditos: " + creditos;
-                label_premio.Text = "Ganas 5 €!";
-#endif
+                label1.Text = "Créditos: " + 0;
             }
             else
             {
-                label_premio.Text = "No hay premio.";
+                creditos -= 2;
+                label1.Text = "Créditos: " + creditos;
+
+                n1 = random.Next(1, 8);
+                n2 = random.Next(1, 8);
+                n3 = random.Next(1, 8);
+
+                textBox1.Text = n1.ToString();
+                textBox2.Text = n2.ToString();
+                textBox3.Text = n3.ToString();
+
+                if (n1 == n2 && n1 == n3)
+                {
+                    creditos += 20;
+                    label1.Text = "Créditos: " + creditos;
+                    label_premio.Text = "GANAS 20 €!!!";
+                }
+                else if (n1 == n2 || n1 == n3 || n2 == n3)
+                {
+#if CINCO
+                    creditos -= 5;
+                    label1.Text = "Créditos: " + creditos;
+                    label_premio.Text = "Pierdes 5 €!";
+#else
+                creditos += 5;
+                label1.Text = "Créditos: " + creditos;
+                label_premio.Text = "Ganas 5 €!";
+#endif
+                }
+                else
+                {
+                    label_premio.Text = "No hay premio.";
+                }
             }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            creditos = creditos + 10;
+            creditos += 10;
             label1.Text = "Créditos: " + creditos;
         }
     }

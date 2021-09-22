@@ -1,0 +1,10 @@
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej5\bin\Debug\bol1_ej5.exe.config
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej5\bin\Debug\bol1_ej5.exe
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej5\bin\Debug\bol1_ej5.pdb
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej5\obj\Debug\bol1_ej5.csproj.AssemblyReference.cache
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej5\obj\Debug\bol1_ej5.Form1.resources
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej5\obj\Debug\bol1_ej5.Properties.Resources.resources
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej5\obj\Debug\bol1_ej5.csproj.GenerateResource.cache
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej5\obj\Debug\bol1_ej5.csproj.CoreCompileInputs.cache
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej5\obj\Debug\bol1_ej5.exe
+C:\Users\AlvaroVila\source\repos\Boletin1\bol1_ej5\obj\Debug\bol1_ej5.pdb

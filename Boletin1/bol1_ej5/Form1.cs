@@ -26,25 +26,15 @@ namespace bol1_ej5
 
         private void button1_Click(object sender, EventArgs e)
         {
-            mensaje = MessageBox.Show("¿Quieres usar este texto como título?",
+            string titulo = textBox1.Text;
+            mensaje = MessageBox.Show("¿Quieres usar " + titulo + " texto como título?",
                 "Modificar título",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
-            this.Text = textBox1.Text;
-        }
-
-        private void textBox1_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
+            if (mensaje == DialogResult.Yes)
             {
-                mensaje = MessageBox.Show("¿Quieres usar este texto como título?",
-                   "Modificar título",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
                 this.Text = textBox1.Text;
-                e.Handled = true;
             }
         }
     }

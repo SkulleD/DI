@@ -26,7 +26,7 @@ namespace bol1_ej4
                 switch (choice)
                 {
                     case 1:
-                        juegos.Juego1(6);
+                        juegos.Juego1(10);
 
                         if (jugarTodos)
                         {
@@ -64,7 +64,7 @@ namespace bol1_ej4
             } while (choice != 5);
         }
 
-        public void Juego1(int num2)
+        public void Juego1(int num2 = 6)
         {
             int numElegido = 0;
             do
@@ -91,7 +91,7 @@ namespace bol1_ej4
                 Console.WriteLine("¡Has acertado {0} veces!", aciertos);
 
                 RepetirPrograma();
-            } while (repetir == true);
+            } while (repetir);
         }
 
         public void Juego2()
@@ -125,14 +125,14 @@ namespace bol1_ej4
                     }
                 } while (intentos > 0 && acierto == false);
 
-                if (acierto == false)
+                if (!acierto)
                 {
                     Console.WriteLine("\nHas perdido :(\n" +
                         "El número era {0}\n", numAcertar);
                 }
 
                 RepetirPrograma();
-            } while (repetir == true);
+            } while (repetir);
         }
 
         public void Juego3()
@@ -144,7 +144,7 @@ namespace bol1_ej4
                     Console.WriteLine(Quiniela());
                 }
                 RepetirPrograma();
-            } while (repetir == true);
+            } while (repetir);
         }
 
         public void RepetirPrograma()
@@ -156,14 +156,16 @@ namespace bol1_ej4
                 Console.WriteLine("¿Quieres volver a jugar a este juego? S/N");
                 letra = Convert.ToChar(Console.ReadLine());
 
-                if (letra == 'S' || letra == 's')
-                {
-                    repetir = true;
-                }
-                else
-                {
-                    repetir = false;
-                }
+                //if (letra == 'S' || letra == 's')
+                //{
+                //    repetir = true;
+                //}
+                //else
+                //{
+                //    repetir = false;
+                //}
+
+                repetir = letra == 'S' || letra == 's';
             }
         }
 

@@ -8,8 +8,8 @@ namespace Boletin2
 {
     abstract class Persona
     {
-        private string nombre;
-        private string apellidos;
+        //private string nombre;
+        //private string apellidos;
         private int edad;
         private string dni;
 
@@ -43,7 +43,15 @@ namespace Boletin2
             }
             get
             {
-                return dni;
+                // string[] letras = new string[] {"T", "R", "W", "A", "G", "M", "Y", "F", "P", "X", "B" +
+                //  "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"};
+                string letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+
+                int result = 0;
+                int numeros = Convert.ToInt32(dni);
+                result = numeros % 23;
+
+                return dni + letras[result];
             }
         }
 
@@ -60,18 +68,23 @@ namespace Boletin2
 
         }
 
-        public virtual void MuestraCampos() {
-            Console.WriteLine(nombre);
-            Console.WriteLine(apellidos);
-            Console.WriteLine(edad);
-            Console.WriteLine(dni);
+        public virtual void MuestraCampos()
+        {
+            Console.WriteLine("Nombre: {0}", Nombre);
+            Console.WriteLine("Apellidos: {0}", Apellidos);
+            Console.WriteLine("Edad: {0}", edad);
+            Console.WriteLine("DNI: {0}", dni);
         }
 
-        public virtual void IntroCampos(string nombre, string apellidos, int edad, string dni)
+        public virtual void IntroCampos(string Nombre, string Apellidos, int edad, string dni)
         {
-            nombre = Console.ReadLine();
-            apellidos = Console.ReadLine();
+            Console.Write("Nombre: ");
+            Nombre = Console.ReadLine();
+            Console.Write("Apellidos: ");
+            Apellidos = Console.ReadLine();
+            Console.Write("Edad: ");
             edad = Convert.ToInt32(Console.ReadLine());
+            Console.Write("DNI: ");
             dni = Console.ReadLine();
         }
 

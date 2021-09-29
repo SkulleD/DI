@@ -8,19 +8,28 @@ namespace Boletin2
 {
     class Empleado : Persona
     {
-        public double salario;
+        private double salario;
         private double irpf;
-        public string telefono;
+        private string telefono;
 
         public double Salario
         {
             set
             {
-
+                if  (salario < 600)
+                {
+                    irpf = (7 * salario) / 100;
+                } else if (salario >= 600 && salario <= 3000)
+                {
+                    irpf = (15 * salario) / 100;
+                } else
+                {
+                    irpf = (20 * salario);
+                }
             }
             get
             {
-
+                return salario;
             }
         }
 
@@ -38,13 +47,18 @@ namespace Boletin2
         public override void MuestraCampos()
         {
             base.MuestraCampos();
-            Console.WriteLine(salario);
-            Console.WriteLine(telefono);
+            Console.WriteLine("Salario: {0}", salario);
+            Console.WriteLine("IRPF: {0}", salario);
+            Console.WriteLine("Teléfono: {0}", telefono);
         }
 
         public override void IntroCampos(string nombre, string apellidos, int edad, string dni)
         {
-            
+            base.IntroCampos(nombre, apellidos, edad, dni);
+            Console.Write("Salario: ");
+            salario = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Teléfono: ");
+            telefono = Console.ReadLine();
         }
 
         public Empleado(double salario, string telefono) : base("", "", 0, "")

@@ -1,0 +1,7 @@
+C:\Users\AlvaroVila\source\repos\Boletin2\Boletin2\obj\Debug\Boletin2.csproj.AssemblyReference.cache
+C:\Users\AlvaroVila\source\repos\Boletin2\Boletin2\obj\Debug\Boletin2.csproj.CoreCompileInputs.cache
+C:\Users\AlvaroVila\source\repos\Boletin2\Boletin2\bin\Debug\Boletin2.exe.config
+C:\Users\AlvaroVila\source\repos\Boletin2\Boletin2\bin\Debug\Boletin2.exe
+C:\Users\AlvaroVila\source\repos\Boletin2\Boletin2\bin\Debug\Boletin2.pdb
+C:\Users\AlvaroVila\source\repos\Boletin2\Boletin2\obj\Debug\Boletin2.exe
+C:\Users\AlvaroVila\source\repos\Boletin2\Boletin2\obj\Debug\Boletin2.pdb

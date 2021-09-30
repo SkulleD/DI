@@ -8,8 +8,6 @@ namespace Boletin2
 {
     abstract class Persona
     {
-        //private string nombre;
-        //private string apellidos;
         private int edad;
         private string dni;
 

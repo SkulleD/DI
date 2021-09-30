@@ -9,7 +9,6 @@ namespace Boletin2
     class Empleado : Persona
     {
         private double salario;
-        private double irpf;
         private string telefono;
 
         public double Salario

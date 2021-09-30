@@ -8,8 +8,6 @@ namespace Boletin2
 {
     class Directivo : Persona, IPastaGansa
     {
-        private string depart;
-        private double beneficios;
         private int personas;
         public string Depart { set; get; }
         public double Beneficios { set; get; }
@@ -19,13 +17,13 @@ namespace Boletin2
             {
                 if (personas < 10)
                 {
-                    beneficios = (2 * beneficios) / 100;
+                    Beneficios = (2 * Beneficios) / 100;
                 } else if (personas >= 11 && personas <= 50)
                 {
-                    beneficios = (3.5 * beneficios) / 100;
+                    Beneficios = (3.5 * Beneficios) / 100;
                 } else
                 {
-                    beneficios = (4 * beneficios) / 100;
+                    Beneficios = (4 * Beneficios) / 100;
                 }
             }
             get
@@ -37,8 +35,8 @@ namespace Boletin2
         public override void MuestraCampos()
         {
             base.MuestraCampos();
-            Console.WriteLine("Departamento: {0}", depart);
-            Console.WriteLine("Beneficios: {0}", beneficios);
+            Console.WriteLine("Departamento: {0}", Depart);
+            Console.WriteLine("Beneficios: {0}", Beneficios);
             Console.WriteLine("Personas: {0}", personas);
         }
 
@@ -46,9 +44,9 @@ namespace Boletin2
         {
             base.IntroCampos(nombre, apellidos, edad, dni);
             Console.Write("Departamento: ");
-            depart = Console.ReadLine();
+            Depart = Console.ReadLine();
             Console.Write("Beneficios: ");
-            beneficios = Convert.ToDouble(Console.ReadLine());
+            Beneficios = Convert.ToDouble(Console.ReadLine());
             Console.Write("Nº Personas: ");
             personas = Convert.ToInt32(Console.ReadLine());
         }
@@ -57,21 +55,34 @@ namespace Boletin2
         {
             double resHacienda = 0;
 
-            resHacienda = (30 * ganarPasta(beneficios)) / 100;
+            resHacienda = (30 * ganarPasta(Beneficios)) / 100;
             return resHacienda;
         }
 
         public double ganarPasta(double pasta) //Pasta es el dinero que gana la empresa
         {
-            double moneyDirectivo = 0;
+            Directivo directivo = new Directivo();
+            directivo = this;
 
-            moneyDirectivo = beneficios - pasta;
+            directivo.Beneficios = Beneficios - pasta;
 
             if (pasta < 0)
             {
-                moneyDirectivo = 0;
+                directivo.Beneficios = 0;
             }
-            return moneyDirectivo;
+            return directivo.Beneficios;
+        }
+
+        public static Directivo operator -(Directivo beneficios)
+        {
+            beneficios.Beneficios--;
+
+            if (beneficios.Beneficios <= 0)
+            {
+                beneficios.Beneficios = 0;
+            }
+
+            return beneficios;
         }
     }
 }

@@ -17,42 +17,44 @@ namespace Boletin2
 
             do
             {
-                Console.WriteLine("\n1- Visualizar datos de Directivo\n" +
+                Console.WriteLine("1- Visualizar datos de Directivo\n" +
                     "2- Visualizar datos de Empleado\n" +
                     "3- Visualizar datos de EmpleadoEspecial\n" +
                     "4 - Salir del programa");
                 try
                 {
                     menu = int.Parse(Console.ReadLine());
-                } catch (FormatException e)
-                {
 
+                    switch (menu)
+                    {
+                        case 1:
+                            directivo.IntroCampos("", "", 2, "");
+                            directivo.MuestraCampos();
+                            Console.ReadKey();
+                            break;
+                        case 2:
+                            empleado.MuestraCampos(8);
+                            empleado.IntroCampos("", "", 7, "");
+                            empleado.MuestraCampos();
+                            Console.ReadKey();
+                            break;
+                        case 3:
+                            empleadoEsp.MuestraCampos();
+                            Console.ReadKey();
+                            break;
+                        case 4:
+                            Console.WriteLine("Nos vemos :)");
+                            Console.ReadKey();
+                            break;
+                        default:
+                            Console.WriteLine("Elige una opción del 1 al 4");
+                            Console.ReadKey();
+                            break;
+                    }
                 }
-
-                switch (menu)
+                catch (FormatException e)
                 {
-                    case 1:
-                        directivo.IntroCampos("", "", 2, "");
-                        directivo.MuestraCampos();
-                        Console.ReadKey();
-                        break;
-                    case 2:
-                        empleado.IntroCampos("", "", 7, "");
-                        empleado.MuestraCampos();
-                        Console.ReadKey();
-                        break;
-                    case 3:
-                        empleadoEsp.MuestraCampos();
-                        Console.ReadKey();
-                        break;
-                    case 4:
-                        Console.WriteLine("Nos vemos :)");
-                        Console.ReadKey();
-                        break;
-                    default:
-                        Console.WriteLine("Elige una opción del 1 al 4");
-                        Console.ReadKey();
-                        break;
+
                 }
             } while (menu != 4);
         }

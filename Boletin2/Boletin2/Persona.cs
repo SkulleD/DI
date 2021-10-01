@@ -70,16 +70,16 @@ namespace Boletin2
         {
             Console.WriteLine("Nombre: {0}", Nombre);
             Console.WriteLine("Apellidos: {0}", Apellidos);
-            Console.WriteLine("Edad: {0}", edad);
+            Console.WriteLine("Edad: {0}", Edad);
             Console.WriteLine("DNI: {0}", dni);
         }
 
-        public virtual void IntroCampos(string Nombre, string Apellidos, int edad, string dni)
+        public virtual void IntroCampos(string nombre, string apellidos, int edad, string dni)
         {
             Console.Write("Nombre: ");
-            Nombre = Console.ReadLine();
+            nombre = Console.ReadLine();
             Console.Write("Apellidos: ");
-            Apellidos = Console.ReadLine();
+            apellidos = Console.ReadLine();
             Console.Write("Edad: ");
             edad = Convert.ToInt32(Console.ReadLine());
             Console.Write("DNI: ");

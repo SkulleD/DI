@@ -10,17 +10,17 @@ namespace Boletin2
     {
         static void Main(string[] args)
         {
-            Directivo directivo = new Directivo();
-            Empleado empleado = new Empleado(2400, "660 828 323");
-            EmpleadoEspecial empleadoEsp = new EmpleadoEspecial();
+            Directivo directivo = new Directivo("Direc", "Tivo", 38, "48562205", 12, "1", 5050);
+            Empleado empleado = new Empleado("Alvaro", "Vila", 23, "21075006", 1300, "660828323");
+            EmpleadoEspecial empleadoEsp = new EmpleadoEspecial("Alvaro", "Especial", 23, "21075006", 2000, "660828323");
             int menu = 0;
 
             do
             {
-                Console.WriteLine("1- Visualizar datos de Directivo\n" +
+                Console.WriteLine("\n1- Visualizar datos de Directivo\n" +
                     "2- Visualizar datos de Empleado\n" +
                     "3- Visualizar datos de EmpleadoEspecial\n" +
-                    "4 - Salir del programa");
+                    "4- Salir del programa");
                 try
                 {
                     menu = int.Parse(Console.ReadLine());
@@ -28,13 +28,12 @@ namespace Boletin2
                     switch (menu)
                     {
                         case 1:
-                            directivo.IntroCampos("", "", 2, "");
+                            //directivo.IntroCampos();
                             directivo.MuestraCampos();
                             Console.ReadKey();
                             break;
                         case 2:
-                            empleado.MuestraCampos(8);
-                            empleado.IntroCampos("", "", 7, "");
+                            //empleado.IntroCampos();
                             empleado.MuestraCampos();
                             Console.ReadKey();
                             break;

@@ -8,12 +8,11 @@ namespace Boletin2
 {
     abstract class Persona
     {
-        private int edad;
-        private string dni;
 
         public string Nombre { set; get; }
         public string Apellidos { set; get; }
 
+        private int edad;
         public int Edad
         {
             set
@@ -33,6 +32,7 @@ namespace Boletin2
             }
         }
 
+        private string dni;
         public string DNI
         {
             set
@@ -71,19 +71,19 @@ namespace Boletin2
             Console.WriteLine("Nombre: {0}", Nombre);
             Console.WriteLine("Apellidos: {0}", Apellidos);
             Console.WriteLine("Edad: {0}", Edad);
-            Console.WriteLine("DNI: {0}", dni);
+            Console.WriteLine("DNI: {0}", DNI);
         }
 
-        public virtual void IntroCampos(string nombre, string apellidos, int edad, string dni)
+        public virtual void IntroCampos() //arreglar
         {
             Console.Write("Nombre: ");
-            nombre = Console.ReadLine();
+            Nombre = Console.ReadLine();
             Console.Write("Apellidos: ");
-            apellidos = Console.ReadLine();
+            Apellidos = Console.ReadLine();
             Console.Write("Edad: ");
-            edad = Convert.ToInt32(Console.ReadLine());
+            Edad = Convert.ToInt32(Console.ReadLine());
             Console.Write("DNI: ");
-            dni = Console.ReadLine();
+            DNI = Console.ReadLine();
         }
 
         public abstract double Hacienda();

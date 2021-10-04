@@ -10,18 +10,34 @@ namespace Boletin2
     {
         private int personas;
         public string Depart { set; get; }
-        public double Beneficios { set; get; }
+        private double beneficios;
+        public double Beneficios
+        {
+            set
+            {
+                beneficios = value;
+            }
+
+            get
+            {
+                return beneficios;
+
+            }
+        }
         public int Personas
         {
             set
             {
+                personas = value;
                 if (personas < 10)
                 {
                     Beneficios = (2 * Beneficios) / 100;
-                } else if (personas >= 11 && personas <= 50)
+                }
+                else if (personas >= 11 && personas <= 50)
                 {
                     Beneficios = (3.5 * Beneficios) / 100;
-                } else
+                }
+                else
                 {
                     Beneficios = (4 * Beneficios) / 100;
                 }
@@ -32,23 +48,39 @@ namespace Boletin2
             }
         }
 
+        public Directivo(string nombre, string apellidos, int edad, string dni, int personas, string depart, double beneficios) : base()
+        {
+            this.Nombre = nombre;
+            this.Apellidos = apellidos;
+            this.Edad = edad;
+            this.DNI = dni;
+            this.Personas = personas;
+            this.Depart = depart;
+            this.Beneficios = beneficios;
+        }
+
+        public Directivo() : this("", "", 0, "", 0, "", 0)
+        {
+
+        }
+
         public override void MuestraCampos()
         {
             base.MuestraCampos();
             Console.WriteLine("Departamento: {0}", Depart);
             Console.WriteLine("Beneficios: {0}", Beneficios);
-            Console.WriteLine("Personas: {0}", personas);
+            Console.WriteLine("Personas: {0}", Personas);
         }
 
-        public override void IntroCampos(string nombre, string apellidos, int edad, string dni)
+        public override void IntroCampos()
         {
-            base.IntroCampos(nombre, apellidos, edad, dni);
+            base.IntroCampos();
             Console.Write("Departamento: ");
             Depart = Console.ReadLine();
             Console.Write("Beneficios: ");
             Beneficios = Convert.ToDouble(Console.ReadLine());
             Console.Write("Nº Personas: ");
-            personas = Convert.ToInt32(Console.ReadLine());
+            Personas = Convert.ToInt32(Console.ReadLine());
         }
 
         public override double Hacienda()
@@ -73,16 +105,16 @@ namespace Boletin2
             return directivo.Beneficios;
         }
 
-        public static Directivo operator -(Directivo beneficios)
+        public static Directivo operator -(Directivo beneficiosDirector)
         {
-            beneficios.Beneficios--;
+            beneficiosDirector.Beneficios--;
 
-            if (beneficios.Beneficios <= 0)
+            if (beneficiosDirector.Beneficios <= 0)
             {
-                beneficios.Beneficios = 0;
+                beneficiosDirector.Beneficios = 0;
             }
 
-            return beneficios;
+            return beneficiosDirector;
         }
     }
 }

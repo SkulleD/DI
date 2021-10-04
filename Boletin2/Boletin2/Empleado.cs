@@ -8,22 +8,24 @@ namespace Boletin2
 {
     class Empleado : Persona
     {
-        private double salario;
-        private string telefono;
 
+        private double salario;
         public double Salario
         {
             set
             {
-                if  (salario < 600)
+                salario = value;
+                if (salario < 600)
                 {
-                    IRPF = (7 * salario) / 100;
-                } else if (salario >= 600 && salario <= 3000)
+                    irpf = (7 * salario) / 100;
+                }
+                else if (salario >= 600 && salario <= 3000)
                 {
-                    IRPF = (15 * salario) / 100;
-                } else
+                    irpf = (15 * salario) / 100;
+                }
+                else
                 {
-                    IRPF = (20 * salario);
+                    irpf = (20 * salario);
                 }
             }
             get
@@ -32,15 +34,41 @@ namespace Boletin2
             }
         }
 
-        public double IRPF { set; get; }
+        private double irpf;
+        public double IRPF
+        {
+            get
+            {
+                return irpf;
+            }
+        }
 
+        private string telefono;
         public string Telefono
         {
-            set { }
+            set
+            {
+                telefono = value;
+            }
             get
             {
                 return "+34 " + telefono;
             }
+        }
+
+        public Empleado(string nombre, string apellidos, int edad, string dni, double salario, string telefono) : base()  //faltan parametros (nombre,dni,...)
+        {
+            this.Nombre = nombre;
+            this.Apellidos = apellidos;
+            this.Edad = edad;
+            this.DNI = dni;
+            this.Salario = salario;
+            this.Telefono = telefono;
+        }
+
+        public Empleado() : this("", "", 0, "", 0, "")
+        {
+
         }
 
         public override void MuestraCampos()
@@ -81,23 +109,13 @@ namespace Boletin2
             }
         }
 
-        public override void IntroCampos(string nombre, string apellidos, int edad, string dni)
+        public override void IntroCampos()
         {
-            base.IntroCampos(nombre, apellidos, edad, dni);
+            base.IntroCampos();
             Console.Write("Salario: ");
-            this.salario = Convert.ToInt32(Console.ReadLine());
+            this.Salario = Convert.ToInt32(Console.ReadLine());
             Console.Write("Teléfono: ");
-            this.telefono = Console.ReadLine();
-        }
-
-        public Empleado(double salario, string telefono) : base("", "", 0, "")
-        {
-            this.Salario = salario;
-            this.Telefono = telefono;
-        }
-
-        public Empleado() : this(0, "") {
-
+            this.Telefono = Console.ReadLine();
         }
 
         public override double Hacienda()

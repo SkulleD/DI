@@ -17,15 +17,15 @@ namespace Boletin2
                 salario = value;
                 if (salario < 600)
                 {
-                    irpf = (7 * salario) / 100;
+                    irpf = 7;
                 }
-                else if (salario >= 600 && salario <= 3000)
+                else if ( salario <= 3000)
                 {
-                    irpf = (15 * salario) / 100;
+                    irpf = 15;
                 }
                 else
                 {
-                    irpf = (20 * salario);
+                    irpf = 20;
                 }
             }
             get
@@ -56,17 +56,13 @@ namespace Boletin2
             }
         }
 
-        public Empleado(string nombre, string apellidos, int edad, string dni, double salario, string telefono) : base()  //faltan parametros (nombre,dni,...)
+        public Empleado(double salario, string telefono) : base("Álvaro", "Vila", 23, "21075006")  //usa base
         {
-            this.Nombre = nombre;
-            this.Apellidos = apellidos;
-            this.Edad = edad;
-            this.DNI = dni;
             this.Salario = salario;
             this.Telefono = telefono;
         }
 
-        public Empleado() : this("", "", 0, "", 0, "")
+        public Empleado() : this(0, "")
         {
 
         }

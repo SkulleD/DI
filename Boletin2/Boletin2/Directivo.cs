@@ -31,15 +31,15 @@ namespace Boletin2
                 personas = value;
                 if (personas < 10)
                 {
-                    Beneficios = (2 * Beneficios) / 100;
+                    Beneficios = 2;
                 }
                 else if (personas >= 11 && personas <= 50)
                 {
-                    Beneficios = (3.5 * Beneficios) / 100;
+                    Beneficios = 3.5;
                 }
                 else
                 {
-                    Beneficios = (4 * Beneficios) / 100;
+                    Beneficios = 4;
                 }
             }
             get
@@ -48,18 +48,14 @@ namespace Boletin2
             }
         }
 
-        public Directivo(string nombre, string apellidos, int edad, string dni, int personas, string depart, double beneficios) : base()
+        public Directivo(int personas, string depart, double beneficios) : base("Álvaro", "Vila", 23, "21075006")
         {
-            this.Nombre = nombre;
-            this.Apellidos = apellidos;
-            this.Edad = edad;
-            this.DNI = dni;
             this.Personas = personas;
             this.Depart = depart;
             this.Beneficios = beneficios;
         }
 
-        public Directivo() : this("", "", 0, "", 0, "", 0)
+        public Directivo() : this(0, "", 0)
         {
 
         }

@@ -13,9 +13,10 @@ namespace Bol3_ej1
             Ordenadores ordenadores = new Ordenadores();
             int eleccion = 0;
             string ipAux = "";
-            int oct1, oct2, oct3, oct4 = 0;
             char punto = '.';
             bool correcto = false;
+            string[] ip_array = new string[4];
+            int cont = 0;
 
             do
             {
@@ -39,43 +40,65 @@ namespace Bol3_ej1
                     case 1:
                         do
                         {
-                            Console.WriteLine("Introduce la IP del ordenador");
-                            ordenadores.IP = Console.ReadLine();
-                            ordenadores.IP.Split
+                            cont = 0;
+                            try
+                            {
+                                Console.WriteLine("Introduce la IP del ordenador");
+                                ordenadores.IP = Console.ReadLine();
+                                ip_array = ordenadores.IP.Split(punto);
 
-                            if ()
-                        } while (correcto == false);
+                                for (int i = 0; i < ip_array.Length; i++)
+                                {
+                                    if (Convert.ToInt32(ip_array[i]) >= 0 && Convert.ToInt32(ip_array[i]) <= 255)
+                                    {
+                                        cont++;
+                                        correcto = true;
+                                        Console.WriteLine(correcto);
+                                    }
+                                    else
+                                    {
+                                        cont--;
+                                        correcto = false;
+                                        Console.WriteLine(correcto);
+                                    }
+                                }
+                            }
+                            catch (FormatException e)
+                            {
+                                Console.WriteLine("Introduce una IP correcta. Plantilla: \"X.X.X.X\"");
+                            }
+                        } while (!correcto || cont < 4);
 
-                        try
+                        do
                         {
-                            do
+                            try
                             {
                                 Console.WriteLine("Introduce su cantidad de memoria RAM en GB (mayor que 0)");
                                 ordenadores.RAM = int.Parse(Console.ReadLine());
-                            } while (ordenadores.RAM <= 0 || ordenadores.RAM > Int32.MaxValue);
-                        }
-                        catch (FormatException)
-                        {
-                            Console.WriteLine("Escribe la cantidad de RAM con NÚMEROS solamente");
-                        }
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("Escribe la cantidad de RAM con NÚMEROS solamente");
+                            }
+                            catch (OverflowException)
+                            {
+                                Console.WriteLine("No puede ser una cantidad mayor a 2,147,483,647");
+                            }
+                        } while (ordenadores.RAM <= 0 || ordenadores.RAM >= Int32.MaxValue);
 
                         ordenadores.hashtable.Add(ordenadores.IP, ordenadores.RAM);
                         Console.WriteLine("Se ha creado el equipo con IP {0} y {1} GB de RAM", ordenadores.IP, ordenadores.RAM);
                         break;
                     case 2:
+
                         Console.WriteLine("Introduce la IP del ordenador que deseas eliminar");
                         ipAux = Console.ReadLine();
 
-                        if (ipAux.Equals(ordenadores.IP))
+                        if (ordenadores.hashtable.ContainsKey(ipAux))
                         {
                             ordenadores.hashtable.Remove(ipAux);
                             Console.WriteLine("Se ha eliminado el equipo con IP {0}", ipAux);
                         }
-                        else
-                        {
-                            Console.WriteLine("ERROR (!): No existe un equipo con esa dirección IP");
-                        }
-
                         break;
                     case 3:
                         foreach (DictionaryEntry entry in ordenadores.hashtable)
@@ -87,16 +110,19 @@ namespace Bol3_ej1
                         Console.WriteLine("Introduce la IP del ordenador que deseas mostrar");
                         ipAux = Console.ReadLine();
 
-                        if (ipAux.Equals(ordenadores.IP))
+                        foreach (DictionaryEntry entry in ordenadores.hashtable)
                         {
-                            //ordenadores.hashtable.Keys;
-                            Console.WriteLine("Se ha eliminado el equipo con IP {0}", ipAux);
+                            if (entry.Key.Equals(ipAux))
+                            {
+                                correcto = true;
+                                Console.WriteLine("IP: {0} RAM: {1}GB", entry.Key, entry.Value);
+                            }
                         }
-                        else
+
+                        if (!correcto)
                         {
                             Console.WriteLine("ERROR (!): No existe un equipo con esa dirección IP");
                         }
-
                         break;
                     case 5:
                         Console.WriteLine("Nos vemos!");

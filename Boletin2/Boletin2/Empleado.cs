@@ -27,6 +27,11 @@ namespace Boletin2
                 {
                     irpf = 20;
                 }
+
+                if (salario < 0)
+                {
+                    salario = 0;
+                }
             }
             get
             {
@@ -56,13 +61,13 @@ namespace Boletin2
             }
         }
 
-        public Empleado(double salario, string telefono) : base("Álvaro", "Vila", 23, "21075006")  //usa base
+        public Empleado(string nombre, string apellidos, int edad, string dni, double salario, string telefono) : base(nombre, apellidos, edad, dni)
         {
             this.Salario = salario;
             this.Telefono = telefono;
         }
 
-        public Empleado() : this(0, "")
+        public Empleado() : this("", "", 0, "", 0, "")
         {
 
         }

@@ -10,8 +10,9 @@ namespace Boletin2
     {
         static void Main(string[] args)
         {
-            Directivo directivo = new Directivo(12, "1", 5050);
-            Empleado empleado = new Empleado(1300, "660828323");
+            Directivo directivo = new Directivo("Direct", "Sí", 38, "24067484", 12, "1", -2);
+            Empleado empleado = new Empleado("Álvaro", "Vila", 23, "21075006", 1300, "660828323");
+
             EmpleadoEspecial empleadoEsp = new EmpleadoEspecial("Alvaro", "Especial", 23, "21075006", 2000, "660828323");
             int menu = 0;
 

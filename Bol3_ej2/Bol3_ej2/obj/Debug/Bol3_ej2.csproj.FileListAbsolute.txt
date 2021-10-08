@@ -1,0 +1,7 @@
+C:\Users\AlvaroVila\source\repos\Bol3_ej2\Bol3_ej2\bin\Debug\Bol3_ej2.exe.config
+C:\Users\AlvaroVila\source\repos\Bol3_ej2\Bol3_ej2\bin\Debug\Bol3_ej2.exe
+C:\Users\AlvaroVila\source\repos\Bol3_ej2\Bol3_ej2\bin\Debug\Bol3_ej2.pdb
+C:\Users\AlvaroVila\source\repos\Bol3_ej2\Bol3_ej2\obj\Debug\Bol3_ej2.csproj.AssemblyReference.cache
+C:\Users\AlvaroVila\source\repos\Bol3_ej2\Bol3_ej2\obj\Debug\Bol3_ej2.csproj.CoreCompileInputs.cache
+C:\Users\AlvaroVila\source\repos\Bol3_ej2\Bol3_ej2\obj\Debug\Bol3_ej2.exe
+C:\Users\AlvaroVila\source\repos\Bol3_ej2\Bol3_ej2\obj\Debug\Bol3_ej2.pdb

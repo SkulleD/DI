@@ -15,6 +15,7 @@ namespace Bol3_ej1
         string[] ip_array = new string[4];
         int cont = 0;
         bool llamada4 = false;
+        bool repetida = false;
 
         public string EnterIP()
         {
@@ -27,7 +28,37 @@ namespace Bol3_ej1
                     ordenadores.IP = Console.ReadLine();
                     ip_array = ordenadores.IP.Split(punto);
 
-                    if (!ordenadores.hashtable.ContainsKey(ordenadores.IP))
+                    if (!llamada4)
+                    {
+                        if (!ordenadores.hashtable.ContainsKey(ordenadores.IP))
+                        {
+                            for (int i = 0; i < ip_array.Length; i++)
+                            {
+                                if (Convert.ToInt32(ip_array[i]) >= 0 && Convert.ToInt32(ip_array[i]) <= 255)
+                                {
+                                    cont++;
+                                    correcto = true;
+                                    Console.WriteLine(correcto);
+                                }
+                                else
+                                {
+                                    cont--;
+                                    correcto = false;
+                                    Console.WriteLine(correcto);
+                                }
+                            }
+
+                            if (ip_array.Length > 4)
+                            {
+                                correcto = false;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("(!) Ya existe un ordenador con esa IP");
+                            correcto = false;
+                        }
+                    } else
                     {
                         for (int i = 0; i < ip_array.Length; i++)
                         {
@@ -49,12 +80,14 @@ namespace Bol3_ej1
                         {
                             correcto = false;
                         }
+
+                        if (!ordenadores.hashtable.ContainsKey(ordenadores.IP))
+                        {
+                            Console.WriteLine("(!) Ese equipo no existe");
+                            repetida = true;
+                        }
                     }
-                    else
-                    {
-                        Console.WriteLine("(!) Ya existe un ordenador con esa IP");
-                        correcto = false;
-                    }
+
                 }
                 catch (FormatException e)
                 {
@@ -157,7 +190,14 @@ namespace Bol3_ej1
                         case 4:
                             llamada4 = true;
                             ipAux = EnterIP();
-                            Console.WriteLine("IP: {0} RAM: {1} GB", ipAux, ordenadores.hashtable[ipAux]);
+
+                            if (!repetida)
+                            {
+                                Console.WriteLine("IP: {0} RAM: {1} GB", ipAux, ordenadores.hashtable[ipAux]);
+                            }
+
+                            llamada4 = false;
+                            repetida = false;
                             break;
                         case 5:
                             Console.WriteLine("Nos vemos!");
@@ -172,7 +212,7 @@ namespace Bol3_ej1
                 {
 
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
 
                 }

@@ -5,3 +5,10 @@ C:\Users\AlvaroVila\source\repos\Bol3_ej1\Bol3_ej1\obj\Debug\Bol3_ej1.csproj.Ass
 C:\Users\AlvaroVila\source\repos\Bol3_ej1\Bol3_ej1\obj\Debug\Bol3_ej1.csproj.CoreCompileInputs.cache
 C:\Users\AlvaroVila\source\repos\Bol3_ej1\Bol3_ej1\obj\Debug\Bol3_ej1.exe
 C:\Users\AlvaroVila\source\repos\Bol3_ej1\Bol3_ej1\obj\Debug\Bol3_ej1.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol3_ej1\Bol3_ej1\bin\Debug\Bol3_ej1.exe.config
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol3_ej1\Bol3_ej1\bin\Debug\Bol3_ej1.exe
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol3_ej1\Bol3_ej1\bin\Debug\Bol3_ej1.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol3_ej1\Bol3_ej1\obj\Debug\Bol3_ej1.csproj.CoreCompileInputs.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol3_ej1\Bol3_ej1\obj\Debug\Bol3_ej1.exe
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol3_ej1\Bol3_ej1\obj\Debug\Bol3_ej1.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol3_ej1\Bol3_ej1\obj\Debug\Bol3_ej1.csprojAssemblyReference.cache

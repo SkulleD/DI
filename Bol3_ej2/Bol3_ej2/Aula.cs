@@ -8,6 +8,7 @@ namespace Bol3_ej2
 {
     class Aula
     {
+        Menu menu;
         Random random = new Random();
         private string[] alumnos = { "Alumno1", "Alumno2", "Alumno3", "Alumno4", "Alumno5" +
                 "Alumno6", "Alumno7", "Alumno8", "Alumno9", "Alumno10" };
@@ -17,20 +18,21 @@ namespace Bol3_ej2
             {
                 for (int i = 0; i <= value.Length-1; i++)
                 {
-                    this.alumnos[i] = value[i].Trim(' ').ToUpper();
+                    this.Alumnos[i] = value[i].Trim(' ').ToUpper();
                 }
             }
 
             get
             {
-                return alumnos;
+                return this.alumnos;
             }
         }
         public int[,] notas;
 
-        public Aula(string[] nombres)
+        public Aula()
         {
-            notas = new int[4, alumnos.Length];
+            notas = new int[4, Alumnos.Length];
+            menu = new Menu(Alumnos);
             RellenaNotas();
         }
 
@@ -43,11 +45,6 @@ namespace Bol3_ej2
                     notas[i, j] = random.Next(0, 11);
                 }
             }
-        }
-
-        public int[,] MuestraNotas()
-        {
-            return notas;
         }
     }
 }

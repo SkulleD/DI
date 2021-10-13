@@ -11,10 +11,9 @@ namespace Bol3_ej2
         Aula aula;
         private string[] nombres;
 
-        public Menu(params string[] nombres)
+        public Menu(params string[] alumnos)
         {
-            this.nombres = nombres;
-            aula = new Aula(this.nombres);
+            
         }
 
         public void Inicio()
@@ -70,8 +69,16 @@ namespace Bol3_ej2
             } while (menu != 9);
         }
 
+        public void CreaAula()
+        {
+            aula = new Aula();
+        }
+
         public void MuestraNotas()
         {
+            CreaAula();
+
+            aula.RellenaNotas();
             Console.WriteLine("holaa");
             for (int i = 0; i < aula.notas[i, 0]; i++)
             {
@@ -80,6 +87,7 @@ namespace Bol3_ej2
                     Console.WriteLine(aula.notas[i, j]);
                 }
             }
+            Console.ReadKey();
         }
     }
 }

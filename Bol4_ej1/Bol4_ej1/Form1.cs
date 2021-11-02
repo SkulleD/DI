@@ -24,11 +24,6 @@ namespace Bol4_ej1
 
         }
 
-        private void Components_MouseMove(object sender, MouseEventArgs e)
-        {
-            this.Text = $"X: {((Button)sender).Location.X} Y: {((Button)sender).Location.Y}";
-        }
-
         private void Form1_MouseLeave(object sender, EventArgs e)
         {
             this.Text = "Mouse Tester";
@@ -54,13 +49,11 @@ namespace Bol4_ej1
             {
                 btnIzquierdo.BackColor = Color.DarkBlue;
             }
-
-            if (e.Button == MouseButtons.Right)
+            else if (e.Button == MouseButtons.Right)
             {
                 btnDerecho.BackColor = Color.DeepPink;
             }
-
-            if (e.Button == MouseButtons.Middle || e.Button == MouseButtons.XButton1 || e.Button == MouseButtons.XButton2)
+            else
             {
                 btnDerecho.BackColor = Color.Purple;
                 btnIzquierdo.BackColor = Color.Purple;
@@ -73,13 +66,11 @@ namespace Bol4_ej1
             {
                 btnIzquierdo.BackColor = Color.Transparent;
             }
-
-            if (e.Button == MouseButtons.Right)
+            else if (e.Button == MouseButtons.Right)
             {
                 btnDerecho.BackColor = Color.Transparent;
             }
-
-            if (e.Button == MouseButtons.Middle || e.Button == MouseButtons.XButton1 || e.Button == MouseButtons.XButton2)
+            else
             {
                 btnDerecho.BackColor = Color.Transparent;
                 btnIzquierdo.BackColor = Color.Transparent;
@@ -92,6 +83,20 @@ namespace Bol4_ej1
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point location;
+            if (sender == this)
+            {
+                this.Text = $"{e.X},{e.Y}";
+            }
+            else
+            {
+                location = ((Control)sender).Location;
+                this.Text = $"{e.X + location.X},{e.Y + location.Y}";
             }
         }
     }

@@ -1,0 +1,10 @@
+C:\Users\AlvaroVila\source\repos\SERV_tema1_ej2\bin\Debug\SERV_tema1_ej2.exe.config
+C:\Users\AlvaroVila\source\repos\SERV_tema1_ej2\bin\Debug\SERV_tema1_ej2.exe
+C:\Users\AlvaroVila\source\repos\SERV_tema1_ej2\bin\Debug\SERV_tema1_ej2.pdb
+C:\Users\AlvaroVila\source\repos\SERV_tema1_ej2\obj\Debug\SERV_tema1_ej2.csproj.AssemblyReference.cache
+C:\Users\AlvaroVila\source\repos\SERV_tema1_ej2\obj\Debug\SERV_tema1_ej2.Form1.resources
+C:\Users\AlvaroVila\source\repos\SERV_tema1_ej2\obj\Debug\SERV_tema1_ej2.Properties.Resources.resources
+C:\Users\AlvaroVila\source\repos\SERV_tema1_ej2\obj\Debug\SERV_tema1_ej2.csproj.GenerateResource.cache
+C:\Users\AlvaroVila\source\repos\SERV_tema1_ej2\obj\Debug\SERV_tema1_ej2.csproj.CoreCompileInputs.cache
+C:\Users\AlvaroVila\source\repos\SERV_tema1_ej2\obj\Debug\SERV_tema1_ej2.exe
+C:\Users\AlvaroVila\source\repos\SERV_tema1_ej2\obj\Debug\SERV_tema1_ej2.pdb

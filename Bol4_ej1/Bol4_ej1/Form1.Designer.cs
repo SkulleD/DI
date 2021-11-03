@@ -36,34 +36,33 @@ namespace Bol4_ej1
             // 
             // btnIzquierdo
             // 
-            this.btnIzquierdo.Location = new System.Drawing.Point(156, 71);
-            this.btnIzquierdo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnIzquierdo.Location = new System.Drawing.Point(117, 58);
             this.btnIzquierdo.Name = "btnIzquierdo";
-            this.btnIzquierdo.Size = new System.Drawing.Size(100, 28);
+            this.btnIzquierdo.Size = new System.Drawing.Size(75, 23);
             this.btnIzquierdo.TabIndex = 0;
             this.btnIzquierdo.Text = "Izquierdo";
             this.btnIzquierdo.UseVisualStyleBackColor = true;
+            this.btnIzquierdo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             // 
             // btnDerecho
             // 
-            this.btnDerecho.Location = new System.Drawing.Point(341, 71);
-            this.btnDerecho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDerecho.Location = new System.Drawing.Point(256, 58);
             this.btnDerecho.Name = "btnDerecho";
-            this.btnDerecho.Size = new System.Drawing.Size(100, 28);
+            this.btnDerecho.Size = new System.Drawing.Size(75, 23);
             this.btnDerecho.TabIndex = 1;
             this.btnDerecho.Text = "Derecho";
             this.btnDerecho.UseVisualStyleBackColor = true;
+            this.btnDerecho.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 370);
+            this.ClientSize = new System.Drawing.Size(474, 301);
             this.Controls.Add(this.btnDerecho);
             this.Controls.Add(this.btnIzquierdo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Mouse Tester";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

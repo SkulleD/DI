@@ -1,4 +1,4 @@
-﻿#define KEYS
+﻿#define KEY
 
 using System;
 using System.Collections.Generic;
@@ -40,6 +40,13 @@ namespace Bol4_ej1
             {
                 this.Text = e.KeyCode.ToString();
             }
+#endif
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+#if !KEYS
+            this.Text = e.KeyChar.ToString();
 #endif
         }
 

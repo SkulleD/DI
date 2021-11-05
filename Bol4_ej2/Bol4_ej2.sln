@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bol4_ej2", "Bol4_ej2\Bol4_ej2.csproj", "{B6CB5425-4365-4B6B-B637-EEA0688CEC94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6CB5425-4365-4B6B-B637-EEA0688CEC94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6CB5425-4365-4B6B-B637-EEA0688CEC94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6CB5425-4365-4B6B-B637-EEA0688CEC94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6CB5425-4365-4B6B-B637-EEA0688CEC94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {43626363-7816-42EE-93AC-95A4C0934DCB}
+	EndGlobalSection
+EndGlobal

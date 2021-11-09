@@ -41,6 +41,7 @@ namespace Bol4_ej2
             this.textImage = new System.Windows.Forms.TextBox();
             this.btnImage = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.labelWarning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -48,10 +49,10 @@ namespace Bol4_ej2
             this.label1.AutoSize = true;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(70, 38);
+            this.label1.Location = new System.Drawing.Point(69, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 15);
-            this.label1.TabIndex = 3;
+            this.label1.TabIndex = 7;
             this.label1.Text = "RED";
             // 
             // label2
@@ -59,10 +60,10 @@ namespace Bol4_ej2
             this.label2.AutoSize = true;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label2.ForeColor = System.Drawing.Color.Lime;
-            this.label2.Location = new System.Drawing.Point(134, 38);
+            this.label2.Location = new System.Drawing.Point(135, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 15);
-            this.label2.TabIndex = 4;
+            this.label2.TabIndex = 8;
             this.label2.Text = "GREEN";
             // 
             // label3
@@ -73,43 +74,44 @@ namespace Bol4_ej2
             this.label3.Location = new System.Drawing.Point(210, 38);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 15);
-            this.label3.TabIndex = 5;
+            this.label3.TabIndex = 9;
             this.label3.Text = "BLUE";
             // 
             // textRed
             // 
             this.textRed.AcceptsReturn = true;
-            this.textRed.Location = new System.Drawing.Point(52, 56);
+            this.textRed.Location = new System.Drawing.Point(51, 55);
             this.textRed.Name = "textRed";
-            this.textRed.Size = new System.Drawing.Size(66, 20);
-            this.textRed.TabIndex = 6;
-            this.textRed.Enter += new System.EventHandler(this.Form1_Enter);
+            this.textRed.Size = new System.Drawing.Size(67, 20);
+            this.textRed.TabIndex = 0;
             // 
             // textGreen
             // 
             this.textGreen.AcceptsReturn = true;
-            this.textGreen.Location = new System.Drawing.Point(124, 56);
+            this.textGreen.Location = new System.Drawing.Point(123, 55);
             this.textGreen.Name = "textGreen";
-            this.textGreen.Size = new System.Drawing.Size(66, 20);
-            this.textGreen.TabIndex = 7;
+            this.textGreen.Size = new System.Drawing.Size(67, 20);
+            this.textGreen.TabIndex = 1;
             // 
             // textBlue
             // 
             this.textBlue.AcceptsReturn = true;
-            this.textBlue.Location = new System.Drawing.Point(196, 56);
+            this.textBlue.Location = new System.Drawing.Point(195, 55);
             this.textBlue.Name = "textBlue";
-            this.textBlue.Size = new System.Drawing.Size(66, 20);
-            this.textBlue.TabIndex = 8;
+            this.textBlue.Size = new System.Drawing.Size(67, 20);
+            this.textBlue.TabIndex = 2;
             // 
             // btnColor
             // 
             this.btnColor.Location = new System.Drawing.Point(299, 38);
             this.btnColor.Name = "btnColor";
             this.btnColor.Size = new System.Drawing.Size(75, 38);
-            this.btnColor.TabIndex = 9;
+            this.btnColor.TabIndex = 3;
             this.btnColor.Text = "COLOR";
             this.btnColor.UseVisualStyleBackColor = true;
             this.btnColor.Click += new System.EventHandler(this.btnColor_Click);
+            this.btnColor.MouseEnter += new System.EventHandler(this.Form1_MouseEnter);
+            this.btnColor.MouseLeave += new System.EventHandler(this.Form1_MouseLeave);
             // 
             // btnExit
             // 
@@ -117,28 +119,33 @@ namespace Bol4_ej2
             this.btnExit.Location = new System.Drawing.Point(438, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 10;
+            this.btnExit.TabIndex = 6;
             this.btnExit.Text = "EXIT";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.MouseEnter += new System.EventHandler(this.Form1_MouseEnter);
+            this.btnExit.MouseLeave += new System.EventHandler(this.Form1_MouseLeave);
             // 
             // textImage
             // 
             this.textImage.AcceptsReturn = true;
-            this.textImage.Location = new System.Drawing.Point(12, 125);
+            this.textImage.Location = new System.Drawing.Point(12, 126);
             this.textImage.Name = "textImage";
             this.textImage.Size = new System.Drawing.Size(267, 20);
-            this.textImage.TabIndex = 11;
+            this.textImage.TabIndex = 4;
+            this.textImage.Text = "C:\\Users\\AlvaroVila\\source\\repos\\Bol4_ej2\\Bol4_ej2\\bocatagarto.jpg";
             // 
             // btnImage
             // 
-            this.btnImage.Location = new System.Drawing.Point(299, 115);
+            this.btnImage.Location = new System.Drawing.Point(299, 116);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(75, 38);
-            this.btnImage.TabIndex = 12;
+            this.btnImage.TabIndex = 5;
             this.btnImage.Text = "IMAGE";
             this.btnImage.UseVisualStyleBackColor = true;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
+            this.btnImage.MouseEnter += new System.EventHandler(this.Form1_MouseEnter);
+            this.btnImage.MouseLeave += new System.EventHandler(this.Form1_MouseLeave);
             // 
             // label4
             // 
@@ -147,8 +154,16 @@ namespace Bol4_ej2
             this.label4.Location = new System.Drawing.Point(12, 107);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 15);
-            this.label4.TabIndex = 13;
+            this.label4.TabIndex = 10;
             this.label4.Text = "IMAGE PATH";
+            // 
+            // labelWarning
+            // 
+            this.labelWarning.AutoSize = true;
+            this.labelWarning.Location = new System.Drawing.Point(416, 90);
+            this.labelWarning.Name = "labelWarning";
+            this.labelWarning.Size = new System.Drawing.Size(0, 13);
+            this.labelWarning.TabIndex = 11;
             // 
             // Form1
             // 
@@ -156,7 +171,9 @@ namespace Bol4_ej2
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(521, 450);
+            this.ClientSize = new System.Drawing.Size(521, 451);
+            this.ControlBox = false;
+            this.Controls.Add(this.labelWarning);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnImage);
             this.Controls.Add(this.textImage);
@@ -168,11 +185,15 @@ namespace Bol4_ej2
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Colores e Imágenes";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Enter += new System.EventHandler(this.Form1_Enter);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,6 +211,7 @@ namespace Bol4_ej2
         private System.Windows.Forms.TextBox textImage;
         private System.Windows.Forms.Button btnImage;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelWarning;
     }
 }
 

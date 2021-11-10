@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Bol4_ej2
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form //Arreglar excepciones, poner la X y usar Form Closing
     {
         public Form1()
         {
@@ -24,41 +24,30 @@ namespace Bol4_ej2
 
         private void btnColor_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (sender == btnColor)
-                {
-                    labelWarning.Text = "";
-
-                    this.BackgroundImage = null;
-                    this.BackColor = Color.FromArgb(255, int.Parse(textRed.Text), int.Parse(textGreen.Text), int.Parse(textBlue.Text));
-                }
-                else if (sender == btnImage)
-                {
-                    this.BackgroundImage = Image.FromFile(textImage.Text.ToString());
-                }
-            }
-            catch (FormatException)
-            {
-                labelWarning.Text = "No color selected!";
-            }
+            UseColor();
         }
 
         private void btnImage_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.BackgroundImage = Image.FromFile(textImage.Text.ToString());
-            } catch (ArgumentException) {
-                labelWarning.Text = "No image found!";
-            }
+            UseImage();
+        }
 
+        private void Form1_Enter(object sender, EventArgs e)
+        {
+            if (sender == textImage)
+            {
+                AcceptButton = btnImage;
+            }
+            else
+            {
+                AcceptButton = btnColor;
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Quieres salir?", "Mouse Tester",
-                  MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show("Exit program?", "Colors & Pictures",
+                  MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
             }
@@ -72,6 +61,64 @@ namespace Bol4_ej2
         private void Form1_MouseLeave(object sender, EventArgs e)
         {
             ((Button)sender).BackColor = Color.Transparent;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Exit program?", "Colors & Pictures",
+                  MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
+
+        private void RestoreLabelColor()
+        {
+            label1.BackColor = Color.Transparent;
+            label2.BackColor = Color.Transparent;
+            label3.BackColor = Color.Transparent;
+            label4.BackColor = Color.Transparent;
+        }
+
+        private void UseColor()
+        {
+            try
+            {
+                labelWarning.Text = "";
+                RestoreLabelColor();
+
+                this.BackgroundImage = null;
+                this.BackColor = Color.FromArgb(255, int.Parse(textRed.Text), int.Parse(textGreen.Text), int.Parse(textBlue.Text));
+            }
+            catch (FormatException)
+            {
+                labelWarning.Text = "No color selected!";
+            }
+            catch (ArgumentException)
+            {
+                labelWarning.Text = "No color selected!";
+            }
+            catch (OverflowException)
+            {
+                labelWarning.Text = "No color selected!";
+            }
+        }
+
+        private void UseImage()
+        {
+            try
+            {
+                RestoreLabelColor();
+                this.BackgroundImage = Image.FromFile(textImage.Text.ToString());
+            }
+            catch (ArgumentException)
+            {
+                labelWarning.Text = "No image found!";
+            }
+            catch(System.IO.FileNotFoundException)
+            {
+                labelWarning.Text = "No image found!";
+            }
         }
     }
 }

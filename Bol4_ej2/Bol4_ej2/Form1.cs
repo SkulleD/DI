@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace Bol4_ej2
 {
-    public partial class Form1 : Form //Arreglar excepciones, poner la X y usar Form Closing
+    public partial class Form1 : Form
     {
+        bool closing = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -46,11 +48,7 @@ namespace Bol4_ej2
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Exit program?", "Colors & Pictures",
-                  MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.Close();
-            }
+            this.Close();
         }
 
         private void Form1_MouseEnter(object sender, EventArgs e)
@@ -65,10 +63,14 @@ namespace Bol4_ej2
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             if (MessageBox.Show("Exit program?", "Colors & Pictures",
-                  MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.OK)
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                this.Close();
+                
+            } else
+            {
+                e.Cancel = true;
             }
         }
 
@@ -96,11 +98,11 @@ namespace Bol4_ej2
             }
             catch (ArgumentException)
             {
-                labelWarning.Text = "No color selected!";
+                labelWarning.Text = "Only numbers between 0 and 255!";
             }
             catch (OverflowException)
             {
-                labelWarning.Text = "No color selected!";
+                labelWarning.Text = "Max number is 255!";
             }
         }
 
@@ -115,7 +117,7 @@ namespace Bol4_ej2
             {
                 labelWarning.Text = "No image found!";
             }
-            catch(System.IO.FileNotFoundException)
+            catch (System.IO.FileNotFoundException)
             {
                 labelWarning.Text = "No image found!";
             }

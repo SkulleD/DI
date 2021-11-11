@@ -164,7 +164,7 @@ namespace Bol4_ej2
             // labelWarning
             // 
             this.labelWarning.AutoSize = true;
-            this.labelWarning.Location = new System.Drawing.Point(416, 90);
+            this.labelWarning.Location = new System.Drawing.Point(329, 88);
             this.labelWarning.Name = "labelWarning";
             this.labelWarning.Size = new System.Drawing.Size(0, 13);
             this.labelWarning.TabIndex = 11;

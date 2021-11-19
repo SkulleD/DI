@@ -53,7 +53,6 @@ namespace Bol4_ej3
             this.checkModal.TabIndex = 1;
             this.checkModal.Text = "Modal";
             this.checkModal.UseVisualStyleBackColor = true;
-            this.checkModal.CheckedChanged += new System.EventHandler(this.checkModal_CheckedChanged);
             // 
             // Form1
             // 
@@ -65,6 +64,7 @@ namespace Bol4_ej3
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Visor de imágenes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

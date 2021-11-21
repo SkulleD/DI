@@ -45,42 +45,47 @@ namespace Bol4_ej4
             // 
             // txtNumber1
             // 
-            this.txtNumber1.Location = new System.Drawing.Point(74, 53);
+            this.txtNumber1.Location = new System.Drawing.Point(99, 65);
+            this.txtNumber1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNumber1.Name = "txtNumber1";
-            this.txtNumber1.Size = new System.Drawing.Size(71, 20);
+            this.txtNumber1.Size = new System.Drawing.Size(93, 22);
             this.txtNumber1.TabIndex = 0;
             // 
             // txtNumber2
             // 
-            this.txtNumber2.Location = new System.Drawing.Point(169, 53);
+            this.txtNumber2.Location = new System.Drawing.Point(225, 65);
+            this.txtNumber2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNumber2.Name = "txtNumber2";
-            this.txtNumber2.Size = new System.Drawing.Size(71, 20);
+            this.txtNumber2.Size = new System.Drawing.Size(93, 22);
             this.txtNumber2.TabIndex = 1;
             // 
             // lblSigno
             // 
             this.lblSigno.AutoSize = true;
-            this.lblSigno.Location = new System.Drawing.Point(150, 56);
+            this.lblSigno.Location = new System.Drawing.Point(200, 69);
+            this.lblSigno.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSigno.Name = "lblSigno";
-            this.lblSigno.Size = new System.Drawing.Size(13, 13);
+            this.lblSigno.Size = new System.Drawing.Size(16, 17);
             this.lblSigno.TabIndex = 2;
             this.lblSigno.Text = "+";
             // 
             // lblResult
             // 
             this.lblResult.AutoSize = true;
-            this.lblResult.Location = new System.Drawing.Point(246, 56);
+            this.lblResult.Location = new System.Drawing.Point(328, 69);
+            this.lblResult.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(13, 13);
+            this.lblResult.Size = new System.Drawing.Size(16, 17);
             this.lblResult.TabIndex = 3;
             this.lblResult.Text = "=";
             // 
             // radioSuma
             // 
             this.radioSuma.AutoSize = true;
-            this.radioSuma.Location = new System.Drawing.Point(90, 94);
+            this.radioSuma.Location = new System.Drawing.Point(120, 116);
+            this.radioSuma.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioSuma.Name = "radioSuma";
-            this.radioSuma.Size = new System.Drawing.Size(55, 17);
+            this.radioSuma.Size = new System.Drawing.Size(70, 21);
             this.radioSuma.TabIndex = 4;
             this.radioSuma.TabStop = true;
             this.radioSuma.Text = "Sumar";
@@ -89,9 +94,10 @@ namespace Bol4_ej4
             // radioResta
             // 
             this.radioResta.AutoSize = true;
-            this.radioResta.Location = new System.Drawing.Point(169, 94);
+            this.radioResta.Location = new System.Drawing.Point(225, 116);
+            this.radioResta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioResta.Name = "radioResta";
-            this.radioResta.Size = new System.Drawing.Size(56, 17);
+            this.radioResta.Size = new System.Drawing.Size(71, 21);
             this.radioResta.TabIndex = 5;
             this.radioResta.TabStop = true;
             this.radioResta.Text = "Restar";
@@ -100,9 +106,10 @@ namespace Bol4_ej4
             // radioMulti
             // 
             this.radioMulti.AutoSize = true;
-            this.radioMulti.Location = new System.Drawing.Point(90, 117);
+            this.radioMulti.Location = new System.Drawing.Point(120, 144);
+            this.radioMulti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioMulti.Name = "radioMulti";
-            this.radioMulti.Size = new System.Drawing.Size(72, 17);
+            this.radioMulti.Size = new System.Drawing.Size(92, 21);
             this.radioMulti.TabIndex = 6;
             this.radioMulti.TabStop = true;
             this.radioMulti.Text = "Multiplicar";
@@ -111,9 +118,10 @@ namespace Bol4_ej4
             // radioDivision
             // 
             this.radioDivision.AutoSize = true;
-            this.radioDivision.Location = new System.Drawing.Point(169, 117);
+            this.radioDivision.Location = new System.Drawing.Point(225, 144);
+            this.radioDivision.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioDivision.Name = "radioDivision";
-            this.radioDivision.Size = new System.Drawing.Size(54, 17);
+            this.radioDivision.Size = new System.Drawing.Size(68, 21);
             this.radioDivision.TabIndex = 7;
             this.radioDivision.TabStop = true;
             this.radioDivision.Text = "Dividir";
@@ -121,9 +129,10 @@ namespace Bol4_ej4
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(121, 151);
+            this.btnCalcular.Location = new System.Drawing.Point(161, 186);
+            this.btnCalcular.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(75, 23);
+            this.btnCalcular.Size = new System.Drawing.Size(100, 28);
             this.btnCalcular.TabIndex = 8;
             this.btnCalcular.Text = "CALCULAR";
             this.btnCalcular.UseVisualStyleBackColor = true;
@@ -135,9 +144,9 @@ namespace Bol4_ej4
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 450);
+            this.ClientSize = new System.Drawing.Size(803, 554);
             this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.radioDivision);
             this.Controls.Add(this.radioMulti);
@@ -148,10 +157,10 @@ namespace Bol4_ej4
             this.Controls.Add(this.txtNumber2);
             this.Controls.Add(this.txtNumber1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

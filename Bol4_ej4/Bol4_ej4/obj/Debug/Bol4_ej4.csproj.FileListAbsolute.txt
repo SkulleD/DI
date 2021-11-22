@@ -1,0 +1,10 @@
+C:\Users\AlvaroVila\source\repos\Bol4_ej4\Bol4_ej4\bin\Debug\Bol4_ej4.exe.config
+C:\Users\AlvaroVila\source\repos\Bol4_ej4\Bol4_ej4\bin\Debug\Bol4_ej4.exe
+C:\Users\AlvaroVila\source\repos\Bol4_ej4\Bol4_ej4\bin\Debug\Bol4_ej4.pdb
+C:\Users\AlvaroVila\source\repos\Bol4_ej4\Bol4_ej4\obj\Debug\Bol4_ej4.csproj.AssemblyReference.cache
+C:\Users\AlvaroVila\source\repos\Bol4_ej4\Bol4_ej4\obj\Debug\Bol4_ej4.Form1.resources
+C:\Users\AlvaroVila\source\repos\Bol4_ej4\Bol4_ej4\obj\Debug\Bol4_ej4.Properties.Resources.resources
+C:\Users\AlvaroVila\source\repos\Bol4_ej4\Bol4_ej4\obj\Debug\Bol4_ej4.csproj.GenerateResource.cache
+C:\Users\AlvaroVila\source\repos\Bol4_ej4\Bol4_ej4\obj\Debug\Bol4_ej4.csproj.CoreCompileInputs.cache
+C:\Users\AlvaroVila\source\repos\Bol4_ej4\Bol4_ej4\obj\Debug\Bol4_ej4.exe
+C:\Users\AlvaroVila\source\repos\Bol4_ej4\Bol4_ej4\obj\Debug\Bol4_ej4.pdb

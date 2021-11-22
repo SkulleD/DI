@@ -41,112 +41,120 @@ namespace Bol4_ej4
             this.radioDivision = new System.Windows.Forms.RadioButton();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblFinalResult = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtNumber1
             // 
-            this.txtNumber1.Location = new System.Drawing.Point(99, 65);
-            this.txtNumber1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNumber1.Location = new System.Drawing.Point(74, 53);
             this.txtNumber1.Name = "txtNumber1";
-            this.txtNumber1.Size = new System.Drawing.Size(93, 22);
+            this.txtNumber1.Size = new System.Drawing.Size(71, 20);
             this.txtNumber1.TabIndex = 0;
             // 
             // txtNumber2
             // 
-            this.txtNumber2.Location = new System.Drawing.Point(225, 65);
-            this.txtNumber2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNumber2.Location = new System.Drawing.Point(169, 53);
             this.txtNumber2.Name = "txtNumber2";
-            this.txtNumber2.Size = new System.Drawing.Size(93, 22);
+            this.txtNumber2.Size = new System.Drawing.Size(71, 20);
             this.txtNumber2.TabIndex = 1;
             // 
             // lblSigno
             // 
             this.lblSigno.AutoSize = true;
-            this.lblSigno.Location = new System.Drawing.Point(200, 69);
-            this.lblSigno.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSigno.Location = new System.Drawing.Point(150, 56);
             this.lblSigno.Name = "lblSigno";
-            this.lblSigno.Size = new System.Drawing.Size(16, 17);
-            this.lblSigno.TabIndex = 2;
+            this.lblSigno.Size = new System.Drawing.Size(13, 13);
+            this.lblSigno.TabIndex = 7;
             this.lblSigno.Text = "+";
             // 
             // lblResult
             // 
             this.lblResult.AutoSize = true;
-            this.lblResult.Location = new System.Drawing.Point(328, 69);
-            this.lblResult.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblResult.Location = new System.Drawing.Point(246, 56);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(16, 17);
-            this.lblResult.TabIndex = 3;
+            this.lblResult.Size = new System.Drawing.Size(13, 13);
+            this.lblResult.TabIndex = 8;
             this.lblResult.Text = "=";
             // 
             // radioSuma
             // 
             this.radioSuma.AutoSize = true;
-            this.radioSuma.Location = new System.Drawing.Point(120, 116);
-            this.radioSuma.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioSuma.Location = new System.Drawing.Point(90, 94);
             this.radioSuma.Name = "radioSuma";
-            this.radioSuma.Size = new System.Drawing.Size(70, 21);
-            this.radioSuma.TabIndex = 4;
+            this.radioSuma.Size = new System.Drawing.Size(55, 17);
+            this.radioSuma.TabIndex = 2;
             this.radioSuma.TabStop = true;
             this.radioSuma.Text = "Sumar";
             this.radioSuma.UseVisualStyleBackColor = true;
+            this.radioSuma.Click += new System.EventHandler(this.radioButtonsClick);
             // 
             // radioResta
             // 
             this.radioResta.AutoSize = true;
-            this.radioResta.Location = new System.Drawing.Point(225, 116);
-            this.radioResta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioResta.Location = new System.Drawing.Point(169, 94);
             this.radioResta.Name = "radioResta";
-            this.radioResta.Size = new System.Drawing.Size(71, 21);
-            this.radioResta.TabIndex = 5;
+            this.radioResta.Size = new System.Drawing.Size(56, 17);
+            this.radioResta.TabIndex = 3;
             this.radioResta.TabStop = true;
             this.radioResta.Text = "Restar";
             this.radioResta.UseVisualStyleBackColor = true;
+            this.radioResta.Click += new System.EventHandler(this.radioButtonsClick);
             // 
             // radioMulti
             // 
             this.radioMulti.AutoSize = true;
-            this.radioMulti.Location = new System.Drawing.Point(120, 144);
-            this.radioMulti.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioMulti.Location = new System.Drawing.Point(90, 117);
             this.radioMulti.Name = "radioMulti";
-            this.radioMulti.Size = new System.Drawing.Size(92, 21);
-            this.radioMulti.TabIndex = 6;
+            this.radioMulti.Size = new System.Drawing.Size(72, 17);
+            this.radioMulti.TabIndex = 4;
             this.radioMulti.TabStop = true;
             this.radioMulti.Text = "Multiplicar";
             this.radioMulti.UseVisualStyleBackColor = true;
+            this.radioMulti.Click += new System.EventHandler(this.radioButtonsClick);
             // 
             // radioDivision
             // 
             this.radioDivision.AutoSize = true;
-            this.radioDivision.Location = new System.Drawing.Point(225, 144);
-            this.radioDivision.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioDivision.Location = new System.Drawing.Point(169, 117);
             this.radioDivision.Name = "radioDivision";
-            this.radioDivision.Size = new System.Drawing.Size(68, 21);
-            this.radioDivision.TabIndex = 7;
+            this.radioDivision.Size = new System.Drawing.Size(54, 17);
+            this.radioDivision.TabIndex = 5;
             this.radioDivision.TabStop = true;
             this.radioDivision.Text = "Dividir";
             this.radioDivision.UseVisualStyleBackColor = true;
+            this.radioDivision.Click += new System.EventHandler(this.radioButtonsClick);
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(161, 186);
-            this.btnCalcular.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCalcular.Location = new System.Drawing.Point(121, 151);
             this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(100, 28);
-            this.btnCalcular.TabIndex = 8;
+            this.btnCalcular.Size = new System.Drawing.Size(75, 23);
+            this.btnCalcular.TabIndex = 6;
             this.btnCalcular.Text = "CALCULAR";
             this.btnCalcular.UseVisualStyleBackColor = true;
             this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblFinalResult
+            // 
+            this.lblFinalResult.AutoSize = true;
+            this.lblFinalResult.Location = new System.Drawing.Point(265, 56);
+            this.lblFinalResult.Name = "lblFinalResult";
+            this.lblFinalResult.Size = new System.Drawing.Size(0, 13);
+            this.lblFinalResult.TabIndex = 9;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AcceptButton = this.btnCalcular;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 554);
+            this.ClientSize = new System.Drawing.Size(602, 450);
+            this.Controls.Add(this.lblFinalResult);
             this.Controls.Add(this.btnCalcular);
             this.Controls.Add(this.radioDivision);
             this.Controls.Add(this.radioMulti);
@@ -157,9 +165,8 @@ namespace Bol4_ej4
             this.Controls.Add(this.txtNumber2);
             this.Controls.Add(this.txtNumber1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Bol4_ej4";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -178,6 +185,7 @@ namespace Bol4_ej4
         private System.Windows.Forms.RadioButton radioDivision;
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblFinalResult;
     }
 }
 

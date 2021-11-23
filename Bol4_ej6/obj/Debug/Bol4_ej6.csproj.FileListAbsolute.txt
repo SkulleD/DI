@@ -1,0 +1,11 @@
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol4_ej6\bin\Debug\Bol4_ej6.exe.config
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol4_ej6\bin\Debug\Bol4_ej6.exe
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol4_ej6\bin\Debug\Bol4_ej6.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol4_ej6\obj\Debug\Bol4_ej6.csprojAssemblyReference.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol4_ej6\obj\Debug\Bol4_ej6.Form1.resources
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol4_ej6\obj\Debug\Bol4_ej6.Form2.resources
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol4_ej6\obj\Debug\Bol4_ej6.Properties.Resources.resources
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol4_ej6\obj\Debug\Bol4_ej6.csproj.GenerateResource.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol4_ej6\obj\Debug\Bol4_ej6.csproj.CoreCompileInputs.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol4_ej6\obj\Debug\Bol4_ej6.exe
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Bol4_ej6\obj\Debug\Bol4_ej6.pdb

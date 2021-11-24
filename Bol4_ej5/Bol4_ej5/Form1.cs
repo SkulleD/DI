@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Collections;
 
 namespace Bol4_ej5
 {
@@ -17,6 +12,14 @@ namespace Bol4_ej5
         public delegate void Delegate_ej5();
         public Delegate_ej5 buttonsDelegate;
         public Hashtable hash;
+
+        string title;
+        string titleChanged = "";
+        char chara;
+        string directory = Directory.GetCurrentDirectory();
+        double ms = 0;
+        int i;
+        bool iconChange = false;
 
         public Form1()
         {
@@ -28,7 +31,7 @@ namespace Bol4_ej5
             tooltip.SetToolTip(btnMoveLeft, "Moves one selected element from ListBox2 to ListBox1");
             tooltip.SetToolTip(listBox2, "Number of elements inside: " + listBox2.Items.Count);
             textIntro.Select(); //Tiene el foco al iniciar el programa
-
+            title = this.Text;
             hash = new Hashtable();
             hash.Add(btnAdd.Text, (Delegate_ej5)(() => lblinfo.Text = "Funciono Add"));
         }
@@ -67,10 +70,7 @@ namespace Bol4_ej5
                     listBox2.Items.Insert(i,listBox1.SelectedItems[i]);
                 }
 
-                for (int i = 0; i < listBox1.SelectedItems.Count; i++)
-                {
-                    listBox1.Items.Remove(listBox1.SelectedItems[i]);
-                }
+                btnRemove_Click(sender, e); // Después de pasar elimina los elementos
             }
 
             tooltip.SetToolTip(listBox2, "Number of elements inside: " + listBox2.Items.Count);
@@ -84,7 +84,6 @@ namespace Bol4_ej5
                 listBox2.Items.Remove(listBox2.SelectedItem);
             }
 
-            lblInfoRight.Text = $"Selected index: ";
             tooltip.SetToolTip(listBox2, "Number of elements inside: " + listBox2.Items.Count);
         }
 
@@ -101,9 +100,50 @@ namespace Bol4_ej5
             }
         }
 
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private string listIndexes()
         {
-            lblInfoRight.Text = $"Selected index: {listBox2.SelectedIndex}";
+            string indices = "";
+            for (int i = 0; i < listBox1.SelectedItems.Count; i++)
+            {
+                indices = indices + ", " + i.ToString();
+            }
+
+            return indices;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblinfoLeft.Text = "Nº elementos: " + listBox1.Items.Count.ToString();
+            lblInfoRight.Text = listIndexes();
+
+            if (this.Text.Equals("Bol4_ej5"))
+            {
+                i = title.Length - 1;
+                titleChanged = "";
+            }
+
+            chara = title[i];
+            titleChanged = chara + titleChanged;
+            this.Text = titleChanged;
+            i--;
+
+            if (ms == 100)
+            {
+                ms = 0;
+            }
+
+            ms++;
+
+            if ((ms % 2) == 0 && iconChange == true)
+            {
+                this.Icon = new Icon(directory + "\\bocatagarto.ico");
+                iconChange = false;
+            }
+            else
+            {
+                this.Icon = new Icon(directory + "\\burgallina.ico");
+                iconChange = true;
+            }
         }
     }
 }

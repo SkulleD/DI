@@ -1,0 +1,8 @@
+C:\Users\AlvaroVila\source\repos\Bol5_ej1\Bol5_ej1\bin\Debug\Bol5_ej1.dll
+C:\Users\AlvaroVila\source\repos\Bol5_ej1\Bol5_ej1\bin\Debug\Bol5_ej1.pdb
+C:\Users\AlvaroVila\source\repos\Bol5_ej1\Bol5_ej1\obj\Debug\Bol5_ej1.csproj.AssemblyReference.cache
+C:\Users\AlvaroVila\source\repos\Bol5_ej1\Bol5_ej1\obj\Debug\Bol5_ej1.LabelTextbox.resources
+C:\Users\AlvaroVila\source\repos\Bol5_ej1\Bol5_ej1\obj\Debug\Bol5_ej1.csproj.GenerateResource.cache
+C:\Users\AlvaroVila\source\repos\Bol5_ej1\Bol5_ej1\obj\Debug\Bol5_ej1.csproj.CoreCompileInputs.cache
+C:\Users\AlvaroVila\source\repos\Bol5_ej1\Bol5_ej1\obj\Debug\Bol5_ej1.dll
+C:\Users\AlvaroVila\source\repos\Bol5_ej1\Bol5_ej1\obj\Debug\Bol5_ej1.pdb

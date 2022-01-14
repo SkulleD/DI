@@ -79,7 +79,7 @@ namespace Bol5_ej1
 
         [Category("La propiedad cambió")]
         [Description("Se lanza cuando la propiedad Posición cambia")]
-        public event System.EventHandler CambiaPosicion;
+        public event EventHandler CambiaPosicion;
 
         private int separacion = 0;
 
@@ -133,6 +133,23 @@ namespace Bol5_ej1
             }
         }
 
+        private char pswchr = ' ';
+
+        [Category("Appearance")]
+        [Description("Oculta el texto introducido")]
+        public char PswChr
+        {
+            set
+            {
+                txt.PasswordChar = value;
+            }
+            
+            get
+            {
+                return pswchr;
+            }
+        }
+
         protected override void OnSizeChanged(EventArgs e) // Se acomoda al tamaño que se le ponga en formulario
         {
             base.OnSizeChanged(e);
@@ -143,5 +160,20 @@ namespace Bol5_ej1
         {
             this.OnKeyPress(e);
         }
+
+        private void txt_KeyUp(object sender, KeyEventArgs e)
+        {
+            this.OnKeyUp(e);
+        }
+
+        private new void TextChanged(object sender, EventArgs e)
+        {
+            if (TxtChanged != null)
+            {
+                TxtChanged(this, new EventArgs());
+            }
+        }
+
+        public event EventHandler TxtChanged;
     }
 }

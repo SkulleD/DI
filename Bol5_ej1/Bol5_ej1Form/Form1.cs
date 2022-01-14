@@ -17,7 +17,7 @@ namespace Bol5_ej1Form
             InitializeComponent();
         }
 
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        private void labelTextbox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.Text = "Letra: " + e.KeyChar;
         }

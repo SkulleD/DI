@@ -57,7 +57,15 @@ namespace Bol5_ej1
                 {
                     posicion = value;
                     recolocar();
-                } else
+
+                    if (CambiaPosicion != null)
+                    {
+                        CambiaPosicion(this, new EventArgs());
+                    }
+
+                    //CambiaPosicion?.Invoke(this, EventArgs.Empty); // Esto es otra manera de hacer lo del if
+                }
+                else
                 {
                     throw new InvalidEnumArgumentException();
                 }
@@ -68,6 +76,10 @@ namespace Bol5_ej1
                 return posicion;
             }
         }
+
+        [Category("La propiedad cambió")]
+        [Description("Se lanza cuando la propiedad Posición cambia")]
+        public event System.EventHandler CambiaPosicion;
 
         private int separacion = 0;
 

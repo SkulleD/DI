@@ -37,11 +37,12 @@ namespace Bol5_ej1Form
             this.labelTextbox1.Location = new System.Drawing.Point(31, 29);
             this.labelTextbox1.Name = "labelTextbox1";
             this.labelTextbox1.Posicion = Bol5_ej1.ePosicion.IZQUIERDA;
-            this.labelTextbox1.Separacion = 30;
+            this.labelTextbox1.Separacion = 15;
             this.labelTextbox1.Size = new System.Drawing.Size(156, 20);
             this.labelTextbox1.TabIndex = 0;
             this.labelTextbox1.Text_Label = "label1";
             this.labelTextbox1.Text_TextBox = "";
+            this.labelTextbox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.labelTextbox1_KeyPress);
             // 
             // Form1
             // 
@@ -51,7 +52,6 @@ namespace Bol5_ej1Form
             this.Controls.Add(this.labelTextbox1);
             this.Name = "Form1";
             this.Text = "Bol5_ej1";
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.ResumeLayout(false);
 
         }

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Bol5_ej1
@@ -33,13 +28,15 @@ namespace Bol5_ej1
                 case ePosicion.IZQUIERDA:
                     lbl.Location = new Point(0, 0);
                     txt.Location = new Point(lbl.Width + Separacion, 0); // Label + TextBox
-                    txt.Width = this.Width - lbl.Width - Separacion;
+                    //txt.Width = this.Width - lbl.Width - Separacion;
+                    this.Width = txt.Width + lbl.Width + Separacion;
                     this.Height = Math.Max(txt.Height, lbl.Height);
                     break;
                 case ePosicion.DERECHA:
                     txt.Location = new Point(0, 0);
                     lbl.Location = new Point(txt.Width + Separacion, 0); // TextBox + Label
-                    txt.Width = this.Width - lbl.Width - Separacion;
+                    //txt.Width = this.Width - lbl.Width - Separacion;
+                    this.Width = txt.Width + lbl.Width + Separacion;
                     this.Height = Math.Max(txt.Height, lbl.Height);
                     break;
             }
@@ -93,6 +90,11 @@ namespace Bol5_ej1
                 {
                     separacion = value;
                     recolocar();
+
+                    if (SeparacionChanged != null)
+                    {
+                        SeparacionChanged(this, new EventArgs());
+                    }
                 }
             }
 
@@ -101,6 +103,8 @@ namespace Bol5_ej1
                 return separacion;
             }
         }
+
+        public event EventHandler SeparacionChanged;
 
         [Category("Appearance")]
         [Description("Texto asociado a la Label del control")]
@@ -133,8 +137,6 @@ namespace Bol5_ej1
             }
         }
 
-        private char pswchr = ' ';
-
         [Category("Appearance")]
         [Description("Oculta el texto introducido")]
         public char PswChr
@@ -146,7 +148,7 @@ namespace Bol5_ej1
             
             get
             {
-                return pswchr;
+                return txt.PasswordChar;
             }
         }
 

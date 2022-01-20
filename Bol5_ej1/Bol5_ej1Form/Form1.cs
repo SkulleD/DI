@@ -39,15 +39,16 @@ namespace Bol5_ej1Form
             if (labelTextbox1.Posicion == Bol5_ej1.ePosicion.IZQUIERDA)
             {
                 labelTextbox1.Posicion = Bol5_ej1.ePosicion.DERECHA;
-                btnSeparaDer.Text = "Izquierda";
-                btnSeparaIzq.Text = "Derecha";
             }
             else
             {
                 labelTextbox1.Posicion = Bol5_ej1.ePosicion.IZQUIERDA;
-                btnSeparaDer.Text = "Derecha";
-                btnSeparaIzq.Text = "Izquierda";
             }
+        }
+
+        private void labelTextbox1_CambiaPosicion_1(object sender, EventArgs e)
+        {
+            this.Text = labelTextbox1.Posicion.ToString();
         }
 
         private void btnSeparaDer_Click(object sender, EventArgs e) // Apartado B
@@ -61,6 +62,11 @@ namespace Bol5_ej1Form
             {
                 labelTextbox1.Separacion -= 1;
             }
+        }
+
+        private void labelTextbox1_SeparacionChanged(object sender, EventArgs e)
+        {
+            labelTextbox1.Text_Label = labelTextbox1.Separacion.ToString();
         }
 
         private void labelTextbox1_CambiaPosicion(object sender, EventArgs e) // Apartado B
@@ -78,6 +84,15 @@ namespace Bol5_ej1Form
         private void labelTextbox1_TxtChanged(object sender, EventArgs e) // Apartado D
         {
             labelTextbox1.Text_Label = "Asies";
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Salir?", "DI tema 5 ej 1",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

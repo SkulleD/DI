@@ -88,15 +88,17 @@ namespace Bol5_ej1Form
             // 
             // labelTextbox1
             // 
-            this.labelTextbox1.Location = new System.Drawing.Point(31, 29);
+            this.labelTextbox1.Location = new System.Drawing.Point(31, 49);
             this.labelTextbox1.Name = "labelTextbox1";
             this.labelTextbox1.Posicion = Bol5_ej1.ePosicion.IZQUIERDA;
+            this.labelTextbox1.PswChr = '*';
             this.labelTextbox1.Separacion = 0;
-            this.labelTextbox1.Size = new System.Drawing.Size(156, 20);
-            this.labelTextbox1.TabIndex = 0;
-            this.labelTextbox1.Text_Label = "label1";
+            this.labelTextbox1.Size = new System.Drawing.Size(171, 20);
+            this.labelTextbox1.TabIndex = 6;
+            this.labelTextbox1.Text_Label = "LabelTextbox";
             this.labelTextbox1.Text_TextBox = "";
-            this.labelTextbox1.CambiaPosicion += new System.EventHandler(this.labelTextbox1_CambiaPosicion);
+            this.labelTextbox1.CambiaPosicion += new System.EventHandler(this.labelTextbox1_CambiaPosicion_1);
+            this.labelTextbox1.SeparacionChanged += new System.EventHandler(this.labelTextbox1_SeparacionChanged);
             this.labelTextbox1.TxtChanged += new System.EventHandler(this.labelTextbox1_TxtChanged);
             this.labelTextbox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.labelTextbox1_KeyPress);
             this.labelTextbox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.labelTextbox1_KeyUp);
@@ -106,17 +108,18 @@ namespace Bol5_ej1Form
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 374);
+            this.Controls.Add(this.labelTextbox1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnSeparaIzq);
             this.Controls.Add(this.btnSeparaDer);
             this.Controls.Add(this.btnPos);
-            this.Controls.Add(this.labelTextbox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Bol5_ej1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -125,12 +128,13 @@ namespace Bol5_ej1Form
 
         #endregion
 
-        private Bol5_ej1.LabelTextbox labelTextbox1;
+        
         private System.Windows.Forms.Button btnPos;
         private System.Windows.Forms.Button btnSeparaDer;
         private System.Windows.Forms.Button btnSeparaIzq;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private Bol5_ej1.LabelTextbox labelTextbox1;
     }
 }
 

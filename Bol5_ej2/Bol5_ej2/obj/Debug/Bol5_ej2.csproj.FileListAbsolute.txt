@@ -1,0 +1,8 @@
+C:\Users\AlvaroVila\source\repos\Bol5_ej2\Bol5_ej2\bin\Debug\Bol5_ej2.dll
+C:\Users\AlvaroVila\source\repos\Bol5_ej2\Bol5_ej2\bin\Debug\Bol5_ej2.pdb
+C:\Users\AlvaroVila\source\repos\Bol5_ej2\Bol5_ej2\obj\Debug\Bol5_ej2.csproj.AssemblyReference.cache
+C:\Users\AlvaroVila\source\repos\Bol5_ej2\Bol5_ej2\obj\Debug\Bol5_ej2.EtiquetaAviso.resources
+C:\Users\AlvaroVila\source\repos\Bol5_ej2\Bol5_ej2\obj\Debug\Bol5_ej2.csproj.GenerateResource.cache
+C:\Users\AlvaroVila\source\repos\Bol5_ej2\Bol5_ej2\obj\Debug\Bol5_ej2.csproj.CoreCompileInputs.cache
+C:\Users\AlvaroVila\source\repos\Bol5_ej2\Bol5_ej2\obj\Debug\Bol5_ej2.dll
+C:\Users\AlvaroVila\source\repos\Bol5_ej2\Bol5_ej2\obj\Debug\Bol5_ej2.pdb

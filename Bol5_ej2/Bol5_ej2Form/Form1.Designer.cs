@@ -35,10 +35,12 @@ namespace Bol5_ej2Form
             // 
             // etiquetaAviso1
             // 
-            this.etiquetaAviso1.Location = new System.Drawing.Point(15, 2);
-            this.etiquetaAviso1.Marca = Bol5_ej2.eMarca.Circulo;
+            this.etiquetaAviso1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.etiquetaAviso1.Location = new System.Drawing.Point(5, 19);
+            this.etiquetaAviso1.Marca = Bol5_ej2.eMarca.Imagen;
+            this.etiquetaAviso1.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
             this.etiquetaAviso1.Name = "etiquetaAviso1";
-            this.etiquetaAviso1.Size = new System.Drawing.Size(90, 53);
+            this.etiquetaAviso1.Size = new System.Drawing.Size(419, 86);
             this.etiquetaAviso1.TabIndex = 0;
             // 
             // Form1

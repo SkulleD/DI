@@ -21,6 +21,8 @@ namespace Bol5_ej2
 
     public partial class EtiquetaAviso : UserControl
     {
+        Rectangle rect;
+
         public EtiquetaAviso()
         {
             InitializeComponent();
@@ -60,6 +62,7 @@ namespace Bol5_ej2
             int offsetY = 0;
             int altura = this.Font.Height;
 
+
             Image image = Image.FromFile("C:\\Users\\AlvaroVila\\source\\repos\\Bol5_ej1\\Bol5_ej1Form\\burgallina.png");
             SolidBrush brush = new SolidBrush(this.ForeColor);
             LinearGradientBrush linearBrush = new LinearGradientBrush(
@@ -79,6 +82,9 @@ namespace Bol5_ej2
                     graphics.DrawLine(lapiz, altura, grosor, grosor, altura);
                     offsetX = altura + grosor;
                     offsetY = grosor / 2;
+
+                    rect = new Rectangle(grosor, grosor, altura, altura);
+                    graphics.DrawRectangle(new Pen(Color.Transparent), rect);
                     lapiz.Dispose();
                     break;
                 case eMarca.Circulo:
@@ -87,6 +93,9 @@ namespace Bol5_ej2
                     graphics.DrawEllipse(new Pen(Color.Green, grosor), grosor, grosor, altura, altura);
                     offsetX = altura + grosor;
                     offsetY = grosor;
+
+                    rect = new Rectangle(grosor, grosor, altura, altura);
+                    graphics.DrawRectangle(new Pen(Color.Transparent), rect);
                     break;
                 case eMarca.Imagen:
                     grosor = 20;
@@ -94,30 +103,38 @@ namespace Bol5_ej2
                     graphics.DrawImage(image, grosor, grosor, altura, altura);
                     offsetX = altura + grosor;
                     offsetY = grosor;
+
+                    rect = new Rectangle(grosor, grosor, altura, altura);
+                    graphics.DrawRectangle(new Pen(Color.Transparent), rect);
                     break;
             }
 
             graphics.DrawString(this.Text, this.Font, brush, offsetX + grosor, offsetY);
             Size size = graphics.MeasureString(this.Text, this.Font).ToSize();
             this.Size = new Size(size.Width + offsetX + grosor, size.Height + offsetY * 2);
-            this.Text = "Curro eres el mejor";
+       
             brush.Dispose();
             linearBrush.Dispose();
         }
 
-        private void OnMouseClick(object sender, MouseEventArgs e)
+        protected override void OnMouseClick(MouseEventArgs e)
         {
-            this.OnMouseClick(e);
+            base.OnMouseClick(e);
+
+            if ( e.X <= rect.Right)
+            {
+               this.Text = "Marca Clickada!";
+            }
 
             if (ClickEnMarca != null)
             {
                 ClickEnMarca(this, new EventArgs());
-                marca = eMarca.Circulo;
             }
         }
 
         [Category("La propiedad cambió")]
-        [Description("Se lanza cuando la propiedad click se dispara BRUH")]
-        public event MouseEventHandler ClickEnMarca;
+        [Description("Se lanza cuando la propiedad click se activa.")]
+        public event EventHandler ClickEnMarca;
+
     }
 }

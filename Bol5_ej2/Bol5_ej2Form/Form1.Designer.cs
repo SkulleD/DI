@@ -42,12 +42,13 @@ namespace Bol5_ej2Form
             this.etiquetaAviso1.Name = "etiquetaAviso1";
             this.etiquetaAviso1.Size = new System.Drawing.Size(419, 86);
             this.etiquetaAviso1.TabIndex = 0;
+            this.etiquetaAviso1.ClickEnMarca += new System.EventHandler(this.etiquetaAviso1_ClickEnMarca);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(472, 372);
             this.Controls.Add(this.etiquetaAviso1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";

@@ -17,6 +17,9 @@ namespace Bol5_ej2Form
             InitializeComponent();
         }
 
+        private void etiquetaAviso1_ClickEnMarca(object sender, EventArgs e)
+        {
 
+        }
     }
 }

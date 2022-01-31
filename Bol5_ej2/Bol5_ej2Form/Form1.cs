@@ -21,5 +21,10 @@ namespace Bol5_ej2Form
         {
 
         }
+
+        private void etiquetaAviso1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

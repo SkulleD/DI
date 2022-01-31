@@ -35,14 +35,16 @@ namespace Bol5_ej2Form
             // 
             // etiquetaAviso1
             // 
-            this.etiquetaAviso1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.etiquetaAviso1.Location = new System.Drawing.Point(5, 19);
+            this.etiquetaAviso1.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.etiquetaAviso1.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.etiquetaAviso1.Gradiente = true;
+            this.etiquetaAviso1.Imagen = null;
+            this.etiquetaAviso1.Location = new System.Drawing.Point(47, 49);
             this.etiquetaAviso1.Marca = Bol5_ej2.eMarca.Imagen;
-            this.etiquetaAviso1.Margin = new System.Windows.Forms.Padding(11, 10, 11, 10);
             this.etiquetaAviso1.Name = "etiquetaAviso1";
-            this.etiquetaAviso1.Size = new System.Drawing.Size(419, 86);
+            this.etiquetaAviso1.Size = new System.Drawing.Size(131, 53);
             this.etiquetaAviso1.TabIndex = 0;
-            this.etiquetaAviso1.ClickEnMarca += new System.EventHandler(this.etiquetaAviso1_ClickEnMarca);
+            this.etiquetaAviso1.Text = "etiquetaAviso1";
             // 
             // Form1
             // 

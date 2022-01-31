@@ -19,14 +19,13 @@ namespace Bol5_ej2
         Imagen
     }
 
-    public partial class EtiquetaAviso : UserControl
+    public partial class EtiquetaAviso : Control
     {
         Rectangle rect;
 
         public EtiquetaAviso()
         {
             InitializeComponent();
-            this.Text = "Curro eres el mejor";
         }
 
         private eMarca marca = eMarca.Nada;
@@ -47,6 +46,75 @@ namespace Bol5_ej2
             }
         }
 
+        private Image imagen;
+        [Category("Appearance")]
+        [Description("Cambia la imagen de la marca")]
+        public Image Imagen
+        {
+            set
+            {
+                imagen = value;
+                if (imagen == null)
+                {
+                    marca = eMarca.Nada;
+                }
+                this.Refresh();
+            }
+            get
+            {
+                return imagen;
+            }
+        }
+
+        private Color color1;
+        [Category("Appearance")]
+        [Description("Cambia el primer color del gradiente")]
+        public Color Color1
+        {
+            set
+            {
+                color1 = value;
+                this.Refresh();
+            }
+            get
+            {
+                return color1;
+            }
+        }
+
+        private Color color2;
+        [Category("Appearance")]
+        [Description("Cambia el segundo color del gradiente")]
+        public Color Color2
+        {
+            set
+            {
+                color2 = value;
+                this.Refresh();
+            }
+            get
+            {
+                return color2;
+            }
+        }
+
+        private bool gradiente = true;
+        [Category("Appearance")]
+        [Description("Cambia el segundo color del gradiente")]
+        public bool Gradiente
+        {
+            set
+            {
+                gradiente = value;
+                this.Refresh();
+            }
+            get
+            {
+                return gradiente;
+            }
+        }
+
+
         protected override void OnTextChanged(EventArgs e)
         {
             base.OnTextChanged(e);
@@ -62,20 +130,28 @@ namespace Bol5_ej2
             int offsetY = 0;
             int altura = this.Font.Height;
 
-
-            Image image = Image.FromFile("C:\\Users\\AlvaroVila\\source\\repos\\Bol5_ej1\\Bol5_ej1Form\\burgallina.png");
             SolidBrush brush = new SolidBrush(this.ForeColor);
-            LinearGradientBrush linearBrush = new LinearGradientBrush(
+            LinearGradientBrush linearBrush;
+            if (gradiente)
+            {
+                linearBrush = new LinearGradientBrush(
                 new Point(0, 0),
                 new Point(0, 100),
-                Color.FromArgb(100, 0, 60, 200),
-                Color.FromArgb(190, 255, 120, 0));
+                color1,
+                color2);
+                graphics.FillRectangle(linearBrush, 0, 0, this.Width, this.Height);
+                linearBrush.Dispose();
+            }
+
+
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
             switch (Marca)
             {
+                case eMarca.Nada:
+
+                    break;
                 case eMarca.Cruz:
-                    graphics.FillRectangle(linearBrush, 0, 0, this.Width, this.Height);
                     grosor = 3;
                     Pen lapiz = new Pen(Color.Red, grosor);
                     graphics.DrawLine(lapiz, grosor, grosor, altura, altura);
@@ -88,7 +164,6 @@ namespace Bol5_ej2
                     lapiz.Dispose();
                     break;
                 case eMarca.Circulo:
-                    graphics.FillRectangle(linearBrush, 0, 0, this.Width, this.Height);
                     grosor = 20;
                     graphics.DrawEllipse(new Pen(Color.Green, grosor), grosor, grosor, altura, altura);
                     offsetX = altura + grosor;
@@ -98,32 +173,33 @@ namespace Bol5_ej2
                     graphics.DrawRectangle(new Pen(Color.Transparent), rect);
                     break;
                 case eMarca.Imagen:
-                    grosor = 20;
-                    graphics.FillRectangle(linearBrush, 0, 0, this.Width, this.Height);
-                    graphics.DrawImage(image, grosor, grosor, altura, altura);
-                    offsetX = altura + grosor;
-                    offsetY = grosor;
+                    if (Imagen != null)
+                    {
+                        grosor = 20;
+                        graphics.DrawImage(Imagen, grosor, grosor, altura, altura);
+                        offsetX = altura + grosor;
+                        offsetY = grosor;
 
-                    rect = new Rectangle(grosor, grosor, altura, altura);
-                    graphics.DrawRectangle(new Pen(Color.Transparent), rect);
+                        rect = new Rectangle(grosor, grosor, altura, altura);
+                        graphics.DrawRectangle(new Pen(Color.Transparent), rect);
+                    }
                     break;
             }
 
             graphics.DrawString(this.Text, this.Font, brush, offsetX + grosor, offsetY);
             Size size = graphics.MeasureString(this.Text, this.Font).ToSize();
             this.Size = new Size(size.Width + offsetX + grosor, size.Height + offsetY * 2);
-       
+
             brush.Dispose();
-            linearBrush.Dispose();
         }
 
         protected override void OnMouseClick(MouseEventArgs e)
         {
             base.OnMouseClick(e);
 
-            if ( e.X <= rect.Right)
+            if (e.X <= rect.Right)
             {
-               this.Text = "Marca Clickada!";
+                this.Text = "Marca Clickada!";
             }
 
             if (ClickEnMarca != null)

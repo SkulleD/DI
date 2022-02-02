@@ -35,22 +35,23 @@ namespace Bol5_ej2Form
             // 
             // etiquetaAviso1
             // 
-            this.etiquetaAviso1.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.etiquetaAviso1.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.etiquetaAviso1.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.etiquetaAviso1.Color2 = System.Drawing.Color.Aqua;
+            this.etiquetaAviso1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.etiquetaAviso1.Gradiente = true;
-            this.etiquetaAviso1.Imagen = null;
-            this.etiquetaAviso1.Location = new System.Drawing.Point(47, 49);
+            this.etiquetaAviso1.Imagen = global::Bol5_ej2Form.Properties.Resources.burgallina;
+            this.etiquetaAviso1.Location = new System.Drawing.Point(44, 41);
             this.etiquetaAviso1.Marca = Bol5_ej2.eMarca.Imagen;
             this.etiquetaAviso1.Name = "etiquetaAviso1";
-            this.etiquetaAviso1.Size = new System.Drawing.Size(131, 53);
+            this.etiquetaAviso1.Size = new System.Drawing.Size(433, 80);
             this.etiquetaAviso1.TabIndex = 0;
-            this.etiquetaAviso1.Text = "etiquetaAviso1";
+            this.etiquetaAviso1.Text = "Soy una etiqueta bonita";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 372);
+            this.ClientSize = new System.Drawing.Size(998, 372);
             this.Controls.Add(this.etiquetaAviso1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";

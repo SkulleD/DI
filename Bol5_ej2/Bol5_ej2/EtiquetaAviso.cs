@@ -132,7 +132,8 @@ namespace Bol5_ej2
 
             SolidBrush brush = new SolidBrush(this.ForeColor);
             LinearGradientBrush linearBrush;
-            if (gradiente)
+
+            if (gradiente) // Si es true sale el gradiente de background, sino NO
             {
                 linearBrush = new LinearGradientBrush(
                 new Point(0, 0),
@@ -173,7 +174,7 @@ namespace Bol5_ej2
                     graphics.DrawRectangle(new Pen(Color.Transparent), rect);
                     break;
                 case eMarca.Imagen:
-                    if (Imagen != null)
+                    if (Imagen != null) // AHORA FUNCIONA ????
                     {
                         grosor = 20;
                         graphics.DrawImage(Imagen, grosor, grosor, altura, altura);
@@ -200,6 +201,9 @@ namespace Bol5_ej2
             if (e.X <= rect.Right)
             {
                 this.Text = "Marca Clickada!";
+            } else
+            {
+                this.Text = "Soy una etiqueta bonita";
             }
 
             if (ClickEnMarca != null)

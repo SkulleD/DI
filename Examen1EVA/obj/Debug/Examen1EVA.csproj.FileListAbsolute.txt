@@ -1,0 +1,11 @@
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Examen1EVA\bin\Debug\Examen1EVA.exe.config
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Examen1EVA\bin\Debug\Examen1EVA.exe
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Examen1EVA\bin\Debug\Examen1EVA.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Examen1EVA\obj\Debug\Examen1EVA.csprojAssemblyReference.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Examen1EVA\obj\Debug\Examen1EVA.Form1.resources
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Examen1EVA\obj\Debug\Examen1EVA.Properties.Resources.resources
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Examen1EVA\obj\Debug\Examen1EVA.csproj.GenerateResource.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Examen1EVA\obj\Debug\Examen1EVA.csproj.CoreCompileInputs.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Examen1EVA\obj\Debug\Examen1EVA.exe
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Examen1EVA\obj\Debug\Examen1EVA.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\Examen1EVA\obj\Debug\Examen1EVA.FrmDatos.resources

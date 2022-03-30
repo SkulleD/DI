@@ -37,8 +37,8 @@ namespace BoletinJunio1
 
         public string GetNombre(string caracter)
         {
-            string[] nombreArray = nombre.Split(' ');
-            string nombreSeparado = nombreArray[0];
+            char[] nombreArray = Nombre.ToCharArray();
+            string nombreSeparado = nombreArray[0].ToString();
 
             for (int i = 1; i <= nombreArray.Length - 1; i++)
             {
@@ -82,7 +82,7 @@ namespace BoletinJunio1
 
         public override string ToString()
         {
-            return string.Format("%s %.2f", GetNombre("_"), radio);
+            return string.Format("Nombre: {0}  Radio: {1}", GetNombre("_"), Radio);
         }
     }
 }

@@ -8,15 +8,20 @@ namespace BoletinJunio1
 {
     class Program
     {
-        List<Astro> astros = new List<Astro>();
         static Program program = new Program();
+        List<Astro> astros = new List<Astro>();
+        string nombreAstro = "";
+        double radioAstro = 0;
+        int isGaseoso = 0; // 0 false, 1 true
+        bool isGaseosoFinal = false;
+        int numLunas = 0;
 
         static void Main(string[] args)
         {
-            program.astros.Add(new Astro("Astro1", 2.32));
-            program.astros.Add(new Astro("Astro2", 42000.0));
-            program.astros.Add(new Astro("Astro3", 56000.0));
-            program.astros.Add(new Planeta("Planeta", 56000.0, true));
+            program.astros.Add(new Astro("Astro1", 75000));
+            program.astros.Add(new Astro("Astro2", 42000));
+            program.astros.Add(new Astro("Astro3", 56000));
+            program.astros.Add(new Planeta("Planeta", 220000, true));
 
             int menu;
             do
@@ -32,10 +37,10 @@ namespace BoletinJunio1
                 switch (menu)
                 {
                     case 1:
-
+                        program.addPlaneta();
                         break;
                     case 2:
-
+                        program.addAstro();
                         break;
                     case 3:
                         program.MuestraDatos();
@@ -56,29 +61,54 @@ namespace BoletinJunio1
 
         private void addPlaneta()
         {
+            Console.WriteLine("Inserte el nombre del planeta");
+            nombreAstro = Console.ReadLine();
 
+            Console.WriteLine("Inserte el radio del planeta");
+            radioAstro = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("¿El planeta es gaseoso? 0 = NO, 1 = SÍ");
+            isGaseoso = Convert.ToInt32(Console.ReadLine());
+
+            if (isGaseoso == 0)
+            {
+                isGaseosoFinal = false;
+            } else
+            {
+                isGaseosoFinal = true;
+            }
+
+            Console.WriteLine("¿Número de lunas del planeta?");
+            numLunas = Convert.ToInt32(Console.ReadLine());
+
+            astros.Add(new Planeta(nombreAstro, radioAstro, isGaseosoFinal));
         }
 
         private void addAstro()
         {
+            Console.WriteLine("Inserte el nombre del astro");
+            nombreAstro = Console.ReadLine();
 
+            Console.WriteLine("Inserte el radio del astro");
+            radioAstro = Convert.ToDouble(Console.ReadLine());
+
+            astros.Add(new Astro(nombreAstro, radioAstro));
         }
 
         private void MuestraDatos()
         {
-            Console.WriteLine("KIRBO");
+            Planeta planeta;
 
             foreach (Astro astro in program.astros)
             {
-                Console.WriteLine(astro.GetNombre("_") + " " + astro.Radio);
-
                 if (astro is Planeta)
                 {
-                    Console.WriteLine("Planeta");
+                    planeta = (Planeta)astro;
+                    Console.WriteLine($"Nombre: {planeta.GetNombre(".")} Radio: {planeta.Radio} Gaseoso: {planeta.Gaseoso} Nº Lunas: {numLunas}");
                 }
                 else
                 {
-                    Console.WriteLine("Astro");
+                    Console.WriteLine($"{astro.ToString()}");
                 }
             }
         }

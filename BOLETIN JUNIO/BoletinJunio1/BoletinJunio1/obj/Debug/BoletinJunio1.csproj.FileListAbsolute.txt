@@ -12,3 +12,10 @@ C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJun
 C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio1\BoletinJunio1\obj\Debug\BoletinJunio1.csproj.CoreCompileInputs.cache
 C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio1\BoletinJunio1\obj\Debug\BoletinJunio1.exe
 C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio1\BoletinJunio1\obj\Debug\BoletinJunio1.pdb
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio1\BoletinJunio1\bin\Debug\BoletinJunio1.exe.config
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio1\BoletinJunio1\bin\Debug\BoletinJunio1.exe
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio1\BoletinJunio1\bin\Debug\BoletinJunio1.pdb
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio1\BoletinJunio1\obj\Debug\BoletinJunio1.csproj.AssemblyReference.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio1\BoletinJunio1\obj\Debug\BoletinJunio1.csproj.CoreCompileInputs.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio1\BoletinJunio1\obj\Debug\BoletinJunio1.exe
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio1\BoletinJunio1\obj\Debug\BoletinJunio1.pdb

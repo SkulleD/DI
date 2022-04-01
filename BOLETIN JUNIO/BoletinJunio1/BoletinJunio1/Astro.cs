@@ -72,9 +72,9 @@ namespace BoletinJunio1
         {
             Astro astroCheckeador = (Astro)obj;
 
-            if (nombre.Equals(astroCheckeador.Nombre) && astroCheckeador is Astro)
+            if (nombre.Equals(astroCheckeador.Nombre) && astroCheckeador is Astro && this is Astro)
             {
-                return base.Equals(obj);
+                return true;
             }
 
             return false;

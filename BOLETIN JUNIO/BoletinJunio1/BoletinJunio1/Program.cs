@@ -11,7 +11,6 @@ namespace BoletinJunio1
         static Program program = new Program();
         Planeta planeta;
         List<Astro> astros = new List<Astro>();
-        List<Astro> astrosAux = new List<Astro>();
         string nombreAstro = "";
         double radioAstro = 0;
         int isGaseoso = 0; // 0 false, 1 true
@@ -22,8 +21,11 @@ namespace BoletinJunio1
         static void Main(string[] args)
         {
             program.astros.Add(new Astro("Astro1", 75000));
-            program.astros.Add(new Astro("Astro2", 42000));
-            program.astros.Add(new Astro("Astro3", 56000));
+            program.astros.Add(new Astro("Astro1", 42000));
+            program.astros.Add(new Astro("Planeta", 56000));
+            //program.astros.Add(new Planeta("Planeta", 220000, true));
+            //program.astros.Add(new Planeta("Planeta", 220000, true));
+            //program.astros.Add(new Planeta("Planeta", 220000, true));
             program.astros.Add(new Planeta("Planeta", 220000, true));
 
             int menu;
@@ -64,7 +66,7 @@ namespace BoletinJunio1
 
                 } while (menu != 5);
             }
-            catch (FormatException)
+            catch (Exception ex) when (ex is FormatException || ex is ArgumentException || ex is OverflowException)
             {
 
             }
@@ -74,14 +76,23 @@ namespace BoletinJunio1
         {
             try
             {
-                Console.WriteLine("Inserte el nombre del planeta");
-                nombreAstro = Console.ReadLine();
+                do
+                {
+                    Console.WriteLine("Inserte el nombre del planeta");
+                    nombreAstro = Console.ReadLine();
+                } while (String.IsNullOrWhiteSpace(nombreAstro));
 
-                Console.WriteLine("Inserte el radio del planeta");
-                radioAstro = Convert.ToDouble(Console.ReadLine());
+                do
+                {
+                    Console.WriteLine("Inserte el radio del planeta");
+                    radioAstro = Convert.ToDouble(Console.ReadLine());
+                } while (String.IsNullOrWhiteSpace(nombreAstro));
 
-                Console.WriteLine("¿El planeta es gaseoso? 0 = NO, 1 = SÍ");
-                isGaseoso = Convert.ToInt32(Console.ReadLine());
+                do
+                {
+                    Console.WriteLine("¿El planeta es gaseoso? 0 = NO, 1 = SÍ");
+                    isGaseoso = Convert.ToInt32(Console.ReadLine());
+                } while (String.IsNullOrWhiteSpace(nombreAstro));
 
                 if (isGaseoso == 0)
                 {
@@ -96,7 +107,6 @@ namespace BoletinJunio1
                 numLunas = Convert.ToInt32(Console.ReadLine());
 
                 astros.Add(planeta = new Planeta(nombreAstro, radioAstro, isGaseosoFinal));
-                astrosAux.Add(planeta = new Planeta(nombreAstro, radioAstro, isGaseosoFinal));
                 planeta.astrosList = new List<Astro>();
 
                 if (numLunas > 0)
@@ -112,9 +122,13 @@ namespace BoletinJunio1
 
                 lunaOrAstro = false;
             }
-            catch (FormatException)
+            catch (Exception ex) when (ex is FormatException || ex is ArgumentException || ex is OverflowException)
             {
-
+                                Console.WriteLine("Error.");
+            }
+            catch (RadioNegativoException)
+            {
+                Console.WriteLine("Error: el radio no puede ser negativo.");
             }
         }
 
@@ -122,21 +136,30 @@ namespace BoletinJunio1
         {
             try
             {
-                Console.WriteLine("Inserte el nombre del astro");
-                nombreAstro = Console.ReadLine();
+                do
+                {
+                    Console.WriteLine("Inserte el nombre del astro");
+                    nombreAstro = Console.ReadLine();
+                } while (String.IsNullOrWhiteSpace(nombreAstro));
 
-                Console.WriteLine("Inserte el radio del astro");
-                radioAstro = Convert.ToDouble(Console.ReadLine());
+                do
+                {
+                    Console.WriteLine("Inserte el radio del astro");
+                    radioAstro = Convert.ToDouble(Console.ReadLine());
+                } while (String.IsNullOrWhiteSpace(nombreAstro));
 
                 if (!lunaOrAstro)
                 {
                     astros.Add(new Astro(nombreAstro, radioAstro));
-                    astrosAux.Add(new Astro(nombreAstro, radioAstro));
                 }
             }
-            catch (FormatException)
+            catch (Exception ex) when (ex is FormatException || ex is ArgumentException || ex is OverflowException)
             {
-
+                Console.WriteLine("Error.");
+            }
+            catch (RadioNegativoException)
+            {
+                Console.WriteLine("Error: el radio no puede ser negativo.");
             }
         }
 
@@ -170,33 +193,21 @@ namespace BoletinJunio1
 
         private void EliminaRepetidos()
         {
-            bool eliminar = false;
-            bool astrosCoinciden = false;
-            bool planetasCoinciden = false;
-            string nombreAux = "";
+            List<Astro> astrosAux = new List<Astro>();
 
-            foreach (Astro astro in astros)
+            for (int i = 0; i <= astros.Count - 1; i++)
             {
-                foreach (Astro astroAux in astrosAux)
+                for (int j = astros.Count - 1; j >= 0; j--)
                 {
-                    if (astro.Equals(astroAux))
+                    if (astros[i].Equals(astros[j]) && !astrosAux.Contains(astros[i]))
                     {
-                        nombreAux = astro.Nombre;
-
-                        if (astro is Astro && astroAux is Astro)
-                        {
-                            astrosCoinciden = true;
-                            eliminar = true;
-                        }
-
-                        if (astro is Planeta && astroAux is Planeta)
-                        {
-                            planetasCoinciden = true;
-                            eliminar = true;
-                        }
+                        astrosAux.Add(astros[i]);
                     }
                 }
             }
+
+            astros.Clear();
+            astros = astrosAux;
         }
     }
 }

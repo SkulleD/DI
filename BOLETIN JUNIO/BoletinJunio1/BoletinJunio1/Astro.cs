@@ -9,7 +9,7 @@ namespace BoletinJunio1
     class Astro
     {
         // IMPORTANTES LOS CONSTRUCTORES
-        public Astro()
+        public Astro() //this
         {
             Nombre = "";
             Radio = 0;
@@ -37,12 +37,11 @@ namespace BoletinJunio1
 
         public string GetNombre(string caracter)
         {
-            char[] nombreArray = Nombre.ToCharArray();
-            string nombreSeparado = nombreArray[0].ToString();
+            string nombreSeparado = Nombre[0].ToString();
 
-            for (int i = 1; i <= nombreArray.Length - 1; i++)
+            for (int i = 1; i <= Nombre.Length - 1; i++)
             {
-                nombreSeparado += caracter + nombreArray[i];
+                nombreSeparado += caracter + Nombre[i];
             }
 
             return nombreSeparado;
@@ -58,7 +57,7 @@ namespace BoletinJunio1
                     throw new RadioNegativoException("Error: el radio no puede ser negativo.");
                 }
 
-                radio = value;
+                radio = value; //Math.Round(value, 2, MidpointRounding.AwayFromZero);
             }
 
             get
@@ -70,11 +69,14 @@ namespace BoletinJunio1
         // Comprueba si el nombre del Astro es igual a otro existente y si el objeto en sí es un Astro
         public override bool Equals(object obj)
         {
-            Astro astroCheckeador = (Astro)obj;
-
-            if (nombre.Equals(astroCheckeador.Nombre) && astroCheckeador is Astro && this is Astro)
+            if (obj != null && obj.GetType() == this.GetType())
             {
-                return true;
+                Astro astroCheckeador = (Astro)obj;
+
+                if (nombre.Equals(astroCheckeador.Nombre))
+                {
+                    return true;
+                }
             }
 
             return false;
@@ -82,7 +84,8 @@ namespace BoletinJunio1
 
         public override string ToString()
         {
-            return string.Format("Nombre: {0}  Radio: {1}", GetNombre("_"), Radio);
+            string mostrar = $"Nombre: {GetNombre("_")}, Radio: {Radio:F2}";
+            return mostrar;
         }
     }
 }

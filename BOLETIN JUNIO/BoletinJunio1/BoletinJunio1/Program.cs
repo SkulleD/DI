@@ -9,7 +9,9 @@ namespace BoletinJunio1
     class Program
     {
         static Program program = new Program();
-        Planeta planeta;
+        Planeta planeta = new Planeta("s", 3, true);
+
+
         List<Astro> astros = new List<Astro>();
         string nombreAstro = "";
         double radioAstro = 0;
@@ -20,13 +22,25 @@ namespace BoletinJunio1
 
         static void Main(string[] args)
         {
+            program.astros.Add(new Astro("Astro2", 75000));
+            program.astros.Add(new Astro("Astro1", 75000));
+            program.astros.Add(new Astro("Astro1", 75000));
+            program.astros.Add(new Astro("Astro1", 75000));
             program.astros.Add(new Astro("Astro1", 75000));
             program.astros.Add(new Astro("Astro1", 42000));
-            program.astros.Add(new Astro("Planeta", 56000));
-            //program.astros.Add(new Planeta("Planeta", 220000, true));
-            //program.astros.Add(new Planeta("Planeta", 220000, true));
-            //program.astros.Add(new Planeta("Planeta", 220000, true));
+            program.astros.Add(new Astro("Planeta", 5600));
+            program.astros.Add(new Astro("Planeta", 5600));
+            program.astros.Add(new Astro("Planeta", 5600));
+            program.astros.Add(new Astro("Astro3", 75000));
             program.astros.Add(new Planeta("Planeta", 220000, true));
+            program.astros.Add(new Planeta("Planeta", 220000, true));
+            program.astros.Add(new Planeta("Planeta", 220000, true));
+            program.astros.Add(new Astro("Astro1", 75000));
+            program.astros.Add(new Astro("Astro1", 75000));
+            program.astros.Add(new Astro("Astro1", 75000));
+            program.astros.Add(new Astro("Astro1", 75000));
+            program.astros.Add(new Planeta("Planeta2", 220000, true));
+
 
             int menu;
             try
@@ -60,15 +74,15 @@ namespace BoletinJunio1
                             Console.ReadLine();
                             break;
                         default:
-                            Console.WriteLine("Opción no válida.");
-                            break;
+                            throw new FormatException();
+
                     }
 
                 } while (menu != 5);
             }
             catch (Exception ex) when (ex is FormatException || ex is ArgumentException || ex is OverflowException)
             {
-
+                Console.WriteLine("Opción no válida.");
             }
         }
 
@@ -86,22 +100,15 @@ namespace BoletinJunio1
                 {
                     Console.WriteLine("Inserte el radio del planeta");
                     radioAstro = Convert.ToDouble(Console.ReadLine());
-                } while (String.IsNullOrWhiteSpace(nombreAstro));
+                } while (String.IsNullOrWhiteSpace(radioAstro.ToString()));
 
                 do
                 {
                     Console.WriteLine("¿El planeta es gaseoso? 0 = NO, 1 = SÍ");
                     isGaseoso = Convert.ToInt32(Console.ReadLine());
-                } while (String.IsNullOrWhiteSpace(nombreAstro));
+                } while (String.IsNullOrWhiteSpace(isGaseoso.ToString()));
 
-                if (isGaseoso == 0)
-                {
-                    isGaseosoFinal = false;
-                }
-                else
-                {
-                    isGaseosoFinal = true;
-                }
+                isGaseosoFinal = isGaseoso != 0;
 
                 Console.WriteLine("¿Número de lunas del planeta?");
                 numLunas = Convert.ToInt32(Console.ReadLine());
@@ -124,7 +131,7 @@ namespace BoletinJunio1
             }
             catch (Exception ex) when (ex is FormatException || ex is ArgumentException || ex is OverflowException)
             {
-                                Console.WriteLine("Error.");
+                Console.WriteLine("Error.");
             }
             catch (RadioNegativoException)
             {
@@ -146,7 +153,7 @@ namespace BoletinJunio1
                 {
                     Console.WriteLine("Inserte el radio del astro");
                     radioAstro = Convert.ToDouble(Console.ReadLine());
-                } while (String.IsNullOrWhiteSpace(nombreAstro));
+                } while (String.IsNullOrWhiteSpace(radioAstro.ToString()));
 
                 if (!lunaOrAstro)
                 {
@@ -170,7 +177,7 @@ namespace BoletinJunio1
                 if (astro is Planeta)
                 {
                     planeta = (Planeta)astro;
-                    Console.WriteLine($"Nombre: {planeta.GetNombre(".")} Radio: {planeta.Radio} Gaseoso: {planeta.Gaseoso} Nº Lunas: {planeta.astrosList.Count}");
+                    Console.WriteLine($"Nombre: {planeta.GetNombre(".")}, Radio: {planeta.Radio:F2} Gaseoso: {planeta.Gaseoso}, Nº Lunas: {planeta.astrosList.Count}");
 
                     if (planeta.astrosList.Count > 0)
                     {

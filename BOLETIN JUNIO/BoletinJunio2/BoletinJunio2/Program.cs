@@ -10,7 +10,7 @@ namespace BoletinJunio2
     {
         static void Main(string[] args)
         {
-
+            Usuario user = new Usuario();
         }
     }
 }

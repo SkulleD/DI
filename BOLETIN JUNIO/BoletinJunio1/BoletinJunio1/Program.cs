@@ -100,18 +100,22 @@ namespace BoletinJunio1
                 {
                     Console.WriteLine("Inserte el radio del planeta");
                     radioAstro = Convert.ToDouble(Console.ReadLine());
-                } while (String.IsNullOrWhiteSpace(radioAstro.ToString()));
+
+                } while (String.IsNullOrWhiteSpace(radioAstro.ToString()) || !checkNumber(radioAstro));
 
                 do
                 {
                     Console.WriteLine("¿El planeta es gaseoso? 0 = NO, 1 = SÍ");
                     isGaseoso = Convert.ToInt32(Console.ReadLine());
-                } while (String.IsNullOrWhiteSpace(isGaseoso.ToString()));
+                } while (String.IsNullOrWhiteSpace(isGaseoso.ToString()) || isGaseoso < 0 || isGaseoso > 1);
 
                 isGaseosoFinal = isGaseoso != 0;
 
-                Console.WriteLine("¿Número de lunas del planeta?");
-                numLunas = Convert.ToInt32(Console.ReadLine());
+                do
+                {
+                    Console.WriteLine("¿Número de lunas del planeta?");
+                    numLunas = Convert.ToInt32(Console.ReadLine());
+                } while (String.IsNullOrWhiteSpace(numLunas.ToString()) || numLunas < 0);
 
                 astros.Add(planeta = new Planeta(nombreAstro, radioAstro, isGaseosoFinal));
                 planeta.astrosList = new List<Astro>();
@@ -153,7 +157,7 @@ namespace BoletinJunio1
                 {
                     Console.WriteLine("Inserte el radio del astro");
                     radioAstro = Convert.ToDouble(Console.ReadLine());
-                } while (String.IsNullOrWhiteSpace(radioAstro.ToString()));
+                } while (String.IsNullOrWhiteSpace(radioAstro.ToString()) || !checkNumber(radioAstro));
 
                 if (!lunaOrAstro)
                 {
@@ -168,6 +172,21 @@ namespace BoletinJunio1
             {
                 Console.WriteLine("Error: el radio no puede ser negativo.");
             }
+        }
+
+        private bool checkNumber(double radio)
+        {
+            string checkIfNumber = "";
+            bool isNumber = false;
+
+            checkIfNumber = radio.ToString();
+
+            if (double.TryParse(checkIfNumber, out double result))
+            {
+                isNumber = true;
+            }
+
+            return isNumber;
         }
 
         private void MuestraDatos()

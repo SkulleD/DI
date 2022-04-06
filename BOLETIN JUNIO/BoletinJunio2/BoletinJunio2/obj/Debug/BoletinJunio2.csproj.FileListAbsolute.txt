@@ -5,3 +5,10 @@ C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJun
 C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio2\BoletinJunio2\obj\Debug\BoletinJunio2.csproj.CoreCompileInputs.cache
 C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio2\BoletinJunio2\obj\Debug\BoletinJunio2.exe
 C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio2\BoletinJunio2\obj\Debug\BoletinJunio2.pdb
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio2\BoletinJunio2\bin\Debug\BoletinJunio2.exe.config
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio2\BoletinJunio2\bin\Debug\BoletinJunio2.exe
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio2\BoletinJunio2\bin\Debug\BoletinJunio2.pdb
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio2\BoletinJunio2\obj\Debug\BoletinJunio2.csproj.AssemblyReference.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio2\BoletinJunio2\obj\Debug\BoletinJunio2.csproj.CoreCompileInputs.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio2\BoletinJunio2\obj\Debug\BoletinJunio2.exe
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio2\BoletinJunio2\obj\Debug\BoletinJunio2.pdb

@@ -21,54 +21,62 @@ namespace BoletinJunio2
         {
             int opcion = 0;
 
-            do
+            try
             {
-                Console.WriteLine("1- Visualizar tabla completa\n" +
-                    "2- Calcular media de notas de toda la tabla\n" +
-                    "3- Media de un alumno\n" +
-                    "4- Media de una asignatura\n" +
-                    "5- Visualizar notas de un alumno\n" +
-                    "6- Visualizar notas de una asignatura\n" +
-                    "7- Nota máxima y mínima de un alumno\n" +
-                    "8- Tabla solo de aprobados\n" +
-                    "9- Salir del programa");
-                opcion = int.Parse(Console.ReadLine());
-
-                switch (opcion)
+                do
                 {
-                    case 1:
-                        MuestraNotasTabla();
-                        break;
-                    case 2:
-                        Console.WriteLine("Media: " + aula.MediaNotasTabla());
-                        break;
-                    case 3:
+                    Console.WriteLine("1- Visualizar tabla completa\n" +
+                        "2- Calcular media de notas de toda la tabla\n" +
+                        "3- Media de un alumno\n" +
+                        "4- Media de una asignatura\n" +
+                        "5- Visualizar notas de un alumno\n" +
+                        "6- Visualizar notas de una asignatura\n" +
+                        "7- Nota máxima y mínima de un alumno\n" +
+                        "8- Tabla de solo aprobados\n" +
+                        "9- Salir del programa");
+                    opcion = int.Parse(Console.ReadLine());
 
-                        break;
-                    case 4:
+                    switch (opcion)
+                    {
+                        case 1:
+                            MuestraNotasTabla();
+                            break;
+                        case 2:
+                            Console.WriteLine("Media de notas: " + aula.MediaNotasTabla());
+                            break;
+                        case 3:
+                            Console.WriteLine("Media de alumno: " + aula.MediaAlumno(0));
+                            break;
+                        case 4:
+                            Console.WriteLine("Media de asignatura: " + aula.MediaAsignatura(0));
+                            break;
+                        case 5:
+                            MuestraNotasAlumno();
+                            break;
+                        case 6:
+                            MuestraNotasAsignatura();
+                            break;
+                        case 7:
 
-                        break;
-                    case 5:
+                            break;
+                        case 8:
+                            Console.WriteLine(aula.DevuelveAprobados()); ;
+                            break;
+                        case 9:
+                            Console.WriteLine("¡Hasta otra!");
+                            Console.ReadLine();
+                            break;
+                        default:
+                            Console.WriteLine("Opción no válida.");
+                            break;
+                    }
+                } while (opcion != 9);
+            }
+            catch (Exception ex) when (ex is FormatException)
+            {
+                Console.WriteLine("Error de entrada.");
+            }
 
-                        break;
-                    case 6:
-                        MuestraNotasAlumno();
-                        break;
-                    case 7:
-                        MuestraNotasAsignatura();
-                        break;
-                    case 8:
-
-                        break;
-                    case 9:
-                        Console.WriteLine("¡Hasta otra!");
-                        Console.ReadLine();
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida.");
-                        break;
-                }
-            } while (opcion != 9);
         }
 
         private void MuestraNotasTabla()
@@ -82,7 +90,7 @@ namespace BoletinJunio2
 
             Console.WriteLine();
 
-            for (int i = 0; i < aula.notas.GetLength(0); i++) 
+            for (int i = 0; i < aula.notas.GetLength(0); i++)
             {
                 Console.Write(aula.nombreAlumnos[i] + "\t"); // Nombres de alumnos
 
@@ -93,18 +101,81 @@ namespace BoletinJunio2
 
                 Console.WriteLine();
             }
-
-            Console.ReadLine();
         }
 
         private void MuestraNotasAlumno()
         {
+            int numAlumno = 0;
 
+            do
+            {
+                Console.WriteLine("¿Número de alumno? Num máximo de alumno: " + nombreAlumnos.Length);
+                numAlumno = int.Parse(Console.ReadLine()) - 1;
+            } while (numAlumno + 1 > nombreAlumnos.Length || numAlumno < 0);
+
+            Console.Write("\t");
+
+            for (int i = 0; i < aula.nombreAsignaturas.Length; i++) // Nombres de asignaturas
+            {
+                Console.Write(aula.nombreAsignaturas[i] + "\t");
+            }
+
+            Console.WriteLine();
+
+            for (int i = 0; i < aula.notas.GetLength(0); i++)
+            {
+                if (i == numAlumno)
+                {
+                    Console.Write(aula.nombreAlumnos[i] + "\t"); // Nombres de alumnos
+
+                    for (int j = 0; j < aula.notas.GetLength(1); j++)
+                    {
+                        Console.Write(aula.notas[i, j] + "\t\t"); // Notas
+                    }
+                }
+            }
+
+            Console.WriteLine();
         }
 
         private void MuestraNotasAsignatura()
         {
+            int numAsignatura = 0;
 
+            do
+            {
+                Console.WriteLine("¿Número de asignatura? Num máximo de asignatura: " + nombreAsignaturas.Length);
+                numAsignatura = int.Parse(Console.ReadLine()) - 1;
+            } while (numAsignatura + 1 > nombreAsignaturas.Length || numAsignatura < 0);
+
+            Console.Write("\t");
+
+            for (int i = 0; i < aula.nombreAsignaturas.Length; i++) // Nombres de asignaturas
+            {
+                if (i == numAsignatura)
+                {
+                    Console.Write(aula.nombreAsignaturas[i] + "\t");
+                }
+            }
+
+            Console.WriteLine();
+
+            for (int i = 0; i < aula.notas.GetLength(0); i++)
+            {
+                Console.Write(aula.nombreAlumnos[i] + "\t"); // Nombres de alumnos
+
+                for (int j = 0; j < aula.notas.GetLength(1); j++)
+                {
+                    if (j == numAsignatura)
+                    {
+                        Console.Write(aula.notas[i, j] + "\t\t"); // Notas
+                    }
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.WriteLine();
         }
     }
 }

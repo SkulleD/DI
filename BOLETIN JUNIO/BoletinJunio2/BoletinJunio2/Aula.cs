@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -48,7 +49,7 @@ namespace BoletinJunio2
             {
                 for (int j = 0; j < notas.GetLength(1); j++)
                 {
-                    cont += notas[i,j];
+                    cont += notas[i, j];
                 }
             }
 
@@ -57,14 +58,48 @@ namespace BoletinJunio2
             return media;
         }
 
-        public void MediaAlumno()
+        public double MediaAlumno(int numAlumno)
         {
+            double cont = 0;
+            double total = nombreAlumnos.Length;
+            double media = 0;
 
+            for (int i = 0; i < notas.GetLength(0); i++)
+            {
+                for (int j = 0; j < notas.GetLength(1); j++)
+                {
+                    if (j == numAlumno)
+                    {
+                        cont += notas[i, j];
+                    }
+                }
+            }
+
+            media = cont / total;
+
+            return media;
         }
 
-        public void MediaAsignatura()
+        public double MediaAsignatura(int numAsignatura)
         {
+            double cont = 0;
+            double total = nombreAlumnos.Length;
+            double media = 0;
 
+            for (int i = 0; i < notas.GetLength(0); i++)
+            {
+                if (i == numAsignatura)
+                {
+                    for (int j = 0; j < notas.GetLength(1); j++)
+                    {
+                        cont += notas[i, j];
+                    }
+                }
+            }
+
+            media = cont / total;
+
+            return media;
         }
 
         public void NotaMaxMinAlumno()
@@ -72,9 +107,22 @@ namespace BoletinJunio2
 
         }
 
-        public void DevuelveAprobados()
+        public Hashtable DevuelveAprobados()
         {
+            Hashtable hashtable = new Hashtable();
 
+            for (int i = 0; i < notas.GetLength(0); i++)
+            {
+                for (int j = 0; j < notas.GetLength(1); j++)
+                {
+                    if (notas[i, j] >= 5)
+                    {
+                        hashtable.Add(nombreAlumnos[j], notas[i, j]);
+                    }
+                }
+            }
+
+            return hashtable;
         }
     }
 }

@@ -40,9 +40,19 @@ namespace BoletinJunio2
 
         public double MediaNotasTabla()
         {
-            double media = notas.GetLength(0) + notas.GetLength(1);
+            double cont = 0;
             double total = nombreAlumnos.Length * nombreAsignaturas.Length;
-            media = media / total;
+            double media = 0;
+
+            for (int i = 0; i < notas.GetLength(0); i++)
+            {
+                for (int j = 0; j < notas.GetLength(1); j++)
+                {
+                    cont += notas[i,j];
+                }
+            }
+
+            media = cont / total;
 
             return media;
         }

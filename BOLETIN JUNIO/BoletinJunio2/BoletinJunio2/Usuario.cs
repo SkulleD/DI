@@ -75,20 +75,20 @@ namespace BoletinJunio2
         {
             Console.Write("\t");
 
-            for (int i = 0; i < aula.nombreAsignaturas.Length; i++) // Nombres de alumos
+            for (int i = 0; i < aula.nombreAsignaturas.Length; i++) // Nombres de asignaturas
             {
                 Console.Write(aula.nombreAsignaturas[i] + "\t");
             }
 
             Console.WriteLine();
 
-            for (int i = 0; i < aula.notas.GetLength(0); i++) // Notas
+            for (int i = 0; i < aula.notas.GetLength(0); i++) 
             {
-                Console.Write(aula.nombreAlumnos[i] + "\t");
+                Console.Write(aula.nombreAlumnos[i] + "\t"); // Nombres de alumnos
 
                 for (int j = 0; j < aula.notas.GetLength(1); j++)
                 {
-                    Console.Write(aula.notas[i, j] + "\t\t");
+                    Console.Write(aula.notas[i, j] + "\t\t"); // Notas
                 }
 
                 Console.WriteLine();

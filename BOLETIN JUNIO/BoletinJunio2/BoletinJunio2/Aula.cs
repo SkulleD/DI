@@ -103,9 +103,28 @@ namespace BoletinJunio2
             return media;
         }
 
-        public void NotaMaxMinAlumno()
+        public void NotaMaxMinAlumno(int numAlumno, ref int max, ref int min)
         {
+            for (int i = 0; i < notas.GetLength(0); i++)
+            {
+                if (i == numAlumno)
+                {
+                    for (int j = 0; j < notas.GetLength(1); j++)
+                    {
+                        if (max <= notas[i, j])
+                        {
+                            max = notas[i, j];
+                        }
 
+                        if (min >= notas[i, j])
+                        {
+                            min = notas[i, j];
+                        }
+                    }
+                }
+            }
+            //Console.WriteLine("Nota max:" + max);
+            //Console.WriteLine("Nota min:" + min);
         }
 
         public Hashtable DevuelveAprobados()

@@ -58,7 +58,9 @@ namespace BoletinJunio2
                             MuestraNotasAsignatura();
                             break;
                         case 7:
-
+                            int min = 10;
+                            int max = 0;
+                            aula.NotaMaxMinAlumno(0, ref max, ref min);
                             break;
                         case 8:
                             MuestraAprobados(aula.DevuelveAprobados());

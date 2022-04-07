@@ -9,10 +9,8 @@ namespace BoletinJunio1
     class Astro
     {
         // IMPORTANTES LOS CONSTRUCTORES
-        public Astro() //this
-        {
-            Nombre = "";
-            Radio = 0;
+        public Astro() : this("", 0)
+        {   
         }
 
         public Astro(string nombre, double radio)

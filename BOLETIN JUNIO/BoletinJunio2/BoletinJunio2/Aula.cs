@@ -61,14 +61,14 @@ namespace BoletinJunio2
         public double MediaAlumno(int numAlumno)
         {
             double cont = 0;
-            double total = nombreAlumnos.Length;
+            double total = nombreAsignaturas.Length;
             double media = 0;
 
             for (int i = 0; i < notas.GetLength(0); i++)
             {
-                for (int j = 0; j < notas.GetLength(1); j++)
+                if (i == numAlumno)
                 {
-                    if (j == numAlumno)
+                    for (int j = 0; j < notas.GetLength(1); j++)
                     {
                         cont += notas[i, j];
                     }
@@ -88,9 +88,10 @@ namespace BoletinJunio2
 
             for (int i = 0; i < notas.GetLength(0); i++)
             {
-                if (i == numAsignatura)
+
+                for (int j = 0; j < notas.GetLength(1); j++)
                 {
-                    for (int j = 0; j < notas.GetLength(1); j++)
+                    if (j == numAsignatura)
                     {
                         cont += notas[i, j];
                     }
@@ -110,6 +111,7 @@ namespace BoletinJunio2
         public Hashtable DevuelveAprobados()
         {
             Hashtable hashtable = new Hashtable();
+            int[] arrayExtra = new int[nombreAsignaturas.Length];
 
             for (int i = 0; i < notas.GetLength(0); i++)
             {
@@ -117,9 +119,11 @@ namespace BoletinJunio2
                 {
                     if (notas[i, j] >= 5)
                     {
-                        hashtable.Add(nombreAlumnos[j], notas[i, j]);
+                        arrayExtra[j] = notas[i, j];
                     }
                 }
+
+                hashtable.Add(nombreAlumnos[i], arrayExtra);
             }
 
             return hashtable;

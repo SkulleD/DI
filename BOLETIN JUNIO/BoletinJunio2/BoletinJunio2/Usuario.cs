@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -60,7 +61,7 @@ namespace BoletinJunio2
 
                             break;
                         case 8:
-                            Console.WriteLine(aula.DevuelveAprobados()); ;
+                            MuestraAprobados(aula.DevuelveAprobados());
                             break;
                         case 9:
                             Console.WriteLine("¡Hasta otra!");
@@ -76,7 +77,6 @@ namespace BoletinJunio2
             {
                 Console.WriteLine("Error de entrada.");
             }
-
         }
 
         private void MuestraNotasTabla()
@@ -176,6 +176,19 @@ namespace BoletinJunio2
             }
 
             Console.WriteLine();
+        }
+
+        public void MuestraAprobados(Hashtable hash)
+        {
+            foreach (DictionaryEntry entry in hash)
+            {
+                Console.Write("Nombre: {0}, Notas: {1}", entry.Key);
+
+                for (int i = 0; i < ((int[])entry.Value).Length; i++)
+                {
+                    Console.WriteLine("\t" + ((int[])entry.Value)[i]);
+                }
+            }
         }
     }
 }

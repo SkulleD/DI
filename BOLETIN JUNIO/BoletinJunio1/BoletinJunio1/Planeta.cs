@@ -24,19 +24,14 @@ namespace BoletinJunio1
             }
         }
 
-        public Planeta(string nombre, double radio, bool gaseoso)
+        public Planeta(string nombre, double radio, bool gaseoso) : base(nombre, radio)
         {
-            Nombre = nombre;
-            Radio = radio;
             Gaseoso = gaseoso;
             astrosList = new List<Astro>();
         }
 
-        public Planeta()
+        public Planeta() : this("", 0, false)
         {
-            Nombre = "";
-            Radio = 0;
-            Gaseoso = false;
         }
     }
 }

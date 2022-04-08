@@ -42,10 +42,11 @@ namespace BoletinJunio1
             program.astros.Add(new Planeta("Planeta2", 220000, true));
 
 
-            int menu;
-            try
+            int menu = 0;
+            int result;
+            do
             {
-                do
+                try
                 {
                     Console.WriteLine("Elige una opción\n" +
                                         "1- Añadir planeta\n" +
@@ -75,33 +76,22 @@ namespace BoletinJunio1
                             break;
                         default:
                             throw new FormatException();
-
                     }
-
-                } while (menu != 5);
-            }
-            catch (Exception ex) when (ex is FormatException || ex is ArgumentException || ex is OverflowException)
-            {
-                Console.WriteLine("Opción no válida.");
-            }
+                }
+                catch (Exception ex) when (ex is FormatException || ex is ArgumentException || ex is OverflowException)
+                {
+                    Console.WriteLine("Opción no válida.");
+                }
+            } while (menu != 5);
         }
 
         private void AddPlaneta()
         {
+            bool isNum = false;
+
             try
             {
-                do
-                {
-                    Console.WriteLine("Inserte el nombre del planeta");
-                    nombreAstro = Console.ReadLine();
-                } while (String.IsNullOrWhiteSpace(nombreAstro));
-
-                do
-                {
-                    Console.WriteLine("Inserte el radio del planeta");
-                    radioAstro = Convert.ToDouble(Console.ReadLine());
-
-                } while (String.IsNullOrWhiteSpace(radioAstro.ToString()) || !checkNumber(radioAstro));
+                EnterDatos("planeta");
 
                 do
                 {
@@ -114,8 +104,8 @@ namespace BoletinJunio1
                 do
                 {
                     Console.WriteLine("¿Número de lunas del planeta?");
-                    numLunas = Convert.ToInt32(Console.ReadLine());
-                } while (String.IsNullOrWhiteSpace(numLunas.ToString()) || numLunas < 0);
+                    isNum = int.TryParse(Console.ReadLine(), out numLunas);
+                } while (String.IsNullOrWhiteSpace(numLunas.ToString()) || numLunas < 0 || !isNum);
 
                 astros.Add(planeta = new Planeta(nombreAstro, radioAstro, isGaseosoFinal));
                 planeta.astrosList = new List<Astro>();
@@ -145,48 +135,37 @@ namespace BoletinJunio1
 
         private void AddAstro()
         {
-            try
-            {
-                do
-                {
-                    Console.WriteLine("Inserte el nombre del astro");
-                    nombreAstro = Console.ReadLine();
-                } while (String.IsNullOrWhiteSpace(nombreAstro));
+            EnterDatos("astro");
 
-                do
-                {
-                    Console.WriteLine("Inserte el radio del astro");
-                    radioAstro = Convert.ToDouble(Console.ReadLine());
-                } while (String.IsNullOrWhiteSpace(radioAstro.ToString()) || !checkNumber(radioAstro));
-
-                if (!lunaOrAstro)
-                {
-                    astros.Add(new Astro(nombreAstro, radioAstro));
-                }
-            }
-            catch (Exception ex) when (ex is FormatException || ex is ArgumentException || ex is OverflowException)
+            if (!lunaOrAstro)
             {
-                Console.WriteLine("Error.");
-            }
-            catch (RadioNegativoException)
-            {
-                Console.WriteLine("Error: el radio no puede ser negativo.");
+                astros.Add(new Astro(nombreAstro, radioAstro));
             }
         }
 
-        private bool checkNumber(double radio)
+        private void EnterDatos(string nombre)
         {
-            string checkIfNumber = "";
-            bool isNumber = false;
+            bool isNum = false;
 
-            checkIfNumber = radio.ToString();
-
-            if (double.TryParse(checkIfNumber, out double result))
+            do
             {
-                isNumber = true;
-            }
+                try
+                {
+                    Console.WriteLine("Inserte el nombre del " + nombre);
+                    nombreAstro = Console.ReadLine();
+                }
+                catch (Exception ex) when (ex is FormatException || ex is ArgumentException || ex is OverflowException)
+                {
+                    Console.WriteLine("Error.");
+                }
+            } while (String.IsNullOrWhiteSpace(nombreAstro));
 
-            return isNumber;
+            do
+            {
+                Console.WriteLine("Inserte el radio del astro");
+                isNum = double.TryParse(Console.ReadLine(), out radioAstro);
+
+            } while (String.IsNullOrWhiteSpace(radioAstro.ToString()) || !isNum);
         }
 
         private void MuestraDatos()

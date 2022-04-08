@@ -18,14 +18,15 @@ namespace BoletinJunio2
             aula = new Aula(nombreAlumnos, nombreAsignaturas);
         }
 
-        public void Menu()
+        public void Menu()  //Sale del menu si fallo
         {
             int opcion = 0;
 
-            try
+            do
             {
-                do
+                try
                 {
+
                     Console.WriteLine("1- Visualizar tabla completa\n" +
                         "2- Calcular media de notas de toda la tabla\n" +
                         "3- Media de un alumno\n" +
@@ -73,15 +74,15 @@ namespace BoletinJunio2
                             Console.WriteLine("Opción no válida.");
                             break;
                     }
-                } while (opcion != 9);
-            }
-            catch (Exception ex) when (ex is FormatException)
-            {
-                Console.WriteLine("Error de entrada.");
-            }
+                }
+                catch (Exception ex) when (ex is FormatException)
+                {
+                    Console.WriteLine("Error de entrada.");
+                }
+            } while (opcion != 9);
         }
 
-        private void MuestraNotasTabla()
+        private void MuestraNotasTabla()  //Con cadenas de formato no tabuladores
         {
             Console.Write("\t");
 
@@ -124,7 +125,7 @@ namespace BoletinJunio2
 
             Console.WriteLine();
 
-            for (int i = 0; i < aula.notas.GetLength(0); i++)
+            for (int i = 0; i < aula.notas.GetLength(0); i++)  //Sobra 1 bucle
             {
                 if (i == numAlumno)
                 {
@@ -152,7 +153,7 @@ namespace BoletinJunio2
 
             Console.Write("\t");
 
-            for (int i = 0; i < aula.nombreAsignaturas.Length; i++) // Nombres de asignaturas
+            for (int i = 0; i < aula.nombreAsignaturas.Length; i++) // Nombres de asignaturas   //Sobra el bucle
             {
                 if (i == numAsignatura)
                 {
@@ -166,7 +167,7 @@ namespace BoletinJunio2
             {
                 Console.Write(aula.nombreAlumnos[i] + "\t"); // Nombres de alumnos
 
-                for (int j = 0; j < aula.notas.GetLength(1); j++)
+                for (int j = 0; j < aula.notas.GetLength(1); j++)  //Sobra 1 bucle
                 {
                     if (j == numAsignatura)
                     {

@@ -42,7 +42,7 @@ namespace BoletinJunio2
         public double MediaNotasTabla()
         {
             double cont = 0;
-            double total = nombreAlumnos.Length * nombreAsignaturas.Length;
+            double total = notas.Length;// nombreAlumnos.Length * nombreAsignaturas.Length;
             double media = 0;
 
             for (int i = 0; i < notas.GetLength(0); i++)
@@ -58,7 +58,7 @@ namespace BoletinJunio2
             return media;
         }
 
-        public double MediaAlumno(int numAlumno)
+        public double MediaAlumno(int numAlumno)  //Solo 1 bucle
         {
             double cont = 0;
             double total = nombreAsignaturas.Length;
@@ -80,7 +80,7 @@ namespace BoletinJunio2
             return media;
         }
 
-        public double MediaAsignatura(int numAsignatura)
+        public double MediaAsignatura(int numAsignatura)  //Solo 1 bucle
         {
             double cont = 0;
             double total = nombreAlumnos.Length;
@@ -103,7 +103,7 @@ namespace BoletinJunio2
             return media;
         }
 
-        public void NotaMaxMinAlumno(int numAlumno, ref int max, ref int min)
+        public void NotaMaxMinAlumno(int numAlumno, ref int max, ref int min)  //Solo 1 bucle
         {
             for (int i = 0; i < notas.GetLength(0); i++)
             {
@@ -127,7 +127,7 @@ namespace BoletinJunio2
             //Console.WriteLine("Nota min:" + min);
         }
 
-        public Hashtable DevuelveAprobados()
+        public Hashtable DevuelveAprobados()   //Revisar
         {
             Hashtable hashtable = new Hashtable();
             int[] arrayExtra = new int[nombreAsignaturas.Length];

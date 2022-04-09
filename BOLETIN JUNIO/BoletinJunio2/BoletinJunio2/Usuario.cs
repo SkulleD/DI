@@ -15,6 +15,16 @@ namespace BoletinJunio2
 
         public Usuario()
         {
+            for (int i = 0; i < nombreAlumnos.Length; i++) // Rellena array de nombres alumnos
+            {
+                this.nombreAlumnos[i] = "Alumno " + (i + 1);
+            }
+
+            for (int i = 0; i < nombreAsignaturas.Length; i++) // Rellena array de nombres asignaturas
+            {
+                this.nombreAsignaturas[i] = "Asignatura " + (i + 1);
+            }
+
             aula = new Aula(nombreAlumnos, nombreAsignaturas);
         }
 
@@ -44,13 +54,13 @@ namespace BoletinJunio2
                             MuestraNotasTabla();
                             break;
                         case 2:
-                            Console.WriteLine("Media de notas: " + aula.MediaNotasTabla());
+                            Console.WriteLine(string.Format("Media de notas: {0:0.00}", aula.MediaNotasTabla()));
                             break;
                         case 3:
-                            Console.WriteLine("Media de alumno: " + aula.MediaAlumno(0));
+                            Console.WriteLine(string.Format("Media de alumno: {0:0.00} ", aula.MediaAlumno(0)));
                             break;
                         case 4:
-                            Console.WriteLine("Media de asignatura: " + aula.MediaAsignatura(0));
+                            Console.WriteLine(string.Format("Media de asignatura: {0:0.00}", aula.MediaAsignatura(0)));
                             break;
                         case 5:
                             MuestraNotasAlumno();
@@ -62,6 +72,7 @@ namespace BoletinJunio2
                             int min = 10;
                             int max = 0;
                             aula.NotaMaxMinAlumno(0, ref max, ref min);
+                            Console.WriteLine($"Nota máxima: {max}\nNota mínima: {min}");
                             break;
                         case 8:
                             MuestraAprobados(aula.DevuelveAprobados());
@@ -86,16 +97,16 @@ namespace BoletinJunio2
         {
             Console.Write("\t");
 
-            for (int i = 0; i < aula.nombreAsignaturas.Length; i++) // Nombres de asignaturas
+            for (int i = 0; i < nombreAsignaturas.Length; i++) // Nombres de asignaturas
             {
-                Console.Write(aula.nombreAsignaturas[i] + "\t");
+                Console.Write(nombreAsignaturas[i] + "\t");
             }
 
             Console.WriteLine();
 
             for (int i = 0; i < aula.notas.GetLength(0); i++)
             {
-                Console.Write(aula.nombreAlumnos[i] + "\t"); // Nombres de alumnos
+                Console.Write(nombreAlumnos[i] + "\t"); // Nombres de alumnos
 
                 for (int j = 0; j < aula.notas.GetLength(1); j++)
                 {
@@ -118,24 +129,19 @@ namespace BoletinJunio2
 
             Console.Write("\t");
 
-            for (int i = 0; i < aula.nombreAsignaturas.Length; i++) // Nombres de asignaturas
+            for (int i = 0; i < nombreAsignaturas.Length; i++) // Nombres de asignaturas
             {
-                Console.Write(aula.nombreAsignaturas[i] + "\t");
+                Console.Write(nombreAsignaturas[i] + "\t");
             }
 
             Console.WriteLine();
 
-            for (int i = 0; i < aula.notas.GetLength(0); i++)  //Sobra 1 bucle
-            {
-                if (i == numAlumno)
-                {
-                    Console.Write(aula.nombreAlumnos[i] + "\t"); // Nombres de alumnos
+            // (Sobraba un bucle)
+            Console.Write(nombreAlumnos[numAlumno] + "\t"); // Nombres de alumnos
 
-                    for (int j = 0; j < aula.notas.GetLength(1); j++)
-                    {
-                        Console.Write(aula.notas[i, j] + "\t\t"); // Notas
-                    }
-                }
+            for (int i = 0; i < aula.notas.GetLength(1); i++)
+            {
+                Console.Write(aula.notas[numAlumno, i] + "\t\t"); // Notas
             }
 
             Console.WriteLine();
@@ -153,32 +159,17 @@ namespace BoletinJunio2
 
             Console.Write("\t");
 
-            for (int i = 0; i < aula.nombreAsignaturas.Length; i++) // Nombres de asignaturas   //Sobra el bucle
-            {
-                if (i == numAsignatura)
-                {
-                    Console.Write(aula.nombreAsignaturas[i] + "\t");
-                }
-            }
+            // (Sobraba un bucle)
+            Console.WriteLine(nombreAsignaturas[numAsignatura] + "\t"); // Nombres de asignaturas
 
-            Console.WriteLine();
-
+            // (Sobraba un bucle)
             for (int i = 0; i < aula.notas.GetLength(0); i++)
             {
-                Console.Write(aula.nombreAlumnos[i] + "\t"); // Nombres de alumnos
-
-                for (int j = 0; j < aula.notas.GetLength(1); j++)  //Sobra 1 bucle
-                {
-                    if (j == numAsignatura)
-                    {
-                        Console.Write(aula.notas[i, j] + "\t\t"); // Notas
-                    }
-                }
+                Console.Write(nombreAlumnos[i] + "\t"); // Nombres de alumnos
+                Console.Write(aula.notas[i, numAsignatura] + "\t\t"); // Notas
 
                 Console.WriteLine();
             }
-
-            Console.WriteLine();
         }
 
         public void MuestraAprobados(Hashtable hash)

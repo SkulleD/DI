@@ -20,16 +20,6 @@ namespace BoletinJunio2
             this.nombreAlumnos = new string[nombreAlumnos.Length];
             this.nombreAsignaturas = new string[nombreAsignaturas.Length];
 
-            for (int i = 0; i < this.nombreAlumnos.Length; i++) // Rellena array de nombres alumnos
-            {
-                this.nombreAlumnos[i] = "Alumno " + (i + 1);
-            }
-
-            for (int i = 0; i < this.nombreAsignaturas.Length; i++) // Rellena array de nombres asignaturas
-            {
-                this.nombreAsignaturas[i] = "Asignatura " + (i + 1);
-            }
-
             for (int i = 0; i < notas.GetLength(0); i++) // Rellena array de notas
             {
                 for (int j = 0; j < notas.GetLength(1); j++)
@@ -43,7 +33,6 @@ namespace BoletinJunio2
         {
             double cont = 0;
             double total = notas.Length;// nombreAlumnos.Length * nombreAsignaturas.Length;
-            double media = 0;
 
             for (int i = 0; i < notas.GetLength(0); i++)
             {
@@ -53,96 +42,74 @@ namespace BoletinJunio2
                 }
             }
 
-            media = cont / total;
-
-            return media;
+            return cont / total;
         }
 
         public double MediaAlumno(int numAlumno)  //Solo 1 bucle
         {
             double cont = 0;
             double total = nombreAsignaturas.Length;
-            double media = 0;
 
-            for (int i = 0; i < notas.GetLength(0); i++)
+            for (int i = 0; i < notas.GetLength(1); i++)
             {
-                if (i == numAlumno)
-                {
-                    for (int j = 0; j < notas.GetLength(1); j++)
-                    {
-                        cont += notas[i, j];
-                    }
-                }
+                cont += notas[numAlumno, i];
             }
 
-            media = cont / total;
-
-            return media;
+            return cont / total;
         }
 
         public double MediaAsignatura(int numAsignatura)  //Solo 1 bucle
         {
             double cont = 0;
             double total = nombreAlumnos.Length;
-            double media = 0;
 
             for (int i = 0; i < notas.GetLength(0); i++)
             {
-
-                for (int j = 0; j < notas.GetLength(1); j++)
-                {
-                    if (j == numAsignatura)
-                    {
-                        cont += notas[i, j];
-                    }
-                }
+                cont += notas[i, numAsignatura];
             }
 
-            media = cont / total;
-
-            return media;
+            return cont / total;
         }
 
         public void NotaMaxMinAlumno(int numAlumno, ref int max, ref int min)  //Solo 1 bucle
         {
-            for (int i = 0; i < notas.GetLength(0); i++)
+            for (int i = 0; i < notas.GetLength(1); i++)
             {
-                if (i == numAlumno)
+                if (max <= notas[numAlumno, i])
                 {
-                    for (int j = 0; j < notas.GetLength(1); j++)
-                    {
-                        if (max <= notas[i, j])
-                        {
-                            max = notas[i, j];
-                        }
+                    max = notas[numAlumno, i];
+                }
 
-                        if (min >= notas[i, j])
-                        {
-                            min = notas[i, j];
-                        }
-                    }
+                if (min >= notas[numAlumno, i])
+                {
+                    min = notas[numAlumno, i];
                 }
             }
-            //Console.WriteLine("Nota max:" + max);
-            //Console.WriteLine("Nota min:" + min);
         }
 
         public Hashtable DevuelveAprobados()   //Revisar
         {
             Hashtable hashtable = new Hashtable();
-            int[] arrayExtra = new int[nombreAsignaturas.Length];
+            int cont = 0;
 
             for (int i = 0; i < notas.GetLength(0); i++)
             {
+                int[] arrayExtra = new int[nombreAsignaturas.Length];
+                cont = 0;
+
                 for (int j = 0; j < notas.GetLength(1); j++)
                 {
                     if (notas[i, j] >= 5)
                     {
                         arrayExtra[j] = notas[i, j];
+                        cont++;
+
+                        if (cont == nombreAsignaturas.Length)
+                        {
+                            hashtable.Add(nombreAlumnos[i], arrayExtra = new int[nombreAsignaturas.Length]);
+                        }
                     }
                 }
-
-                hashtable.Add(nombreAlumnos[i], arrayExtra);
             }
 
             return hashtable;

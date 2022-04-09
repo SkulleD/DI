@@ -55,7 +55,7 @@ namespace BoletinJunio1
                     throw new RadioNegativoException("Error: el radio no puede ser negativo.");
                 }
 
-                radio = value; //Math.Round(value, 2, MidpointRounding.AwayFromZero);
+                radio = value;
             }
 
             get

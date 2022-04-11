@@ -18,6 +18,7 @@ namespace BoletinJunio2
         {
             notas = new int[nombreAlumnos.Length, nombreAsignaturas.Length];
             this.nombreAlumnos = new string[nombreAlumnos.Length];
+            this.nombreAlumnos = nombreAlumnos;
             this.nombreAsignaturas = new string[nombreAsignaturas.Length];
 
             for (int i = 0; i < notas.GetLength(0); i++) // Rellena array de notas
@@ -91,10 +92,10 @@ namespace BoletinJunio2
         {
             Hashtable hashtable = new Hashtable();
             int cont = 0;
+            int[] arrayExtra = new int[nombreAsignaturas.Length];
 
             for (int i = 0; i < notas.GetLength(0); i++)
             {
-                int[] arrayExtra = new int[nombreAsignaturas.Length];
                 cont = 0;
 
                 for (int j = 0; j < notas.GetLength(1); j++)
@@ -106,10 +107,12 @@ namespace BoletinJunio2
 
                         if (cont == nombreAsignaturas.Length)
                         {
-                            hashtable.Add(nombreAlumnos[i], arrayExtra = new int[nombreAsignaturas.Length]);
+                            hashtable.Add(nombreAlumnos[i], arrayExtra);
                         }
                     }
                 }
+
+                arrayExtra = new int[nombreAsignaturas.Length];
             }
 
             return hashtable;

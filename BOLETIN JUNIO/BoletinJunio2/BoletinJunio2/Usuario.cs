@@ -176,12 +176,14 @@ namespace BoletinJunio2
         {
             foreach (DictionaryEntry entry in hash)
             {
-                Console.Write("Nombre: {0}, Notas: {1}", entry.Key);
+                Console.Write("Nombre: {0}\nNotas: ", entry.Key);
 
                 for (int i = 0; i < ((int[])entry.Value).Length; i++)
                 {
-                    Console.WriteLine("\t" + ((int[])entry.Value)[i]);
+                    Console.Write(((int[])entry.Value)[i] + " ");
                 }
+
+                Console.WriteLine();
             }
         }
     }

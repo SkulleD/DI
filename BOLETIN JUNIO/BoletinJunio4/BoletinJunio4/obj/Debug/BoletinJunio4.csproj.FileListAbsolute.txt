@@ -1,0 +1,10 @@
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio4\BoletinJunio4\bin\Debug\BoletinJunio4.exe.config
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio4\BoletinJunio4\bin\Debug\BoletinJunio4.exe
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio4\BoletinJunio4\bin\Debug\BoletinJunio4.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio4\BoletinJunio4\obj\Debug\BoletinJunio4.csprojAssemblyReference.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio4\BoletinJunio4\obj\Debug\BoletinJunio4.Form1.resources
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio4\BoletinJunio4\obj\Debug\BoletinJunio4.Properties.Resources.resources
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio4\BoletinJunio4\obj\Debug\BoletinJunio4.csproj.GenerateResource.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio4\BoletinJunio4\obj\Debug\BoletinJunio4.csproj.CoreCompileInputs.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio4\BoletinJunio4\obj\Debug\BoletinJunio4.exe
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio4\BoletinJunio4\obj\Debug\BoletinJunio4.pdb

@@ -57,10 +57,10 @@ namespace BoletinJunio2
                             Console.WriteLine(string.Format("Media de notas: {0:0.00}", aula.MediaNotasTabla()));
                             break;
                         case 3:
-                            Console.WriteLine(string.Format("Media de alumno: {0:0.00} ", aula.MediaAlumno(0)));
+                            Console.WriteLine(string.Format("Media de alumno: {0:0.00} ", aula.MediaAlumno(EnterAlumno())));
                             break;
                         case 4:
-                            Console.WriteLine(string.Format("Media de asignatura: {0:0.00}", aula.MediaAsignatura(0)));
+                            Console.WriteLine(string.Format("Media de asignatura: {0:0.00}", aula.MediaAsignatura(EnterAsignatura())));
                             break;
                         case 5:
                             MuestraNotasAlumno();
@@ -71,7 +71,7 @@ namespace BoletinJunio2
                         case 7:
                             int min = 10;
                             int max = 0;
-                            aula.NotaMaxMinAlumno(0, ref max, ref min);
+                            aula.NotaMaxMinAlumno(EnterAlumno(), ref max, ref min);
                             Console.WriteLine($"Nota máxima: {max}\nNota mínima: {min}");
                             break;
                         case 8:
@@ -86,7 +86,7 @@ namespace BoletinJunio2
                             break;
                     }
                 }
-                catch (Exception ex) when (ex is FormatException)
+                catch (Exception ex) when (ex is FormatException || ex is OverflowException || ex is ArgumentException)
                 {
                     Console.WriteLine("Error de entrada.");
                 }
@@ -119,13 +119,7 @@ namespace BoletinJunio2
 
         private void MuestraNotasAlumno()
         {
-            int numAlumno = 0;
-
-            do
-            {
-                Console.WriteLine("¿Número de alumno? Num máximo de alumno: " + nombreAlumnos.Length);
-                numAlumno = int.Parse(Console.ReadLine()) - 1;
-            } while (numAlumno + 1 > nombreAlumnos.Length || numAlumno < 0);
+            int num = EnterAlumno();
 
             Console.Write("\t");
 
@@ -137,11 +131,11 @@ namespace BoletinJunio2
             Console.WriteLine();
 
             // (Sobraba un bucle)
-            Console.Write(nombreAlumnos[numAlumno] + "\t"); // Nombres de alumnos
+            Console.Write(nombreAlumnos[num] + "\t"); // Nombres de alumnos
 
             for (int i = 0; i < aula.notas.GetLength(1); i++)
             {
-                Console.Write(aula.notas[numAlumno, i] + "\t\t"); // Notas
+                Console.Write(aula.notas[num, i] + "\t\t"); // Notas
             }
 
             Console.WriteLine();
@@ -149,24 +143,18 @@ namespace BoletinJunio2
 
         private void MuestraNotasAsignatura()
         {
-            int numAsignatura = 0;
-
-            do
-            {
-                Console.WriteLine("¿Número de asignatura? Num máximo de asignatura: " + nombreAsignaturas.Length);
-                numAsignatura = int.Parse(Console.ReadLine()) - 1;
-            } while (numAsignatura + 1 > nombreAsignaturas.Length || numAsignatura < 0);
+            int num = EnterAsignatura();
 
             Console.Write("\t");
 
             // (Sobraba un bucle)
-            Console.WriteLine(nombreAsignaturas[numAsignatura] + "\t"); // Nombres de asignaturas
+            Console.WriteLine(nombreAsignaturas[num] + "\t"); // Nombres de asignaturas
 
             // (Sobraba un bucle)
             for (int i = 0; i < aula.notas.GetLength(0); i++)
             {
                 Console.Write(nombreAlumnos[i] + "\t"); // Nombres de alumnos
-                Console.Write(aula.notas[i, numAsignatura] + "\t\t"); // Notas
+                Console.Write(aula.notas[i, num] + "\t\t"); // Notas
 
                 Console.WriteLine();
             }
@@ -185,6 +173,47 @@ namespace BoletinJunio2
 
                 Console.WriteLine();
             }
+        }
+
+        private int EnterAlumno()
+        {
+            int numAlumno = 0;
+
+            do
+            {
+                try
+                {
+                    Console.WriteLine("¿Número de alumno? Num máximo de alumno: " + nombreAlumnos.Length);
+                    numAlumno = int.Parse(Console.ReadLine()) - 1;
+                }
+                catch (Exception ex) when (ex is FormatException || ex is ArgumentException || ex is OverflowException)
+                {
+                    Console.WriteLine("Error de entrada.");
+                }
+
+            } while (numAlumno + 1 > nombreAlumnos.Length || numAlumno < 0);
+
+            return numAlumno;
+        }
+
+        private int EnterAsignatura()
+        {
+            int numAsignatura = 0;
+
+            do
+            {
+                try
+                {
+                    Console.WriteLine("¿Número de asignatura? Num máximo de asignatura: " + nombreAsignaturas.Length);
+                    numAsignatura = int.Parse(Console.ReadLine()) - 1;
+                }
+                catch (Exception ex) when (ex is FormatException || ex is ArgumentException || ex is OverflowException)
+                {
+                    Console.WriteLine("Error de entrada.");
+                }
+            } while (numAsignatura + 1 > nombreAsignaturas.Length || numAsignatura < 0);
+
+            return numAsignatura;
         }
     }
 }

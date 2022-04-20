@@ -95,22 +95,23 @@ namespace BoletinJunio2
 
         private void MuestraNotasTabla()  //Con cadenas de formato no tabuladores
         {
-            Console.Write("\t");
+            string tabulacion = String.Format("{0,9}", "");
+            Console.Write(tabulacion);
 
             for (int i = 0; i < nombreAsignaturas.Length; i++) // Nombres de asignaturas
             {
-                Console.Write(nombreAsignaturas[i] + "\t");
+                Console.Write(nombreAsignaturas[i] + tabulacion);
             }
 
             Console.WriteLine();
 
             for (int i = 0; i < aula.notas.GetLength(0); i++)
             {
-                Console.Write(nombreAlumnos[i] + "\t"); // Nombres de alumnos
+                Console.Write(nombreAlumnos[i] + tabulacion); // Nombres de alumnos
 
                 for (int j = 0; j < aula.notas.GetLength(1); j++)
                 {
-                    Console.Write(aula.notas[i, j] + "\t\t"); // Notas
+                    Console.Write(aula.notas[i, j] + tabulacion + tabulacion); // Notas
                 }
 
                 Console.WriteLine();
@@ -119,23 +120,24 @@ namespace BoletinJunio2
 
         private void MuestraNotasAlumno()
         {
+            string tabulacion = String.Format("{0,9}", "");
             int num = EnterAlumno();
 
-            Console.Write("\t");
+            Console.Write(tabulacion);
 
             for (int i = 0; i < nombreAsignaturas.Length; i++) // Nombres de asignaturas
             {
-                Console.Write(nombreAsignaturas[i] + "\t");
+                Console.Write(nombreAsignaturas[i] + tabulacion);
             }
 
             Console.WriteLine();
 
             // (Sobraba un bucle)
-            Console.Write(nombreAlumnos[num] + "\t"); // Nombres de alumnos
+            Console.Write(nombreAlumnos[num] + tabulacion); // Nombres de alumnos
 
             for (int i = 0; i < aula.notas.GetLength(1); i++)
             {
-                Console.Write(aula.notas[num, i] + "\t\t"); // Notas
+                Console.Write(aula.notas[num, i] + tabulacion + tabulacion); // Notas
             }
 
             Console.WriteLine();
@@ -143,18 +145,19 @@ namespace BoletinJunio2
 
         private void MuestraNotasAsignatura()
         {
+            string tabulacion = String.Format("{0,9}", "");
             int num = EnterAsignatura();
 
-            Console.Write("\t");
+            Console.Write(tabulacion);
 
             // (Sobraba un bucle)
-            Console.WriteLine(nombreAsignaturas[num] + "\t"); // Nombres de asignaturas
+            Console.WriteLine(nombreAsignaturas[num] + tabulacion); // Nombres de asignaturas
 
             // (Sobraba un bucle)
             for (int i = 0; i < aula.notas.GetLength(0); i++)
             {
-                Console.Write(nombreAlumnos[i] + "\t"); // Nombres de alumnos
-                Console.Write(aula.notas[i, num] + "\t\t"); // Notas
+                Console.Write(nombreAlumnos[i] + tabulacion); // Nombres de alumnos
+                Console.Write(aula.notas[i, num] + tabulacion + tabulacion); // Notas
 
                 Console.WriteLine();
             }

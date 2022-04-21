@@ -10,7 +10,7 @@ namespace BoletinJunio2
     class Usuario
     {
         string[] nombreAlumnos = new string[5];
-        string[] nombreAsignaturas = new string[3];
+        string[] nombreAsignaturas = new string[4];
         Aula aula;
 
         public Usuario()
@@ -103,7 +103,7 @@ namespace BoletinJunio2
                 Console.Write(nombreAsignaturas[i] + tabulacion);
             }
 
-            Console.WriteLine();
+            Console.WriteLine(tabulacion);
 
             for (int i = 0; i < aula.notas.GetLength(0); i++)
             {
@@ -114,7 +114,7 @@ namespace BoletinJunio2
                     Console.Write(aula.notas[i, j] + tabulacion + tabulacion); // Notas
                 }
 
-                Console.WriteLine();
+                Console.WriteLine(tabulacion);
             }
         }
 
@@ -130,7 +130,7 @@ namespace BoletinJunio2
                 Console.Write(nombreAsignaturas[i] + tabulacion);
             }
 
-            Console.WriteLine();
+            Console.WriteLine(tabulacion);
 
             // (Sobraba un bucle)
             Console.Write(nombreAlumnos[num] + tabulacion); // Nombres de alumnos
@@ -140,7 +140,7 @@ namespace BoletinJunio2
                 Console.Write(aula.notas[num, i] + tabulacion + tabulacion); // Notas
             }
 
-            Console.WriteLine();
+            Console.WriteLine(tabulacion);
         }
 
         private void MuestraNotasAsignatura()
@@ -157,9 +157,9 @@ namespace BoletinJunio2
             for (int i = 0; i < aula.notas.GetLength(0); i++)
             {
                 Console.Write(nombreAlumnos[i] + tabulacion); // Nombres de alumnos
-                Console.Write(aula.notas[i, num] + tabulacion + tabulacion); // Notas
+                Console.Write(aula.notas[i, num] + tabulacion); // Notas
 
-                Console.WriteLine();
+                Console.WriteLine(tabulacion);
             }
         }
 

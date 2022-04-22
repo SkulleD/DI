@@ -9,7 +9,7 @@ namespace BoletinJunio2
 {
     class Usuario
     {
-        string[] nombreAlumnos = new string[5];
+        string[] nombreAlumnos = new string[7];
         string[] nombreAsignaturas = new string[4];
         Aula aula;
 
@@ -95,71 +95,68 @@ namespace BoletinJunio2
 
         private void MuestraNotasTabla()  //Con cadenas de formato no tabuladores
         {
-            string tabulacion = String.Format("{0,9}", "");
-            Console.Write(tabulacion);
+            Console.Write($"{"",10}");
 
             for (int i = 0; i < nombreAsignaturas.Length; i++) // Nombres de asignaturas
             {
-                Console.Write(nombreAsignaturas[i] + tabulacion);
+                Console.Write($"{nombreAsignaturas[i],15}");
             }
 
-            Console.WriteLine(tabulacion);
+            Console.WriteLine();
 
             for (int i = 0; i < aula.notas.GetLength(0); i++)
             {
-                Console.Write(nombreAlumnos[i] + tabulacion); // Nombres de alumnos
+                Console.Write(nombreAlumnos[i]); // Nombres de alumnos
 
                 for (int j = 0; j < aula.notas.GetLength(1); j++)
                 {
-                    Console.Write(aula.notas[i, j] + tabulacion + tabulacion); // Notas
+                    Console.Write($"{aula.notas[i, j],15}"); // Notas
                 }
 
-                Console.WriteLine(tabulacion);
+                Console.WriteLine();
             }
         }
 
         private void MuestraNotasAlumno()
         {
-            string tabulacion = String.Format("{0,9}", "");
             int num = EnterAlumno();
 
-            Console.Write(tabulacion);
+            Console.Write($"{"",10}");
 
             for (int i = 0; i < nombreAsignaturas.Length; i++) // Nombres de asignaturas
             {
-                Console.Write(nombreAsignaturas[i] + tabulacion);
+                Console.Write($"{nombreAsignaturas[i],15}");
             }
 
-            Console.WriteLine(tabulacion);
+            Console.WriteLine();
 
             // (Sobraba un bucle)
-            Console.Write(nombreAlumnos[num] + tabulacion); // Nombres de alumnos
+            Console.Write(nombreAlumnos[num]); // Nombres de alumnos
 
             for (int i = 0; i < aula.notas.GetLength(1); i++)
             {
-                Console.Write(aula.notas[num, i] + tabulacion + tabulacion); // Notas
+                Console.Write($"{aula.notas[num, i],15}"); // Notas
             }
 
-            Console.WriteLine(tabulacion);
+            Console.WriteLine();
         }
 
         private void MuestraNotasAsignatura()
         {
-            string tabulacion = String.Format("{0,9}", "");
             int num = EnterAsignatura();
 
-            Console.Write(tabulacion);
+            Console.Write($"{"",10}");
 
             // (Sobraba un bucle)
-            Console.WriteLine(nombreAsignaturas[num] + tabulacion); // Nombres de asignaturas
+            Console.WriteLine(nombreAsignaturas[num]); // Nombres de asignaturas
 
             // (Sobraba un bucle)
             for (int i = 0; i < aula.notas.GetLength(0); i++)
             {
-                Console.Write(nombreAlumnos[i] + tabulacion); // Nombres de alumnos
-                Console.Write(aula.notas[i, num] + tabulacion); // Notas
+                Console.Write(nombreAlumnos[i]); // Nombres de alumnos
+                Console.Write($"{aula.notas[i, num],10}"); // Notas
 
-                Console.WriteLine(tabulacion);
+                Console.WriteLine();
             }
         }
 

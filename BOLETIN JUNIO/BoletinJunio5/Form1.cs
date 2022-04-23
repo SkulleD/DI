@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,21 @@ namespace BoletinJunio5
     {
         ToolTip tooltip;
 
+        // Variables usadas para el timer
+        string directory = Directory.GetCurrentDirectory();
+        double ms = 0;
+        bool iconChanged = false;
+
+        char letraTitulo;
+        string tituloOriginal = "Junio 5";
+        int titleLength;
+        int i = 0;
+
         public Form1()
         {
             InitializeComponent();
+
+            titleLength = Text.Length;
 
             tooltip = new ToolTip();
             tooltip.SetToolTip(btnAdd, "Añade un elemento a la Lista 1");
@@ -47,6 +60,7 @@ namespace BoletinJunio5
                     listBox1.Items.Remove(listBox1.SelectedItems[i]);
                 }
             }
+
         }   
 
         private void btnToRight_Click(object sender, EventArgs e) // PASAR DE LISTA 1 A LISTA 2
@@ -63,8 +77,6 @@ namespace BoletinJunio5
                     listBox1.Items.Remove(listBox1.SelectedItems[i]);
                 }
             }
-
-            tooltip.SetToolTip(listBox2, $"Nº de elementos actualmente: {listBox2.Items.Count}");
         }
 
         private void btnToLeft_Click(object sender, EventArgs e)
@@ -74,13 +86,55 @@ namespace BoletinJunio5
                 listBox1.Items.Insert(0, listBox2.SelectedItem);
                 listBox2.Items.Remove(listBox2.SelectedItem);
             }
+        }
 
-            tooltip.SetToolTip(listBox2, $"Nº de elementos actualmente: {listBox2.Items.Count}");
+        private void RecorreIndices() // Sirve para mostrar indices seleccionados de Lista 1
+        {
+            lblSeleccionados.Text = "Seleccionados: ";
+
+            if (listBox1.SelectedIndices.Count > 0)
+            {
+                foreach (int indice in listBox1.SelectedIndices)
+                {
+                    lblSeleccionados.Text += $"{indice}, ";
+                }
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            lblNumElementos.Text = $"Nº Elementos: {listBox1.Items.Count}";
+            tooltip.SetToolTip(listBox2, $"Nº de elementos actualmente: {listBox2.Items.Count}");
 
+            RecorreIndices();
+
+            if (Text.Equals(tituloOriginal))
+            {
+                i = titleLength - 1;
+                Text = "";
+            }
+
+            letraTitulo = tituloOriginal[i];
+            Text += letraTitulo;
+            i--;
+
+            if (ms == 100) // Para que no aumente infinitamente
+            {
+                ms = 0;
+            }
+
+            ms++;
+
+            if ((ms % 2) == 0 && iconChanged == true)
+            {
+                Icon = new Icon(directory + "\\bocatagarto.ico");
+                iconChanged = false;
+            }
+            else
+            {
+                Icon = new Icon(directory + "\\burgallina.ico");
+                iconChanged = true;
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

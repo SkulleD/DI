@@ -40,13 +40,12 @@
             this.lblNumElementos = new System.Windows.Forms.Label();
             this.lblSeleccionados = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.MenuList2 = new System.Windows.Forms.MenuStrip();
             this.MenuList1 = new System.Windows.Forms.MenuStrip();
-            this.añadirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.traspasarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.traspasarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuList2.SuspendLayout();
+            this.btnAddMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRemoveMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnTraspasarMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnToRightMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnToLeftMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuList1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +53,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(13, 107);
+            this.listBox1.Location = new System.Drawing.Point(13, 86);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBox1.Size = new System.Drawing.Size(124, 196);
@@ -64,14 +63,14 @@
             // 
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(377, 107);
+            this.listBox2.Location = new System.Drawing.Point(377, 86);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(124, 196);
             this.listBox2.TabIndex = 7;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(210, 107);
+            this.btnAdd.Location = new System.Drawing.Point(210, 86);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(103, 23);
             this.btnAdd.TabIndex = 3;
@@ -81,7 +80,7 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(210, 161);
+            this.btnRemove.Location = new System.Drawing.Point(210, 140);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(103, 23);
             this.btnRemove.TabIndex = 4;
@@ -92,7 +91,7 @@
             // 
             // btnToRight
             // 
-            this.btnToRight.Location = new System.Drawing.Point(210, 222);
+            this.btnToRight.Location = new System.Drawing.Point(210, 201);
             this.btnToRight.Name = "btnToRight";
             this.btnToRight.Size = new System.Drawing.Size(103, 23);
             this.btnToRight.TabIndex = 5;
@@ -102,7 +101,7 @@
             // 
             // btnToLeft
             // 
-            this.btnToLeft.Location = new System.Drawing.Point(210, 280);
+            this.btnToLeft.Location = new System.Drawing.Point(210, 259);
             this.btnToLeft.Name = "btnToLeft";
             this.btnToLeft.Size = new System.Drawing.Size(103, 23);
             this.btnToLeft.TabIndex = 6;
@@ -112,7 +111,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 309);
+            this.textBox1.Location = new System.Drawing.Point(13, 288);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(124, 22);
             this.textBox1.TabIndex = 8;
@@ -120,7 +119,7 @@
             // lblNumElementos
             // 
             this.lblNumElementos.AutoSize = true;
-            this.lblNumElementos.Location = new System.Drawing.Point(13, 62);
+            this.lblNumElementos.Location = new System.Drawing.Point(13, 41);
             this.lblNumElementos.Name = "lblNumElementos";
             this.lblNumElementos.Size = new System.Drawing.Size(101, 17);
             this.lblNumElementos.TabIndex = 0;
@@ -129,7 +128,7 @@
             // lblSeleccionados
             // 
             this.lblSeleccionados.AutoSize = true;
-            this.lblSeleccionados.Location = new System.Drawing.Point(13, 87);
+            this.lblSeleccionados.Location = new System.Drawing.Point(13, 66);
             this.lblSeleccionados.Name = "lblSeleccionados";
             this.lblSeleccionados.Size = new System.Drawing.Size(108, 17);
             this.lblSeleccionados.TabIndex = 1;
@@ -138,59 +137,63 @@
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Interval = 200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // MenuList2
-            // 
-            this.MenuList2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.MenuList2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.traspasarToolStripMenuItem1});
-            this.MenuList2.Location = new System.Drawing.Point(0, 28);
-            this.MenuList2.Name = "MenuList2";
-            this.MenuList2.Size = new System.Drawing.Size(513, 28);
-            this.MenuList2.TabIndex = 9;
-            this.MenuList2.Text = "menuStrip1";
             // 
             // MenuList1
             // 
             this.MenuList1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.MenuList1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.añadirToolStripMenuItem,
-            this.eliminarToolStripMenuItem,
-            this.traspasarToolStripMenuItem});
+            this.btnAddMenu,
+            this.btnRemoveMenu,
+            this.btnTraspasarMenu});
             this.MenuList1.Location = new System.Drawing.Point(0, 0);
             this.MenuList1.Name = "MenuList1";
             this.MenuList1.Size = new System.Drawing.Size(513, 28);
             this.MenuList1.TabIndex = 10;
             this.MenuList1.Text = "menuStrip1";
             // 
-            // añadirToolStripMenuItem
+            // btnAddMenu
             // 
-            this.añadirToolStripMenuItem.Name = "añadirToolStripMenuItem";
-            this.añadirToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
-            this.añadirToolStripMenuItem.Text = "Añadir";
-            this.añadirToolStripMenuItem.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAddMenu.Name = "btnAddMenu";
+            this.btnAddMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
+            this.btnAddMenu.Size = new System.Drawing.Size(67, 24);
+            this.btnAddMenu.Text = "&Añadir";
+            this.btnAddMenu.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // eliminarToolStripMenuItem
+            // btnRemoveMenu
             // 
-            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
-            this.eliminarToolStripMenuItem.Text = "Eliminar";
-            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.btnRemove_Click);
+            this.btnRemoveMenu.Name = "btnRemoveMenu";
+            this.btnRemoveMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
+            this.btnRemoveMenu.Size = new System.Drawing.Size(77, 24);
+            this.btnRemoveMenu.Text = "&Eliminar";
+            this.btnRemoveMenu.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // traspasarToolStripMenuItem
+            // btnTraspasarMenu
             // 
-            this.traspasarToolStripMenuItem.Name = "traspasarToolStripMenuItem";
-            this.traspasarToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
-            this.traspasarToolStripMenuItem.Text = "Traspasar --->";
-            this.traspasarToolStripMenuItem.Click += new System.EventHandler(this.btnToRight_Click);
+            this.btnTraspasarMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnToRightMenu,
+            this.btnToLeftMenu});
+            this.btnTraspasarMenu.Name = "btnTraspasarMenu";
+            this.btnTraspasarMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.T)));
+            this.btnTraspasarMenu.Size = new System.Drawing.Size(85, 24);
+            this.btnTraspasarMenu.Text = "&Traspasar";
             // 
-            // traspasarToolStripMenuItem1
+            // btnToRightMenu
             // 
-            this.traspasarToolStripMenuItem1.Name = "traspasarToolStripMenuItem1";
-            this.traspasarToolStripMenuItem1.Size = new System.Drawing.Size(117, 24);
-            this.traspasarToolStripMenuItem1.Text = "<--- Traspasar";
-            this.traspasarToolStripMenuItem1.Click += new System.EventHandler(this.btnToLeft_Click);
+            this.btnToRightMenu.Name = "btnToRightMenu";
+            this.btnToRightMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
+            this.btnToRightMenu.Size = new System.Drawing.Size(228, 26);
+            this.btnToRightMenu.Text = "&Derecha --->";
+            this.btnToRightMenu.Click += new System.EventHandler(this.btnToRight_Click);
+            // 
+            // btnToLeftMenu
+            // 
+            this.btnToLeftMenu.Name = "btnToLeftMenu";
+            this.btnToLeftMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
+            this.btnToLeftMenu.Size = new System.Drawing.Size(228, 26);
+            this.btnToLeftMenu.Text = "<--- &Izquierda";
+            this.btnToLeftMenu.Click += new System.EventHandler(this.btnToLeft_Click);
             // 
             // Form1
             // 
@@ -207,16 +210,12 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.MenuList2);
             this.Controls.Add(this.MenuList1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.MenuList2;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Boletín Junio 5";
+            this.Text = "Junio 5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.MenuList2.ResumeLayout(false);
-            this.MenuList2.PerformLayout();
             this.MenuList1.ResumeLayout(false);
             this.MenuList1.PerformLayout();
             this.ResumeLayout(false);
@@ -236,12 +235,12 @@
         private System.Windows.Forms.Label lblNumElementos;
         private System.Windows.Forms.Label lblSeleccionados;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.MenuStrip MenuList2;
-        private System.Windows.Forms.ToolStripMenuItem traspasarToolStripMenuItem1;
         private System.Windows.Forms.MenuStrip MenuList1;
-        private System.Windows.Forms.ToolStripMenuItem añadirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem traspasarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnAddMenu;
+        private System.Windows.Forms.ToolStripMenuItem btnRemoveMenu;
+        private System.Windows.Forms.ToolStripMenuItem btnTraspasarMenu;
+        private System.Windows.Forms.ToolStripMenuItem btnToRightMenu;
+        private System.Windows.Forms.ToolStripMenuItem btnToLeftMenu;
     }
 }
 

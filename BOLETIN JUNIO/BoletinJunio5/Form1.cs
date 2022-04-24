@@ -103,20 +103,19 @@ namespace BoletinJunio5
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblNumElementos.Text = $"Nº Elementos: {listBox1.Items.Count}";
             tooltip.SetToolTip(listBox2, $"Nº de elementos actualmente: {listBox2.Items.Count}");
 
             RecorreIndices();
 
-            if (Text.Equals(tituloOriginal))
-            {
-                i = titleLength - 1;
-                Text = "";
-            }
+            //if (Text.Equals(tituloOriginal))
+            //{
+            //    i = titleLength - 1;
+            //    Text = "";
+            //}
 
-            letraTitulo = tituloOriginal[i];
-            Text += letraTitulo;
-            i--;
+            //letraTitulo = tituloOriginal[i];
+            //Text += letraTitulo;
+            //i--;
 
             if (ms == 100) // Para que no aumente infinitamente
             {
@@ -135,6 +134,11 @@ namespace BoletinJunio5
                 Icon = new Icon(directory + "\\burgallina.ico");
                 iconChanged = true;
             }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e) // No va (en el timer sí que va)
+        {
+            lblNumElementos.Text = $"Nº Elementos: {listBox1.Items.Count}";
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

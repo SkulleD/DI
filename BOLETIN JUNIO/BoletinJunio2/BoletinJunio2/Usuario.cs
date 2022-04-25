@@ -106,7 +106,7 @@ namespace BoletinJunio2
 
             for (int i = 0; i < aula.notas.GetLength(0); i++)
             {
-                Console.Write(nombreAlumnos[i]); // Nombres de alumnos
+                Console.Write($"{nombreAlumnos[i],10}"); // Nombres de alumnos
 
                 for (int j = 0; j < aula.notas.GetLength(1); j++)
                 {
@@ -131,7 +131,7 @@ namespace BoletinJunio2
             Console.WriteLine();
 
             // (Sobraba un bucle)
-            Console.Write(nombreAlumnos[num]); // Nombres de alumnos
+            Console.Write($"{nombreAlumnos[num],10}"); // Nombres de alumnos
 
             for (int i = 0; i < aula.notas.GetLength(1); i++)
             {

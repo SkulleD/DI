@@ -17,7 +17,7 @@ namespace BoletinJunio4
         public calcular delCalcular;
         Hashtable hash = new Hashtable();
         int min = 0;
-        int sec = 56;
+        int sec = 00;
 
         public Form1()
         {

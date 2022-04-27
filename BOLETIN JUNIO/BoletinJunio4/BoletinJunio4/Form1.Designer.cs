@@ -30,6 +30,7 @@ namespace BoletinJunio4
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txt1 = new System.Windows.Forms.TextBox();
             this.txt2 = new System.Windows.Forms.TextBox();
             this.lblSymbol = new System.Windows.Forms.Label();
@@ -45,37 +46,33 @@ namespace BoletinJunio4
             // 
             // txt1
             // 
-            this.txt1.Location = new System.Drawing.Point(16, 15);
-            this.txt1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt1.Location = new System.Drawing.Point(12, 12);
             this.txt1.Name = "txt1";
-            this.txt1.Size = new System.Drawing.Size(81, 22);
+            this.txt1.Size = new System.Drawing.Size(62, 20);
             this.txt1.TabIndex = 0;
             // 
             // txt2
             // 
-            this.txt2.Location = new System.Drawing.Point(132, 15);
-            this.txt2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt2.Location = new System.Drawing.Point(99, 12);
             this.txt2.Name = "txt2";
-            this.txt2.Size = new System.Drawing.Size(81, 22);
+            this.txt2.Size = new System.Drawing.Size(62, 20);
             this.txt2.TabIndex = 1;
             // 
             // lblSymbol
             // 
             this.lblSymbol.AutoSize = true;
-            this.lblSymbol.Location = new System.Drawing.Point(107, 18);
-            this.lblSymbol.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSymbol.Location = new System.Drawing.Point(80, 15);
             this.lblSymbol.Name = "lblSymbol";
-            this.lblSymbol.Size = new System.Drawing.Size(16, 17);
+            this.lblSymbol.Size = new System.Drawing.Size(13, 13);
             this.lblSymbol.TabIndex = 7;
             this.lblSymbol.Text = "+";
             // 
             // lblEqual
             // 
             this.lblEqual.AutoSize = true;
-            this.lblEqual.Location = new System.Drawing.Point(223, 18);
-            this.lblEqual.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEqual.Location = new System.Drawing.Point(167, 15);
             this.lblEqual.Name = "lblEqual";
-            this.lblEqual.Size = new System.Drawing.Size(16, 17);
+            this.lblEqual.Size = new System.Drawing.Size(13, 13);
             this.lblEqual.TabIndex = 8;
             this.lblEqual.Text = "=";
             // 
@@ -83,18 +80,16 @@ namespace BoletinJunio4
             // 
             this.lblResult.AutoSize = true;
             this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.Location = new System.Drawing.Point(248, 18);
-            this.lblResult.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblResult.Location = new System.Drawing.Point(186, 15);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(0, 17);
+            this.lblResult.Size = new System.Drawing.Size(0, 13);
             this.lblResult.TabIndex = 9;
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(152, 78);
-            this.btnCalcular.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCalcular.Location = new System.Drawing.Point(114, 63);
             this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(100, 28);
+            this.btnCalcular.Size = new System.Drawing.Size(75, 23);
             this.btnCalcular.TabIndex = 6;
             this.btnCalcular.Text = "CALCULAR";
             this.btnCalcular.UseVisualStyleBackColor = true;
@@ -103,10 +98,10 @@ namespace BoletinJunio4
             // rbSuma
             // 
             this.rbSuma.AutoSize = true;
-            this.rbSuma.Location = new System.Drawing.Point(31, 65);
-            this.rbSuma.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbSuma.Checked = true;
+            this.rbSuma.Location = new System.Drawing.Point(23, 53);
             this.rbSuma.Name = "rbSuma";
-            this.rbSuma.Size = new System.Drawing.Size(37, 21);
+            this.rbSuma.Size = new System.Drawing.Size(31, 17);
             this.rbSuma.TabIndex = 2;
             this.rbSuma.TabStop = true;
             this.rbSuma.Text = "+";
@@ -116,12 +111,10 @@ namespace BoletinJunio4
             // rbResta
             // 
             this.rbResta.AutoSize = true;
-            this.rbResta.Location = new System.Drawing.Point(31, 94);
-            this.rbResta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbResta.Location = new System.Drawing.Point(23, 76);
             this.rbResta.Name = "rbResta";
-            this.rbResta.Size = new System.Drawing.Size(34, 21);
+            this.rbResta.Size = new System.Drawing.Size(28, 17);
             this.rbResta.TabIndex = 4;
-            this.rbResta.TabStop = true;
             this.rbResta.Text = "-";
             this.rbResta.UseVisualStyleBackColor = true;
             this.rbResta.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
@@ -129,12 +122,10 @@ namespace BoletinJunio4
             // rbMultiplicacion
             // 
             this.rbMultiplicacion.AutoSize = true;
-            this.rbMultiplicacion.Location = new System.Drawing.Point(84, 65);
-            this.rbMultiplicacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbMultiplicacion.Location = new System.Drawing.Point(63, 53);
             this.rbMultiplicacion.Name = "rbMultiplicacion";
-            this.rbMultiplicacion.Size = new System.Drawing.Size(34, 21);
+            this.rbMultiplicacion.Size = new System.Drawing.Size(29, 17);
             this.rbMultiplicacion.TabIndex = 3;
-            this.rbMultiplicacion.TabStop = true;
             this.rbMultiplicacion.Text = "*";
             this.rbMultiplicacion.UseVisualStyleBackColor = true;
             this.rbMultiplicacion.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
@@ -142,12 +133,10 @@ namespace BoletinJunio4
             // rbDivision
             // 
             this.rbDivision.AutoSize = true;
-            this.rbDivision.Location = new System.Drawing.Point(84, 94);
-            this.rbDivision.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbDivision.Location = new System.Drawing.Point(63, 76);
             this.rbDivision.Name = "rbDivision";
-            this.rbDivision.Size = new System.Drawing.Size(33, 21);
+            this.rbDivision.Size = new System.Drawing.Size(30, 17);
             this.rbDivision.TabIndex = 5;
-            this.rbDivision.TabStop = true;
             this.rbDivision.Text = "/";
             this.rbDivision.UseVisualStyleBackColor = true;
             this.rbDivision.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
@@ -160,9 +149,9 @@ namespace BoletinJunio4
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(685, 433);
+            this.ClientSize = new System.Drawing.Size(514, 352);
             this.Controls.Add(this.rbDivision);
             this.Controls.Add(this.rbMultiplicacion);
             this.Controls.Add(this.rbResta);
@@ -173,10 +162,10 @@ namespace BoletinJunio4
             this.Controls.Add(this.lblSymbol);
             this.Controls.Add(this.txt2);
             this.Controls.Add(this.txt1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ejercicio Junio 4";
+            this.Text = "00:00";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

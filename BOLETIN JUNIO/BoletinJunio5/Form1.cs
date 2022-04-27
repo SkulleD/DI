@@ -18,18 +18,18 @@ namespace BoletinJunio5
         // Variables usadas para el timer
         string directory = Directory.GetCurrentDirectory();
         double ms = 0;
-        bool iconChanged = false;
 
-        char letraTitulo;
-        string tituloOriginal = "Junio 5";
         int titleLength;
         int i = 0;
+        char[] charasTitulo;
 
         public Form1()
         {
             InitializeComponent();
 
             titleLength = Text.Length;
+            charasTitulo = Text.ToCharArray();
+            Text = "";
 
             tooltip = new ToolTip();
             tooltip.SetToolTip(btnAdd, "Añade un elemento a la Lista 1");
@@ -49,6 +49,7 @@ namespace BoletinJunio5
             }
 
             textBox1.Select();
+            lblNumElementos.Text = $"Nº Elementos: {listBox1.Items.Count}";
         }
 
         private void btnRemove_Click(object sender, EventArgs e) // ELIMINAR
@@ -61,7 +62,8 @@ namespace BoletinJunio5
                 }
             }
 
-        }   
+            lblNumElementos.Text = $"Nº Elementos: {listBox1.Items.Count}";
+        }
 
         private void btnToRight_Click(object sender, EventArgs e) // PASAR DE LISTA 1 A LISTA 2
         {
@@ -77,6 +79,9 @@ namespace BoletinJunio5
                     listBox1.Items.Remove(listBox1.SelectedItems[i]);
                 }
             }
+
+            lblNumElementos.Text = $"Nº Elementos: {listBox1.Items.Count}";
+            tooltip.SetToolTip(listBox2, $"Nº de elementos actualmente: {listBox2.Items.Count}");
         }
 
         private void btnToLeft_Click(object sender, EventArgs e)
@@ -86,6 +91,9 @@ namespace BoletinJunio5
                 listBox1.Items.Insert(0, listBox2.SelectedItem);
                 listBox2.Items.Remove(listBox2.SelectedItem);
             }
+
+            lblNumElementos.Text = $"Nº Elementos: {listBox1.Items.Count}";
+            tooltip.SetToolTip(listBox2, $"Nº de elementos actualmente: {listBox2.Items.Count}");
         }
 
         private void RecorreIndices() // Sirve para mostrar indices seleccionados de Lista 1
@@ -103,42 +111,36 @@ namespace BoletinJunio5
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            tooltip.SetToolTip(listBox2, $"Nº de elementos actualmente: {listBox2.Items.Count}");
+            if (i >= titleLength)
+            {
+                i = 0;
+                Text = "";
+            }
 
-            RecorreIndices();
+            Text += charasTitulo[i];
+            i++;
 
-            //if (Text.Equals(tituloOriginal))
-            //{
-            //    i = titleLength - 1;
-            //    Text = "";
-            //}
-
-            //letraTitulo = tituloOriginal[i];
-            //Text += letraTitulo;
-            //i--;
-
-            if (ms == 100) // Para que no aumente infinitamente
+            if (ms >= 0.8) // Para que no aumente infinitamente
             {
                 ms = 0;
             }
 
-            ms++;
+            ms += 0.1;
 
-            if ((ms % 2) == 0 && iconChanged == true)
+            if (ms >= 0.4)
             {
                 Icon = new Icon(directory + "\\bocatagarto.ico");
-                iconChanged = false;
             }
             else
             {
                 Icon = new Icon(directory + "\\burgallina.ico");
-                iconChanged = true;
             }
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e) // No va (en el timer sí que va)
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblNumElementos.Text = $"Nº Elementos: {listBox1.Items.Count}";
+            //lblNumElementos.Text = $"Nº Elementos: {listBox1.Items.Count}";
+            RecorreIndices();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

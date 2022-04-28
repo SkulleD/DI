@@ -20,7 +20,7 @@ namespace BoletinJunio5
         double ms = 0;
 
         int titleLength;
-        int i = 0;
+        int restar;
         char[] charasTitulo;
 
         public Form1()
@@ -29,6 +29,7 @@ namespace BoletinJunio5
 
             titleLength = Text.Length;
             charasTitulo = Text.ToCharArray();
+            restar = titleLength - 1;
             Text = "";
 
             tooltip = new ToolTip();
@@ -111,14 +112,14 @@ namespace BoletinJunio5
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (i >= titleLength)
+            if (restar < 0)
             {
-                i = 0;
+                restar = titleLength - 1;
                 Text = "";
             }
 
-            Text += charasTitulo[i];
-            i++;
+            Text = charasTitulo[restar] + Text;
+            restar--;
 
             if (ms >= 0.8) // Para que no aumente infinitamente
             {

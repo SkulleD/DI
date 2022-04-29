@@ -17,78 +17,62 @@ namespace BoletinJunio6
         int left = 0;
         int top = 60;
         Button btn;
+        string path = Directory.GetCurrentDirectory() + "\\Numeros.txt"; // Archivo por defecto
 
         public Form1()
         {
             InitializeComponent();
             form2.StartPosition = FormStartPosition.CenterScreen;
-            //form2.ShowDialog();
+            form2.ShowDialog();
             CreaBotones();
+
+            //Controls["CurroBoton"].BackColor = Color.Green;
         }
 
         private void CreaBotones()
         {
-            for (int i = 1; i <= 10; i++)
+            for (int i = 1; i <= 12; i++)
             {
-                if (i <= 9)
+                if (left == 240)
                 {
-                    if (left == 240)
-                    {
-                        left = 0;
-                        top += 30;
-                    }
+                    left = 0;
+                    top += 30;
+                }
 
-                    btn = new Button();
-                    btn.Left = left;
-                    btn.Top = top;
+                btn = new Button();
+                btn.Left = left;
+                btn.Top = top;
+
+                if (i <= 9) // Nums 1 al 9
+                {
                     btn.Text = $"{i}";
                     btn.Name = "btn" + i;
-                    btn.Click += new EventHandler(buttonClick);
-                    btn.MouseEnter += new EventHandler(buttonEnter);
-                    btn.MouseLeave += new EventHandler(buttonLeave);
-                    Controls.Add(btn);
-
-                    left += 80;
                 }
-                else
+
+                if (i == 10) // *
                 {
-                    btn = new Button();
-                    btn.Top = 150;
                     btn.Text = "*";
-                    btn.Name = "btnAsterisco";
-                    btn.Click += new EventHandler(buttonClick);
-                    btn.MouseEnter += new EventHandler(buttonEnter);
-                    btn.MouseLeave += new EventHandler(buttonLeave);
-                    Controls.Add(btn);
-                }
-            }
-
-            for (int i = 0; i <= 1; i++)
-            {
-                if (i == 0)
-                {
-                    btn = new Button();
-                    btn.Left = 80;
-                    btn.Top = 150;
-                    btn.Text = $"{i}";
                     btn.Name = "btn" + i;
-                    btn.Click += new EventHandler(buttonClick);
-                    btn.MouseEnter += new EventHandler(buttonEnter);
-                    btn.MouseLeave += new EventHandler(buttonLeave);
-                    Controls.Add(btn);
                 }
-                else
+
+                if (i == 11) // 0
                 {
-                    btn = new Button();
-                    btn.Left = 160;
-                    btn.Top = 150;
-                    btn.Text = "#";
-                    btn.Name = "btnAlmohadilla";
-                    btn.Click += new EventHandler(buttonClick);
-                    btn.MouseEnter += new EventHandler(buttonEnter);
-                    btn.MouseLeave += new EventHandler(buttonLeave);
-                    Controls.Add(btn);
+                    btn.Text = $"{0}";
+                    btn.Name = "btn" + i;
                 }
+
+                if (i == 12) // #
+                {
+                    btn.Text = "#";
+                    btn.Name = "btn" + i;
+                }
+
+                btn.Click += new EventHandler(buttonClick);
+                btn.MouseEnter += new EventHandler(buttonEnter);
+                btn.MouseLeave += new EventHandler(buttonLeave);
+                Controls.Add(btn);
+
+                left += 80;
             }
         }
 
@@ -96,9 +80,10 @@ namespace BoletinJunio6
         {
             Button boton = (Button)sender;
 
-            if (boton.Text.ToLower().Equals("reset"))
+            if (boton.Text.ToLower().Equals("reset")) // Si es RESET pues resetea todo, sino colorea de amarillo
             {
                 textBox1.Text = "";
+                ResetColors();
             }
             else
             {
@@ -131,33 +116,61 @@ namespace BoletinJunio6
         {
             StreamWriter writer;
             SaveFileDialog fileDialog = new SaveFileDialog();
-            fileDialog.Filter = "Text File | *.txt";
+            fileDialog.Filter = "Archivos de texto |*.txt| Todos los archivos |*.*";
             int numero;
             bool esNum = false;
-            string path = Directory.GetCurrentDirectory();
 
             esNum = int.TryParse(textBox1.Text, out numero);
 
-            if (!string.IsNullOrWhiteSpace(textBox1.Text) && esNum)
+            if (!string.IsNullOrWhiteSpace(textBox1.Text) && esNum) // Se comprueba que hay escrito un número
             {
                 if (fileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    using (writer = new StreamWriter(path))
+                    path = fileDialog.FileName;
+
+                    using (writer = new StreamWriter(path, true))
                     {
-                        writer.Write(textBox1.Text);
+                        writer.Write(textBox1.Text + Environment.NewLine);
                     }
                 }
+            }
+        }
+
+        private void verNúmeroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(path))
+            {
+                Form3 form3 = new Form3(path);
+                form3.ShowDialog();
             }
         }
 
         private void resetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
+            ResetColors();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3("autor");
+            form3.ShowDialog();
+        }
+
+        private void ResetColors()
+        {
+            for (int i = 1; i <= 12; i++)
+            {
+                if (!btn.Name.Equals("btnReset"))
+                {
+                    Controls["btn" + i].BackColor = Color.Transparent;
+                }
+            }
         }
     }
 }

@@ -28,7 +28,7 @@ namespace BoletinJunio6
             // Si no es nulo, ni cadena vacía, ni espacio en blanco y es un número de 4 caracteres de longitud entonces es true
             if (!string.IsNullOrWhiteSpace(txtPIN.Text) && esNum && txtPIN.Text.Length == 4)
             {
-                if (txtPIN.Equals(pin.ToString()))
+                if (txtPIN.Text.Equals("7777"))
                 {
                     Close();
                 }

@@ -1,0 +1,8 @@
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio7\BoletinJunio7\bin\Debug\BoletinJunio7.dll
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio7\BoletinJunio7\bin\Debug\BoletinJunio7.pdb
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio7\BoletinJunio7\obj\Debug\BoletinJunio7.csproj.AssemblyReference.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio7\BoletinJunio7\obj\Debug\BoletinJunio7.LabelTextBox.resources
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio7\BoletinJunio7\obj\Debug\BoletinJunio7.csproj.GenerateResource.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio7\BoletinJunio7\obj\Debug\BoletinJunio7.csproj.CoreCompileInputs.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio7\BoletinJunio7\obj\Debug\BoletinJunio7.dll
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio7\BoletinJunio7\obj\Debug\BoletinJunio7.pdb

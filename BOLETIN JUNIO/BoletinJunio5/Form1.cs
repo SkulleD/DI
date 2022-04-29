@@ -28,8 +28,8 @@ namespace BoletinJunio5
             InitializeComponent();
 
             titleLength = Text.Length;
-            charasTitulo = Text.ToCharArray();
-            restar = titleLength - 1;
+            charasTitulo = Text.ToCharArray(); // Se usará para colocar cada caracter del título en el timer
+            restar = titleLength - 1; // Se usa para ir colocando los caracteres del título desde el último al primero
             Text = "";
 
             tooltip = new ToolTip();
@@ -61,6 +61,17 @@ namespace BoletinJunio5
                 {
                     listBox1.Items.Remove(listBox1.SelectedItems[i]);
                 }
+
+
+                //while (listBox1.SelectedIndices.Count > 0) Forma más corta de eliminar items seleccionados
+                //{
+                //    listBox1.Items.Remove(listBox1.SelectedIndices[0]);
+                //}
+
+                //while (listBox1.SelectedIndex!=-1) // Forma AÚN más corta de eliminar items seleccionados
+                //{
+                //    listBox1.Items.Remove(listBox1.SelectedIndex);
+                //}
             }
 
             lblNumElementos.Text = $"Nº Elementos: {listBox1.Items.Count}";
@@ -121,18 +132,18 @@ namespace BoletinJunio5
             Text = charasTitulo[restar] + Text;
             restar--;
 
-            if (ms >= 0.8) // Para que no aumente infinitamente
+            if (ms >= 800) // Para que no aumente infinitamente
             {
                 ms = 0;
             }
 
-            ms += 0.1;
+            ms += 200;
 
-            if (ms >= 0.4)
+            if (ms == 400)
             {
                 Icon = new Icon(directory + "\\bocatagarto.ico");
             }
-            else
+            else if (ms == 800)
             {
                 Icon = new Icon(directory + "\\burgallina.ico");
             }

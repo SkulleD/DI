@@ -42,10 +42,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.MenuList1 = new System.Windows.Forms.MenuStrip();
             this.btnAddMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnRemoveMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.añadirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.traspasarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRemoveMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.traspasarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuList1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +54,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(10, 70);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBox1.Size = new System.Drawing.Size(94, 160);
@@ -65,7 +65,7 @@
             // 
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(283, 70);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox2.Margin = new System.Windows.Forms.Padding(2);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(94, 160);
             this.listBox2.TabIndex = 7;
@@ -73,7 +73,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(158, 70);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(77, 19);
             this.btnAdd.TabIndex = 3;
@@ -84,7 +84,7 @@
             // btnRemove
             // 
             this.btnRemove.Location = new System.Drawing.Point(158, 114);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(77, 19);
             this.btnRemove.TabIndex = 4;
@@ -96,7 +96,7 @@
             // btnToRight
             // 
             this.btnToRight.Location = new System.Drawing.Point(158, 163);
-            this.btnToRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnToRight.Margin = new System.Windows.Forms.Padding(2);
             this.btnToRight.Name = "btnToRight";
             this.btnToRight.Size = new System.Drawing.Size(77, 19);
             this.btnToRight.TabIndex = 5;
@@ -107,7 +107,7 @@
             // btnToLeft
             // 
             this.btnToLeft.Location = new System.Drawing.Point(158, 210);
-            this.btnToLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnToLeft.Margin = new System.Windows.Forms.Padding(2);
             this.btnToLeft.Name = "btnToLeft";
             this.btnToLeft.Size = new System.Drawing.Size(77, 19);
             this.btnToLeft.TabIndex = 6;
@@ -118,7 +118,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(10, 234);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(94, 20);
             this.textBox1.TabIndex = 8;
@@ -146,7 +146,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 200;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MenuList1
@@ -173,6 +173,30 @@
             this.btnAddMenu.Text = "Lista &1";
             this.btnAddMenu.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // añadirToolStripMenuItem
+            // 
+            this.añadirToolStripMenuItem.Name = "añadirToolStripMenuItem";
+            this.añadirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
+            this.añadirToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.añadirToolStripMenuItem.Text = "&Añadir";
+            this.añadirToolStripMenuItem.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.eliminarToolStripMenuItem.Text = "&Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // traspasarToolStripMenuItem
+            // 
+            this.traspasarToolStripMenuItem.Name = "traspasarToolStripMenuItem";
+            this.traspasarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
+            this.traspasarToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.traspasarToolStripMenuItem.Text = "Mover &Derecha -->";
+            this.traspasarToolStripMenuItem.Click += new System.EventHandler(this.btnToRight_Click);
+            // 
             // btnRemoveMenu
             // 
             this.btnRemoveMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -182,33 +206,13 @@
             this.btnRemoveMenu.Text = "Lista &2";
             this.btnRemoveMenu.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // añadirToolStripMenuItem
-            // 
-            this.añadirToolStripMenuItem.Name = "añadirToolStripMenuItem";
-            this.añadirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
-            this.añadirToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.añadirToolStripMenuItem.Text = "&Añadir";
-            // 
-            // eliminarToolStripMenuItem
-            // 
-            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.eliminarToolStripMenuItem.Text = "&Eliminar";
-            // 
-            // traspasarToolStripMenuItem
-            // 
-            this.traspasarToolStripMenuItem.Name = "traspasarToolStripMenuItem";
-            this.traspasarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
-            this.traspasarToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.traspasarToolStripMenuItem.Text = "Mover &Derecha -->";
-            // 
             // traspasarToolStripMenuItem1
             // 
             this.traspasarToolStripMenuItem1.Name = "traspasarToolStripMenuItem1";
             this.traspasarToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
             this.traspasarToolStripMenuItem1.Size = new System.Drawing.Size(213, 22);
             this.traspasarToolStripMenuItem1.Text = "<-- Mover &Izquierda";
+            this.traspasarToolStripMenuItem1.Click += new System.EventHandler(this.btnToLeft_Click);
             // 
             // Form1
             // 
@@ -227,10 +231,10 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.MenuList1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Junio 5";
+            this.Text = "Ejercicio Listas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.MenuList1.ResumeLayout(false);
             this.MenuList1.PerformLayout();

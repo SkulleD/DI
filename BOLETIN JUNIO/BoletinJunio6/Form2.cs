@@ -14,6 +14,7 @@ namespace BoletinJunio6
     {
         int intentos = 3;
         bool esNum = false;
+        bool correcto = false;
         int pin;
 
         public Form2()
@@ -30,6 +31,7 @@ namespace BoletinJunio6
             {
                 if (txtPIN.Text.Equals("7777"))
                 {
+                    correcto = true;
                     Close();
                 }
                 else
@@ -45,6 +47,14 @@ namespace BoletinJunio6
                         lblTries.Text = $"Intentos restantes: {intentos}";
                     }
                 }
+            }
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!correcto)
+            {
+                Application.Exit();
             }
         }
     }

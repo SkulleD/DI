@@ -30,13 +30,26 @@ namespace FormBol7
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.labelTextBox1 = new BoletinJunio7.LabelTextBox();
             this.SuspendLayout();
+            // 
+            // labelTextBox1
+            // 
+            this.labelTextBox1.Location = new System.Drawing.Point(12, 12);
+            this.labelTextBox1.Name = "labelTextBox1";
+            this.labelTextBox1.Posicion = BoletinJunio7.ePosicion.DERECHA;
+            this.labelTextBox1.Separacion = 30;
+            this.labelTextBox1.Size = new System.Drawing.Size(166, 20);
+            this.labelTextBox1.TabIndex = 0;
+            this.labelTextBox1.TextLabel = "Etiqueta";
+            this.labelTextBox1.TextTextBox = "AAAAA";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(439, 267);
+            this.Controls.Add(this.labelTextBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Boletín Junio 7";
@@ -45,6 +58,8 @@ namespace FormBol7
         }
 
         #endregion
+
+        private BoletinJunio7.LabelTextBox labelTextBox1;
     }
 }
 

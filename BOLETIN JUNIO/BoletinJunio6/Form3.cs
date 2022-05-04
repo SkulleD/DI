@@ -16,39 +16,22 @@ namespace BoletinJunio6
         public Form3(string path)
         {
             InitializeComponent();
-
-            if (!path.ToLower().Equals("autor"))
-            {
-                Text = path;
-                MuestraDatos(path);
-            }
-            else
-            {
-                textBox1.Visible = false;
-                Text = "Derechos del Programa";
-                textBox1 = new TextBox();
-                textBox1.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right);
-                textBox1.Location = new Point(9, 10);
-                textBox1.Margin = new Padding(2);
-                textBox1.Multiline = true;
-                textBox1.Name = "textBox2";
-                textBox1.ScrollBars = ScrollBars.Vertical;
-                textBox1.Size = new Size(240, 310);
-                textBox1.TabIndex = 0;
-                textBox1.ReadOnly = true;
-                textBox1.Text = "--Autor--\r\nÁlvaro Rodríguez Vila\r\n\r\n" +
-                    "--Fecha finalización--\r\n29/04/2022\r\n\r\n" +
-                    "--Agradecimientos especiales--\r\nCurro Bellas";
-                Controls.Add(textBox1);
-            }
         }
 
-        private void MuestraDatos(string path)
+        public string MuestraDatos(string path)
         {
-            using (StreamReader reader = new StreamReader(path))
+            try
             {
-                textBox1.Text = reader.ReadToEnd();
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    textBox1.Text = reader.ReadToEnd();
+                }
+            } catch (FileNotFoundException)
+            {
+                Console.WriteLine("Archivo no encontrado");
             }
+
+            return textBox1.Text;
         }
 
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)

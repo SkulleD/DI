@@ -16,7 +16,5 @@ namespace FormBol7
         {
             InitializeComponent();
         }
-
-        
     }
 }

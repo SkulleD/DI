@@ -80,7 +80,7 @@ namespace BoletinJunio6
         {
             Button boton = (Button)sender;
 
-            if (boton.Text.ToLower().Equals("reset")) // Si es RESET pues resetea todo, sino colorea de amarillo
+            if (boton == btnReset) // Si es RESET pues resetea todo, sino colorea de amarillo
             {
                 textBox1.Text = "";
                 ResetColors();
@@ -128,9 +128,16 @@ namespace BoletinJunio6
                 {
                     path = fileDialog.FileName;
 
-                    using (writer = new StreamWriter(path, true))
+                    try
                     {
-                        writer.Write(textBox1.Text + Environment.NewLine);
+                        using (writer = new StreamWriter(path, true))
+                        {
+                            writer.Write(textBox1.Text + Environment.NewLine);
+                        }
+                    }
+                    catch (FileNotFoundException)
+                    {
+                        Console.WriteLine("Archivo no encontrado");
                     }
                 }
             }
@@ -141,6 +148,8 @@ namespace BoletinJunio6
             if (!string.IsNullOrWhiteSpace(path))
             {
                 Form3 form3 = new Form3(path);
+                form3.Text = path;
+                form3.textBox1.Text = form3.MuestraDatos(path);
                 form3.ShowDialog();
             }
         }
@@ -158,7 +167,11 @@ namespace BoletinJunio6
 
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3("autor");
+            Form3 form3 = new Form3("");
+            form3.Text = "Derechos de Autor";
+            form3.textBox1.Text = "--Autor--\r\nÁlvaro Rodríguez Vila\r\n\r\n" +
+                    "--Fecha finalización--\r\n29/04/2022\r\n\r\n" +
+                    "--Agradecimientos especiales--\r\nCurro Bellas";
             form3.ShowDialog();
         }
 
@@ -166,10 +179,7 @@ namespace BoletinJunio6
         {
             for (int i = 1; i <= 12; i++)
             {
-                if (!btn.Name.Equals("btnReset"))
-                {
-                    Controls["btn" + i].BackColor = Color.Transparent;
-                }
+                Controls["btn" + i].BackColor = Color.Transparent;
             }
         }
     }

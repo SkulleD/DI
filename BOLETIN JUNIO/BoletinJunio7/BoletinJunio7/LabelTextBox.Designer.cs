@@ -56,7 +56,7 @@ namespace BoletinJunio7
             this.Controls.Add(this.txt);
             this.Controls.Add(this.lbl);
             this.Name = "LabelTextBox";
-            this.Size = new System.Drawing.Size(191, 118);
+            this.Size = new System.Drawing.Size(184, 75);
             this.ResumeLayout(false);
             this.PerformLayout();
 

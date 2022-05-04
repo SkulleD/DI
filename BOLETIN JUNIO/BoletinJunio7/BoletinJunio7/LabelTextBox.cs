@@ -10,13 +10,122 @@ using System.Windows.Forms;
 
 namespace BoletinJunio7
 {
+    public enum ePosicion
+    {
+        IZQUIERDA,
+        DERECHA
+    }
+
     public partial class LabelTextBox : UserControl
     {
         public LabelTextBox()
         {
             InitializeComponent();
+            Recolocar();
         }
 
+        private ePosicion posicion = ePosicion.IZQUIERDA;
 
+        [Category("Appearance")]
+        [Description("Indica si la label se sitúa a la IZQUIERDA o a la DERECHA del TextBox")]
+        public ePosicion Posicion
+        {
+            set
+            {
+                if (Enum.IsDefined(typeof(ePosicion), value))
+                {
+                    posicion = value;
+                    Recolocar();
+                }
+                else
+                {
+                    throw new InvalidEnumArgumentException();
+                }
+            }
+            get
+            {
+                return posicion;
+            }
+        }
+
+        private int separacion = 0;
+
+        [Category("Design")]
+        [Description("Píxeles de separación entre Label y TextBox")]
+        public int Separacion
+        {
+            set
+            {
+                if (value >= 0)
+                {
+                    separacion = value;
+                    Recolocar();
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+            }
+
+            get
+            {
+                return separacion;
+            }
+        }
+
+        [Category("Appearance")]
+        [Description("Texto asociado a la Label del control")]
+        public string TextLabel
+        {
+            set
+            {
+                lbl.Text = value;
+                Recolocar();
+            }
+            get
+            {
+                return lbl.Text;
+            }
+        }
+
+        [Category("Appearance")]
+        [Description("Texto asociado al TextBox del control")]
+        public string TextTextBox
+        {
+            set
+            {
+                txt.Text = value;
+                Recolocar();
+            }
+            get
+            {
+                return txt.Text;
+            }
+        }
+
+        void Recolocar()
+        {
+            switch (posicion)
+            {
+                case ePosicion.IZQUIERDA:
+                    lbl.Location = new Point(0, 0);
+                    txt.Location = new Point(lbl.Width + Separacion, 0);
+                    txt.Width = Width - lbl.Width - Separacion;
+                    Height = Math.Max(txt.Height, lbl.Height);
+                    break;
+                case ePosicion.DERECHA:
+                    txt.Location = new Point(0, 0);
+                    txt.Width = Width - lbl.Width - Separacion;
+                    lbl.Location = new Point(txt.Width + Separacion, 0);
+                    Height = Math.Max(txt.Height, lbl.Height);
+                    break;
+            }
+        }
+
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+            Recolocar();
+        }
     }
 }

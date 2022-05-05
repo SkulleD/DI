@@ -16,5 +16,15 @@ namespace FormBol7
         {
             InitializeComponent();
         }
+
+        private void labelTextBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            Text = "Letra: " + e.KeyCode.ToString();
+        }
+
+        private void labelTextBox1_TxtChanged(object sender, EventArgs e)
+        {
+            labelTextBox1.TextLabel = "Changed";
+        }
     }
 }

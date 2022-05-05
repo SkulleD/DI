@@ -110,15 +110,31 @@ namespace BoletinJunio7
                 case ePosicion.IZQUIERDA:
                     lbl.Location = new Point(0, 0);
                     txt.Location = new Point(lbl.Width + Separacion, 0);
-                    txt.Width = Width - lbl.Width - Separacion;
+                    //txt.Width = Width - lbl.Width - Separacion;
+                    Width = txt.Width + lbl.Width + Separacion;
                     Height = Math.Max(txt.Height, lbl.Height);
                     break;
                 case ePosicion.DERECHA:
                     txt.Location = new Point(0, 0);
-                    txt.Width = Width - lbl.Width - Separacion;
+                    //txt.Width = Width - lbl.Width - Separacion;
+                    Width = txt.Width + lbl.Width + Separacion;
                     lbl.Location = new Point(txt.Width + Separacion, 0);
                     Height = Math.Max(txt.Height, lbl.Height);
                     break;
+            }
+        }
+
+        [Category("Appearance")]
+        [Description("Oculta el texto con el caracter elegido")]
+        public char PswChr
+        {
+            set
+            {
+                txt.PasswordChar = value;
+            }
+            get
+            {
+                return txt.PasswordChar;
             }
         }
 
@@ -126,6 +142,23 @@ namespace BoletinJunio7
         {
             base.OnSizeChanged(e);
             Recolocar();
+        }
+
+        private void LabelTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            OnKeyUp(e);
+        }
+
+        [Category("Junio")]
+        [Description("Se lanza cuando el texto cambia")]
+        public event EventHandler TxtChanged;
+
+        private  new void TextChanged(object sender, EventArgs e) // También va sin hacer "new void"
+        {
+            if (TxtChanged != null)
+            {
+                TxtChanged(this, new EventArgs());
+            }
         }
     }
 }

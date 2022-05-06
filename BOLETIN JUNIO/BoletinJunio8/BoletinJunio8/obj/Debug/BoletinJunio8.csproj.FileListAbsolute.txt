@@ -1,0 +1,8 @@
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio8\BoletinJunio8\obj\Debug\BoletinJunio8.csproj.AssemblyReference.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio8\BoletinJunio8\obj\Debug\BoletinJunio8.csproj.CoreCompileInputs.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio8\BoletinJunio8\bin\Debug\BoletinJunio8.dll
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio8\BoletinJunio8\bin\Debug\BoletinJunio8.pdb
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio8\BoletinJunio8\obj\Debug\BoletinJunio8.dll
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio8\BoletinJunio8\obj\Debug\BoletinJunio8.pdb
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio8\BoletinJunio8\obj\Debug\BoletinJunio8.EtiquetaAviso.resources
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio8\BoletinJunio8\obj\Debug\BoletinJunio8.csproj.GenerateResource.cache

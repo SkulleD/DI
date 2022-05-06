@@ -17,6 +17,9 @@ namespace FormBol8
             InitializeComponent();
         }
 
+        private void etiquetaAviso1_ClickEnMarca(object sender, EventArgs e)
+        {
 
+        }
     }
 }

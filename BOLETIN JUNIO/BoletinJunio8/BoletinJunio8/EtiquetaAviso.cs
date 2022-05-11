@@ -164,10 +164,9 @@ namespace BoletinJunio8
                     rect = new Rectangle(grosor, grosor, height, height);
                     graphics.DrawRectangle(new Pen(Color.Transparent), rect);
                     break;
-
                 case eMarca.Circulo:
                     grosor = 25;
-                    graphics.DrawEllipse(new Pen(Color.DarkTurquoise, grosor), grosor, grosor, height, height);
+                    graphics.DrawEllipse(new Pen(Color.DarkTurquoise, 40), grosor, grosor, height, height);
                     offsetX = height + grosor;
                     offsetY = grosor;
 
@@ -177,7 +176,7 @@ namespace BoletinJunio8
                 case eMarca.Imagen:
                     if (Imagen != null)
                     {
-                        height += height;
+                        height = height;
                         grosor = 20;
                         graphics.DrawImage(Imagen, grosor, grosor, height, height);
                         offsetX = height + grosor;
@@ -190,7 +189,7 @@ namespace BoletinJunio8
             }
 
             SolidBrush brush = new SolidBrush(ForeColor);
-            graphics.DrawString("Textillo", Font, brush, offsetX + grosor, offsetY);
+            graphics.DrawString(this.Text, Font, brush, offsetX + grosor, offsetY);
             Size size = graphics.MeasureString(this.Text, this.Font).ToSize();
             this.Size = new Size(size.Width + offsetX + grosor, size.Height + offsetY * 2);
             brush.Dispose();
@@ -206,14 +205,8 @@ namespace BoletinJunio8
 
             if (e.X <= rect.Right)
             {
-                Text = "Marca clickada";
+                ClickEnMarca?.Invoke(this, new EventArgs());
             }
-            else
-            {
-                Text = "Fuera de click";
-            }
-
-            ClickEnMarca?.Invoke(this, new EventArgs());
         }
     }
 }

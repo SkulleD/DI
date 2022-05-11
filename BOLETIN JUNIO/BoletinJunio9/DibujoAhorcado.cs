@@ -25,6 +25,11 @@ namespace BoletinJunio9
         {
             set
             {
+                if (value != errores)
+                {
+                    CambiaError?.Invoke(this, new EventArgs());
+                }
+
                 errores = value;
             }
 
@@ -32,6 +37,19 @@ namespace BoletinJunio9
             {
                 return errores;
             }
+        }
+
+        [Category("Ahorcado")]
+        [Description("Se lanza cada vez que cambia el número de errores")]
+        public event EventHandler CambiaError;
+
+        [Category("Ahorcado")]
+        [Description("Se lanza cuando el dibujo del ahorcado es completado")]
+        public event EventHandler Ahorcado;
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
         }
     }
 }

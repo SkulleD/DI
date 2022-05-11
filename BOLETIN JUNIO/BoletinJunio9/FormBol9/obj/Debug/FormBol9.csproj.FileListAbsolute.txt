@@ -1,0 +1,10 @@
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\FormBol9\bin\Debug\FormBol9.exe.config
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\FormBol9\bin\Debug\FormBol9.exe
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\FormBol9\bin\Debug\FormBol9.pdb
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.csproj.AssemblyReference.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.Form1.resources
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.Properties.Resources.resources
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.csproj.GenerateResource.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.csproj.CoreCompileInputs.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.exe
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.pdb

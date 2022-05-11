@@ -1,0 +1,6 @@
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\bin\Debug\BoletinJunio9.dll
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\bin\Debug\BoletinJunio9.pdb
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\obj\Debug\BoletinJunio9.csproj.AssemblyReference.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\obj\Debug\BoletinJunio9.csproj.CoreCompileInputs.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\obj\Debug\BoletinJunio9.dll
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\obj\Debug\BoletinJunio9.pdb

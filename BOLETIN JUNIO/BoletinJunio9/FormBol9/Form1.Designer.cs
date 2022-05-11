@@ -28,20 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.dibujoAhorcado1 = new BoletinJunio9.DibujoAhorcado();
             this.SuspendLayout();
+            // 
+            // dibujoAhorcado1
+            // 
+            this.dibujoAhorcado1.Errores = 0;
+            this.dibujoAhorcado1.Location = new System.Drawing.Point(12, 12);
+            this.dibujoAhorcado1.Name = "dibujoAhorcado1";
+            this.dibujoAhorcado1.Size = new System.Drawing.Size(75, 23);
+            this.dibujoAhorcado1.TabIndex = 0;
+            this.dibujoAhorcado1.Text = "dibujoAhorcado1";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 446);
+            this.ClientSize = new System.Drawing.Size(423, 362);
+            this.Controls.Add(this.dibujoAhorcado1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Boletín Junio 9";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private BoletinJunio9.DibujoAhorcado dibujoAhorcado1;
     }
 }
 

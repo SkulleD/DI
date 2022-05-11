@@ -144,7 +144,7 @@ namespace BoletinJunio7
             Recolocar();
         }
 
-        private void LabelTextBox_KeyUp(object sender, KeyEventArgs e)
+        private void TextBox_KeyUp(object sender, KeyEventArgs e)
         {
             OnKeyUp(e);
         }
@@ -153,7 +153,7 @@ namespace BoletinJunio7
         [Description("Se lanza cuando el texto cambia")]
         public event EventHandler TxtChanged;
 
-        private  new void TextChanged(object sender, EventArgs e) // También va sin hacer "new void"
+        private new void TextChanged(object sender, EventArgs e) // También va sin hacer "new void"
         {
             if (TxtChanged != null)
             {

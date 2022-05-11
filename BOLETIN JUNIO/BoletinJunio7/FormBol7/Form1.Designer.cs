@@ -37,13 +37,16 @@ namespace FormBol7
             // 
             this.labelTextBox1.Location = new System.Drawing.Point(12, 12);
             this.labelTextBox1.Name = "labelTextBox1";
-            this.labelTextBox1.Posicion = BoletinJunio7.ePosicion.DERECHA;
+            this.labelTextBox1.Posicion = BoletinJunio7.ePosicion.IZQUIERDA;
             this.labelTextBox1.PswChr = '?';
             this.labelTextBox1.Separacion = 0;
-            this.labelTextBox1.Size = new System.Drawing.Size(125, 20);
+            this.labelTextBox1.Size = new System.Drawing.Size(135, 20);
             this.labelTextBox1.TabIndex = 0;
-            this.labelTextBox1.TextLabel = "aaa";
-            this.labelTextBox1.TextTextBox = "dsgvf";
+            this.labelTextBox1.Tag = "";
+            this.labelTextBox1.TextLabel = "label1";
+            this.labelTextBox1.TextTextBox = "fdgdfghfd";
+            this.labelTextBox1.TxtChanged += new System.EventHandler(this.labelTextBox1_TxtChanged);
+            this.labelTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.labelTextBox1_KeyUp);
             // 
             // Form1
             // 

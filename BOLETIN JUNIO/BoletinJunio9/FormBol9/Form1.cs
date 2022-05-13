@@ -12,23 +12,31 @@ namespace FormBol9
 {
     public partial class Form1 : Form
     {
-        private string palabra;
+        private string palabra; // La palabra a adivinar
+        private string palabraRellenada; // Un string con solo subrayada la longitud de la palabra a adiniviar
+        private char[] arrayLetras = { }; // Array de chars que ayudan a ir cambiando la palabra según se va acertando letras
 
         public Form1()
         {
             InitializeComponent();
-            palabra = "CACAOLAT";
+            palabra = "PROGRAMACION";
+            palabraRellenada = "";
             lblUsadas.Text += "\r\n";
-            DibujaPalabra("");
+
+            DibujaPalabra(' ');
+            SubrayaPalabra();
         }
 
         private void btnUsarLetra_Click(object sender, EventArgs e)
         {
+            char letra;
+
             if (!string.IsNullOrWhiteSpace(txtLetra.Text) && txtLetra.Text.Length == 1)
             {
                 if (palabra.Contains(txtLetra.Text.ToUpper()))
                 {
-                    DibujaPalabra(txtLetra.Text.ToUpper());
+                    letra = char.Parse(txtLetra.Text.ToUpper());
+                    DibujaPalabra(letra);
                 }
                 else
                 {
@@ -51,21 +59,49 @@ namespace FormBol9
 
         }
 
-        private void DibujaPalabra(string letra)
+        private void btnReiniciar_Click(object sender, EventArgs e)
         {
-            lblPalabra.Text = "";
+            dibujoAhorcado1.Errores = 0;
+            lblUsadas.Text = "\r\n";
+            DibujaPalabra(' ');
+        }
 
-            for (int i = 0; i <= palabra.Length; i++)
+        private void DibujaPalabra(char letra)
+        {
+            for (int i = 0; i <= palabra.Length - 1; i++)
             {
-                if (palabra[0].Equals(letra))
+                if (palabra[i]==letra)
                 {
-                    lblPalabra.Text += $"{letra.ToUpper()} ";
+                    arrayLetras[i] = letra;
                 }
-                else
-                {
-                    lblPalabra.Text += "_ ";
-                }
+
+                // lblPalabra.Text += $"{arrayLetras[i]} "; // IndexOutOfRangeException
+                string letrasPalabra = new string(arrayLetras);
+                lblPalabra.Text = letrasPalabra;
             }
+        }
+
+        private void SubrayaPalabra() // Iniciar subrayado de palabra
+        {
+            for (int i = 0; i <= palabra.Length - 1; i++)
+            {
+                palabraRellenada += "_ ";
+            }
+
+            arrayLetras = palabraRellenada.ToCharArray();
+            lblPalabra.Text = palabraRellenada;
+
+            //for (int i = 0; i <= palabra.Length - 1; i++)
+            //{
+            //    if (i % 2 == 0)
+            //    {
+            //        lblPalabra.Text += arrayLetras[i];
+            //    }
+            //    else
+            //    {
+            //        lblPalabra.Text += " ";
+            //    }
+            //}
         }
     }
 }

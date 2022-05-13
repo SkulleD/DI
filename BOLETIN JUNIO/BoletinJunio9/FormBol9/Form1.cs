@@ -10,18 +10,59 @@ using System.Windows.Forms;
 
 namespace FormBol9
 {
+    // Hay que poner gotos en el switch del componente y si tal hacer lo de P1 y P2 de forma opcional y poner la label en CambiaError, pero el programa está bien
     public partial class Form1 : Form
     {
         private string palabra; // La palabra a adivinar
-        private string palabraRellenada; // Un string con solo subrayada la longitud de la palabra a adiniviar
+        private string subrayado; // Un string con solo subrayada la longitud de la palabra a adivinar que se muestra al principio en el TextBox
+        private string subrayaArrayLetras; // String que es igual que el otro subrayado pero sin espacios. Se usa para rellenar arrayLetras
         private char[] arrayLetras = { }; // Array de chars que ayudan a ir cambiando la palabra según se va acertando letras
 
         public Form1()
         {
             InitializeComponent();
-            palabra = "PROGRAMACION";
-            palabraRellenada = "";
+            palabra = txtAdivinar.Text;
+            subrayado = "";
+            subrayaArrayLetras = "";
             lblUsadas.Text += "\r\n";
+
+            btnUsarLetra.Enabled = false;
+            txtLetra.Enabled = false;
+            SubrayaPalabra();
+            DibujaPalabra(' ');
+        }
+
+        private void btnJugar_Click(object sender, EventArgs e)
+        {
+            palabra = "";
+            arrayLetras = palabra.ToCharArray(); // Se reinicia el array de letras
+
+            if (!string.IsNullOrWhiteSpace(txtAdivinar.Text))
+            {
+                palabra = txtAdivinar.Text.ToUpper();
+
+                txtAdivinar.Text = "";
+                txtAdivinar.Enabled = false;
+                btnJugar.Enabled = true;
+                btnUsarLetra.Enabled = true;
+                txtLetra.Enabled = true;
+
+                SubrayaPalabra();
+
+                btnJugar.Enabled = false;
+            }
+        }
+
+        private void btnReiniciar_Click(object sender, EventArgs e)
+        {
+            dibujoAhorcado1.Errores = 0;
+            lblUsadas.Text = "Letras erróneas usadas: \r\n";
+            lblResult.Text = "";
+            lblFallos.Text = "Fallos: ";
+            txtAdivinar.Enabled = true;
+            btnJugar.Enabled = true;
+            btnUsarLetra.Enabled = false;
+            txtLetra.Enabled = false;
 
             DibujaPalabra(' ');
             SubrayaPalabra();
@@ -40,12 +81,21 @@ namespace FormBol9
                 }
                 else
                 {
-                    dibujoAhorcado1.Errores++;
+                    lblFallos.Text = $"Fallos: {dibujoAhorcado1.Errores++}";
                     lblUsadas.Text += $"{txtLetra.Text.ToUpper()}, ";
                 }
 
                 txtLetra.Text = "";
                 txtLetra.Select();
+            }
+
+            string letrasString = new string(arrayLetras);
+
+            if (letrasString.Equals(palabra))
+            {
+                lblResult.Text = "Has ganado!";
+                txtLetra.Enabled = false;
+                btnUsarLetra.Enabled = false;
             }
         }
 
@@ -56,52 +106,60 @@ namespace FormBol9
 
         private void dibujoAhorcado1_Ahorcado(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnReiniciar_Click(object sender, EventArgs e)
-        {
-            dibujoAhorcado1.Errores = 0;
-            lblUsadas.Text = "\r\n";
-            DibujaPalabra(' ');
+            lblResult.Text = "Has perdido.";
+            txtLetra.Enabled = false;
+            btnUsarLetra.Enabled = false;
         }
 
         private void DibujaPalabra(char letra)
         {
-            for (int i = 0; i <= palabra.Length - 1; i++)
+            for (int i = 0; i <= palabra.Length - 1; i++) // Se comprueba que la letra del TextBox coincida con alguna que tenga la palabra y si coincide se guarda
             {
-                if (palabra[i]==letra)
+                if (palabra[i] == letra)
                 {
                     arrayLetras[i] = letra;
                 }
+            }
 
-                // lblPalabra.Text += $"{arrayLetras[i]} "; // IndexOutOfRangeException
-                string letrasPalabra = new string(arrayLetras);
-                lblPalabra.Text = letrasPalabra;
+            lblPalabra.Text = "";
+
+            foreach (char chara in arrayLetras)
+            {
+                if (chara != '_')
+                {
+                    lblPalabra.Text += $"{chara} ";
+                }
+                else
+                {
+                    lblPalabra.Text += "_ ";
+                }
             }
         }
 
         private void SubrayaPalabra() // Iniciar subrayado de palabra
         {
-            for (int i = 0; i <= palabra.Length - 1; i++)
+            arrayLetras = new char[palabra.Length];
+            subrayado = "";
+            subrayaArrayLetras = "";
+            lblPalabra.Text = "";
+            txtAdivinar.Text = "";
+
+            for (int i = 0; i <= palabra.Length - 1; i++) // Se crean los subrayados de las letras
             {
-                palabraRellenada += "_ ";
+                subrayado += "_ ";
+                subrayaArrayLetras += "_";
             }
 
-            arrayLetras = palabraRellenada.ToCharArray();
-            lblPalabra.Text = palabraRellenada;
+            arrayLetras = subrayaArrayLetras.ToCharArray();
+            lblPalabra.Text = subrayado;
+        }
 
-            //for (int i = 0; i <= palabra.Length - 1; i++)
-            //{
-            //    if (i % 2 == 0)
-            //    {
-            //        lblPalabra.Text += arrayLetras[i];
-            //    }
-            //    else
-            //    {
-            //        lblPalabra.Text += " ";
-            //    }
-            //}
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Ahorcado", "¿Salir del programa?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

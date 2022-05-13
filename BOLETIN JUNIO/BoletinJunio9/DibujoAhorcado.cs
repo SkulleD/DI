@@ -12,14 +12,14 @@ namespace BoletinJunio9
 {
     public partial class DibujoAhorcado : Control
     {
-        private bool addLinea = false;
+        private bool addLinea = false; // Para solo dibujar la siguiente línea cuando se falle
 
         public DibujoAhorcado()
         {
             InitializeComponent();
         }
 
-        private int errores = 0;
+        private int errores = 1;
 
         [Category("Ahorcado")]
         [Description("Número de errores al no acertar una letra.")]
@@ -31,9 +31,15 @@ namespace BoletinJunio9
                 {
                     addLinea = true;
                     CambiaError?.Invoke(this, new EventArgs());
+                    Refresh();
                 }
 
                 errores = value;
+
+                if (errores == 10)
+                {
+                    Ahorcado?.Invoke(this, new EventArgs());
+                }
             }
 
             get
@@ -72,29 +78,65 @@ namespace BoletinJunio9
                         graphics.DrawLine(pen, 0, Height, 0, 15); // Soporte
                         break;
                     case 2:
+                        graphics.DrawLine(pen, 0, Height, 0, 15); // Soporte
                         graphics.DrawLine(pen, 0, 15, Width / 2, 15); // Techo
                         break;
                     case 3:
+                        graphics.DrawLine(pen, 0, Height, 0, 15); // Soporte
+                        graphics.DrawLine(pen, 0, 15, Width / 2, 15); // Techo
                         graphics.DrawLine(pen, Width / 2, 15, Width / 2, 25); // Soga
                         break;
 
                     //Ahorcado
                     case 4:
+                        graphics.DrawLine(pen, 0, Height, 0, 15); // Soporte
+                        graphics.DrawLine(pen, 0, 15, Width / 2, 15); // Techo
+                        graphics.DrawLine(pen, Width / 2, 15, Width / 2, 25); // Soga
                         graphics.DrawEllipse(pen, (Width / 2) - 8, 25, 15, 15); // Cabeza
                         break;
                     case 5:
+                        graphics.DrawLine(pen, 0, Height, 0, 15); // Soporte
+                        graphics.DrawLine(pen, 0, 15, Width / 2, 15); // Techo
+                        graphics.DrawLine(pen, Width / 2, 15, Width / 2, 25); // Soga
+                        graphics.DrawEllipse(pen, (Width / 2) - 8, 25, 15, 15); // Cabeza
                         graphics.DrawLine(pen, Width / 2, 40, Width / 2, 80); // Tronco
                         break;
                     case 6:
+                        graphics.DrawLine(pen, 0, Height, 0, 15); // Soporte
+                        graphics.DrawLine(pen, 0, 15, Width / 2, 15); // Techo
+                        graphics.DrawLine(pen, Width / 2, 15, Width / 2, 25); // Soga
+                        graphics.DrawEllipse(pen, (Width / 2) - 8, 25, 15, 15); // Cabeza
+                        graphics.DrawLine(pen, Width / 2, 40, Width / 2, 80); // Tronco
                         graphics.DrawLine(pen, Width / 2, 40, (Width / 2) - 10, 75); // Brazo 1
                         break;
                     case 7:
+                        graphics.DrawLine(pen, 0, Height, 0, 15); // Soporte
+                        graphics.DrawLine(pen, 0, 15, Width / 2, 15); // Techo
+                        graphics.DrawLine(pen, Width / 2, 15, Width / 2, 25); // Soga
+                        graphics.DrawEllipse(pen, (Width / 2) - 8, 25, 15, 15); // Cabeza
+                        graphics.DrawLine(pen, Width / 2, 40, Width / 2, 80); // Tronco
+                        graphics.DrawLine(pen, Width / 2, 40, (Width / 2) - 10, 75); // Brazo 1
                         graphics.DrawLine(pen, Width / 2, 40, (Width / 2) + 10, 75); // Brazo 2
                         break;
                     case 8:
+                        graphics.DrawLine(pen, 0, Height, 0, 15); // Soporte
+                        graphics.DrawLine(pen, 0, 15, Width / 2, 15); // Techo
+                        graphics.DrawLine(pen, Width / 2, 15, Width / 2, 25); // Soga
+                        graphics.DrawEllipse(pen, (Width / 2) - 8, 25, 15, 15); // Cabeza
+                        graphics.DrawLine(pen, Width / 2, 40, Width / 2, 80); // Tronco
+                        graphics.DrawLine(pen, Width / 2, 40, (Width / 2) - 10, 75); // Brazo 1
+                        graphics.DrawLine(pen, Width / 2, 40, (Width / 2) + 10, 75); // Brazo 2
                         graphics.DrawLine(pen, Width / 2, 80, (Width / 2) - 10, 120); // Pierna 1
                         break;
                     case 9:
+                        graphics.DrawLine(pen, 0, Height, 0, 15); // Soporte
+                        graphics.DrawLine(pen, 0, 15, Width / 2, 15); // Techo
+                        graphics.DrawLine(pen, Width / 2, 15, Width / 2, 25); // Soga
+                        graphics.DrawEllipse(pen, (Width / 2) - 8, 25, 15, 15); // Cabeza
+                        graphics.DrawLine(pen, Width / 2, 40, Width / 2, 80); // Tronco
+                        graphics.DrawLine(pen, Width / 2, 40, (Width / 2) - 10, 75); // Brazo 1
+                        graphics.DrawLine(pen, Width / 2, 40, (Width / 2) + 10, 75); // Brazo 2
+                        graphics.DrawLine(pen, Width / 2, 80, (Width / 2) - 10, 120); // Pierna 1
                         graphics.DrawLine(pen, Width / 2, 80, (Width / 2) + 10, 120); // Pierna 2
                         break;
                 }

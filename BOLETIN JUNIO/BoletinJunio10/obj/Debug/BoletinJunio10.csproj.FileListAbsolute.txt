@@ -6,3 +6,11 @@ C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJun
 C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\obj\Debug\BoletinJunio10.dll
 C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\obj\Debug\BoletinJunio10.pdb
 C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\obj\Debug\BoletinJunio10.csprojAssemblyReference.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio10\bin\Debug\BoletinJunio10.dll
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio10\bin\Debug\BoletinJunio10.pdb
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio10\obj\Debug\BoletinJunio10.csproj.AssemblyReference.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio10\obj\Debug\BoletinJunio10.ValidateTextBox.resources
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio10\obj\Debug\BoletinJunio10.csproj.GenerateResource.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio10\obj\Debug\BoletinJunio10.csproj.CoreCompileInputs.cache
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio10\obj\Debug\BoletinJunio10.dll
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio10\obj\Debug\BoletinJunio10.pdb

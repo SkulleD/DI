@@ -25,6 +25,27 @@ namespace BoletinJunio10
             textBox1.Width = Width - 20;
         }
 
+        private eTipo tipo = eTipo.Numérico;
+
+        [Category("Frikilove")]
+        [Description("Determina si se deben introducir caracteres numéricos o de texto")]
+        public eTipo Tipo
+        {
+            set
+            {
+                if (Enum.IsDefined(typeof(eTipo), value))
+                {
+                    tipo = value;
+                    Refresh();
+                }
+            }
+
+            get
+            {
+                return tipo;
+            }
+        }
+
         [Category("Frikilove")]
         [Description("Texto de la TextBox.")]
         public string Texto
@@ -32,6 +53,7 @@ namespace BoletinJunio10
             set
             {
                 textBox1.Text = value;
+                Refresh();
             }
 
             get
@@ -44,10 +66,33 @@ namespace BoletinJunio10
         [Description("Se activa cuando cambia el texto de la TextBox.")]
         public event EventHandler CambiaTexto;
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            CambiaTexto?.Invoke(this, new EventArgs());
+            Refresh();
+        }
 
         public bool Comprobar(string cadena)
         {
-            bool esNum = int.TryParse(cadena, out int cad);
+            bool esNum = false;
+
+            //bool esNum = int.TryParse(cadena.Trim(), out _);
+            if (!string.IsNullOrWhiteSpace(cadena))
+            {
+                //esNum = cadena.Trim().Any(char.IsDigit);
+                //esNum = cadena.Trim().Any(char.IsLetter);
+
+                for (int i = 0; i < cadena.Length; i++)
+                {
+                    if (char.IsLetter(cadena[i]))
+                    {
+                        esNum = true;
+                    } else
+                    {
+                        esNum = false;
+                    }
+                }
+            }
 
             return esNum;
         }
@@ -59,15 +104,18 @@ namespace BoletinJunio10
             Graphics graphics = e.Graphics;
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
-            if (Comprobar(textBox1.Text))
+            if (tipo == eTipo.Textual && Comprobar(textBox1.Text)) // Si tipo es numérico y Comprobar que sea num da true
             {
-                graphics.DrawRectangle(new Pen(Color.Green), 5, 5, Width - 5, Height - 5);
+                graphics.DrawRectangle(new Pen(Color.Green), 5, 5, Width - 10, Height - 10);
+            }
+            else if (tipo == eTipo.Numérico && !Comprobar(textBox1.Text)) // Si tipo es textual y Comprobar que sea num da false
+            {
+                graphics.DrawRectangle(new Pen(Color.Green), 5, 5, Width - 10, Height - 10);
             }
             else
             {
-                graphics.DrawRectangle(new Pen(Color.Red), 5, 5, Width - 5, Height - 5);
+                graphics.DrawRectangle(new Pen(Color.Red), 5, 5, Width - 10, Height - 10);
             }
-
         }
     }
 }

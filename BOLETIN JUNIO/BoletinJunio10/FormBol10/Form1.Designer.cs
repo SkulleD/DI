@@ -29,33 +29,38 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.validateTextBox1 = new BoletinJunio10.ValidateTextBox();
+            this.validateTextBox2 = new BoletinJunio10.ValidateTextBox();
             this.SuspendLayout();
             // 
-            // validateTextBox1
+            // validateTextBox2
             // 
-            this.validateTextBox1.Location = new System.Drawing.Point(12, 12);
-            this.validateTextBox1.Name = "validateTextBox1";
-            this.validateTextBox1.Size = new System.Drawing.Size(150, 42);
-            this.validateTextBox1.TabIndex = 0;
-            this.validateTextBox1.Texto = "";
+            this.validateTextBox2.AutoSize = true;
+            this.validateTextBox2.Location = new System.Drawing.Point(62, 91);
+            this.validateTextBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.validateTextBox2.Name = "validateTextBox2";
+            this.validateTextBox2.Size = new System.Drawing.Size(102, 36);
+            this.validateTextBox2.TabIndex = 1;
+            this.validateTextBox2.Texto = "5465";
+            this.validateTextBox2.Tipo = BoletinJunio10.eTipo.Numérico;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 438);
-            this.Controls.Add(this.validateTextBox1);
+            this.ClientSize = new System.Drawing.Size(398, 356);
+            this.Controls.Add(this.validateTextBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Frikilove";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private BoletinJunio10.ValidateTextBox validateTextBox1;
+        private BoletinJunio10.ValidateTextBox validateTextBox2;
     }
 }
 

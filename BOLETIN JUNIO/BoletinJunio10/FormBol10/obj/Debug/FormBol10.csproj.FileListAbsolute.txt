@@ -11,3 +11,17 @@ C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\Fo
 C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.csproj.CopyComplete
 C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.exe
 C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\bin\Debug\FormBol10.exe.config
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\bin\Debug\FormBol10.exe
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\bin\Debug\FormBol10.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\bin\Debug\BoletinJunio10.dll
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\bin\Debug\BoletinJunio10.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.csprojAssemblyReference.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.Form1.resources
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.Properties.Resources.resources
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.csproj.GenerateResource.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.csproj.CoreCompileInputs.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.csproj.CopyComplete
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.exe
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.Entrada.resources

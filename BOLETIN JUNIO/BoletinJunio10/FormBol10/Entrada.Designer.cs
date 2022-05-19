@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Entrada));
-            this.validateTextBox1 = new BoletinJunio10.ValidateTextBox();
-            this.validateTextBox2 = new BoletinJunio10.ValidateTextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblEdad = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -41,27 +39,11 @@
             this.rb2Hombre = new System.Windows.Forms.RadioButton();
             this.lblGeneroSoy = new System.Windows.Forms.Label();
             this.lblGeneroBusco = new System.Windows.Forms.Label();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.validateTextBox2 = new BoletinJunio10.ValidateTextBox();
+            this.validateTextBox1 = new BoletinJunio10.ValidateTextBox();
             this.SuspendLayout();
-            // 
-            // validateTextBox1
-            // 
-            this.validateTextBox1.Location = new System.Drawing.Point(12, 48);
-            this.validateTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.validateTextBox1.Name = "validateTextBox1";
-            this.validateTextBox1.Size = new System.Drawing.Size(160, 42);
-            this.validateTextBox1.TabIndex = 0;
-            this.validateTextBox1.Texto = "";
-            this.validateTextBox1.Tipo = BoletinJunio10.eTipo.Textual;
-            // 
-            // validateTextBox2
-            // 
-            this.validateTextBox2.Location = new System.Drawing.Point(12, 136);
-            this.validateTextBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.validateTextBox2.Name = "validateTextBox2";
-            this.validateTextBox2.Size = new System.Drawing.Size(160, 42);
-            this.validateTextBox2.TabIndex = 1;
-            this.validateTextBox2.Texto = "";
-            this.validateTextBox2.Tipo = BoletinJunio10.eTipo.Numérico;
             // 
             // lblNombre
             // 
@@ -160,11 +142,58 @@
             this.lblGeneroBusco.TabIndex = 11;
             this.lblGeneroBusco.Text = "Busco...";
             // 
+            // btnAceptar
+            // 
+            this.btnAceptar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAceptar.Location = new System.Drawing.Point(49, 337);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(95, 37);
+            this.btnAceptar.TabIndex = 12;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.ForeColor = System.Drawing.Color.Red;
+            this.btnCancelar.Location = new System.Drawing.Point(231, 337);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(95, 37);
+            this.btnCancelar.TabIndex = 13;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // validateTextBox2
+            // 
+            this.validateTextBox2.AutoSize = true;
+            this.validateTextBox2.Location = new System.Drawing.Point(12, 136);
+            this.validateTextBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.validateTextBox2.Name = "validateTextBox2";
+            this.validateTextBox2.Size = new System.Drawing.Size(160, 42);
+            this.validateTextBox2.TabIndex = 1;
+            this.validateTextBox2.Texto = "";
+            this.validateTextBox2.Tipo = BoletinJunio10.eTipo.Numérico;
+            // 
+            // validateTextBox1
+            // 
+            this.validateTextBox1.AutoSize = true;
+            this.validateTextBox1.Location = new System.Drawing.Point(12, 48);
+            this.validateTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.validateTextBox1.Name = "validateTextBox1";
+            this.validateTextBox1.Size = new System.Drawing.Size(160, 42);
+            this.validateTextBox1.TabIndex = 0;
+            this.validateTextBox1.Texto = "";
+            this.validateTextBox1.Tipo = BoletinJunio10.eTipo.Textual;
+            // 
             // Entrada
             // 
+            this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 328);
+            this.CancelButton = this.btnCancelar;
+            this.ClientSize = new System.Drawing.Size(375, 386);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.lblGeneroBusco);
             this.Controls.Add(this.lblGeneroSoy);
             this.Controls.Add(this.rb2Mujer);
@@ -177,8 +206,11 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.validateTextBox2);
             this.Controls.Add(this.validateTextBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Entrada";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Entrada";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -199,5 +231,7 @@
         private System.Windows.Forms.RadioButton rb2Hombre;
         private System.Windows.Forms.Label lblGeneroSoy;
         private System.Windows.Forms.Label lblGeneroBusco;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

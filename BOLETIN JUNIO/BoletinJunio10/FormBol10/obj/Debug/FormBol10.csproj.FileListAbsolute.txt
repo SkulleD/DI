@@ -25,3 +25,4 @@ C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJun
 C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.exe
 C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.pdb
 C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.Entrada.resources
+C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio10\FormBol10\obj\Debug\FormBol10.Entrada.resources

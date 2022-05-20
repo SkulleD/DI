@@ -34,6 +34,7 @@
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.picPareja = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.menuNuevo = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,29 +42,35 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAcercaDe = new System.Windows.Forms.ToolStripMenuItem();
-            this.validateTextBox2 = new BoletinJunio10.ValidateTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbldatoIncorrecto = new System.Windows.Forms.Label();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.lblListaClientes = new System.Windows.Forms.Label();
+            this.lblParejasvalidas = new System.Windows.Forms.Label();
+            this.picCliente = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPareja)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(12, 41);
+            this.listBox1.Location = new System.Drawing.Point(9, 46);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBox1.Size = new System.Drawing.Size(159, 164);
+            this.listBox1.Size = new System.Drawing.Size(310, 147);
             this.listBox1.TabIndex = 2;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // btnBorrar
             // 
-            this.btnBorrar.Location = new System.Drawing.Point(193, 142);
+            this.btnBorrar.Location = new System.Drawing.Point(332, 165);
+            this.btnBorrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(75, 35);
+            this.btnBorrar.Size = new System.Drawing.Size(70, 28);
             this.btnBorrar.TabIndex = 3;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
@@ -71,9 +78,10 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(193, 70);
+            this.btnNuevo.Location = new System.Drawing.Point(332, 133);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(2);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 35);
+            this.btnNuevo.Size = new System.Drawing.Size(70, 28);
             this.btnNuevo.TabIndex = 4;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
@@ -81,11 +89,21 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(12, 211);
+            this.panel1.Controls.Add(this.picPareja);
+            this.panel1.Location = new System.Drawing.Point(7, 197);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(507, 215);
+            this.panel1.Size = new System.Drawing.Size(720, 240);
             this.panel1.TabIndex = 5;
+            // 
+            // picPareja
+            // 
+            this.picPareja.Location = new System.Drawing.Point(4, 2);
+            this.picPareja.Margin = new System.Windows.Forms.Padding(2);
+            this.picPareja.Name = "picPareja";
+            this.picPareja.Size = new System.Drawing.Size(60, 67);
+            this.picPareja.TabIndex = 7;
+            this.picPareja.TabStop = false;
             // 
             // menuStrip1
             // 
@@ -95,7 +113,8 @@
             this.menuAcercaDe});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(531, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(734, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -107,51 +126,45 @@
             this.toolStripSeparator1,
             this.menuSalir});
             this.menuCliente.Name = "menuCliente";
-            this.menuCliente.Size = new System.Drawing.Size(69, 24);
-            this.menuCliente.Text = "Cliente";
+            this.menuCliente.Size = new System.Drawing.Size(56, 20);
+            this.menuCliente.Text = "&Cliente";
             // 
             // menuNuevo
             // 
             this.menuNuevo.Name = "menuNuevo";
-            this.menuNuevo.Size = new System.Drawing.Size(224, 26);
-            this.menuNuevo.Text = "Nuevo";
+            this.menuNuevo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.menuNuevo.Size = new System.Drawing.Size(180, 22);
+            this.menuNuevo.Text = "&Nuevo";
             this.menuNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // menuBorrar
             // 
             this.menuBorrar.Name = "menuBorrar";
-            this.menuBorrar.Size = new System.Drawing.Size(224, 26);
-            this.menuBorrar.Text = "Borrar";
+            this.menuBorrar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+            this.menuBorrar.Size = new System.Drawing.Size(180, 22);
+            this.menuBorrar.Text = "&Borrar";
             this.menuBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // menuSalir
             // 
             this.menuSalir.Name = "menuSalir";
-            this.menuSalir.Size = new System.Drawing.Size(224, 26);
-            this.menuSalir.Text = "Salir";
+            this.menuSalir.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.menuSalir.Size = new System.Drawing.Size(180, 22);
+            this.menuSalir.Text = "&Salir";
             this.menuSalir.Click += new System.EventHandler(this.menuSalir_Click);
             // 
             // menuAcercaDe
             // 
             this.menuAcercaDe.Name = "menuAcercaDe";
-            this.menuAcercaDe.Size = new System.Drawing.Size(89, 24);
-            this.menuAcercaDe.Text = "Acerca de";
-            // 
-            // validateTextBox2
-            // 
-            this.validateTextBox2.AutoSize = true;
-            this.validateTextBox2.Location = new System.Drawing.Point(321, 133);
-            this.validateTextBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.validateTextBox2.Name = "validateTextBox2";
-            this.validateTextBox2.Size = new System.Drawing.Size(159, 44);
-            this.validateTextBox2.TabIndex = 1;
-            this.validateTextBox2.Texto = "5465";
-            this.validateTextBox2.Tipo = BoletinJunio10.eTipo.Textual;
+            this.menuAcercaDe.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.menuAcercaDe.Size = new System.Drawing.Size(71, 20);
+            this.menuAcercaDe.Text = "&Acerca de";
+            this.menuAcercaDe.Click += new System.EventHandler(this.menuAcercaDe_Click);
             // 
             // timer1
             // 
@@ -159,46 +172,84 @@
             this.timer1.Interval = 200;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // pictureBox1
+            // lbldatoIncorrecto
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(80, 80);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.lbldatoIncorrecto.AutoSize = true;
+            this.lbldatoIncorrecto.ForeColor = System.Drawing.Color.Red;
+            this.lbldatoIncorrecto.Location = new System.Drawing.Point(172, 30);
+            this.lbldatoIncorrecto.Name = "lbldatoIncorrecto";
+            this.lbldatoIncorrecto.Size = new System.Drawing.Size(0, 13);
+            this.lbldatoIncorrecto.TabIndex = 7;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(417, 46);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(310, 147);
+            this.listBox2.TabIndex = 8;
+            // 
+            // lblListaClientes
+            // 
+            this.lblListaClientes.AutoSize = true;
+            this.lblListaClientes.Location = new System.Drawing.Point(8, 30);
+            this.lblListaClientes.Name = "lblListaClientes";
+            this.lblListaClientes.Size = new System.Drawing.Size(83, 13);
+            this.lblListaClientes.TabIndex = 9;
+            this.lblListaClientes.Text = "Lista de clientes";
+            // 
+            // lblParejasvalidas
+            // 
+            this.lblParejasvalidas.AutoSize = true;
+            this.lblParejasvalidas.Location = new System.Drawing.Point(416, 30);
+            this.lblParejasvalidas.Name = "lblParejasvalidas";
+            this.lblParejasvalidas.Size = new System.Drawing.Size(117, 13);
+            this.lblParejasvalidas.TabIndex = 10;
+            this.lblParejasvalidas.Text = "Lista de parejas válidas";
+            // 
+            // picCliente
+            // 
+            this.picCliente.Location = new System.Drawing.Point(324, 27);
+            this.picCliente.Name = "picCliente";
+            this.picCliente.Size = new System.Drawing.Size(86, 101);
+            this.picCliente.TabIndex = 11;
+            this.picCliente.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 438);
+            this.ClientSize = new System.Drawing.Size(734, 441);
+            this.Controls.Add(this.picCliente);
+            this.Controls.Add(this.lblParejasvalidas);
+            this.Controls.Add(this.lblListaClientes);
+            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.lbldatoIncorrecto);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.validateTextBox2);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frikilove";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picPareja)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private BoletinJunio10.ValidateTextBox validateTextBox2;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnNuevo;
@@ -211,7 +262,12 @@
         private System.Windows.Forms.ToolStripMenuItem menuSalir;
         private System.Windows.Forms.ToolStripMenuItem menuAcercaDe;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picPareja;
+        private System.Windows.Forms.Label lbldatoIncorrecto;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Label lblListaClientes;
+        private System.Windows.Forms.Label lblParejasvalidas;
+        private System.Windows.Forms.PictureBox picCliente;
     }
 }
 

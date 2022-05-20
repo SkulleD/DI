@@ -10,37 +10,10 @@ using System.Windows.Forms;
 
 namespace FormBol10
 {
-    public enum eAficion
-    {
-        Manga,
-        SciFi,
-        RPG,
-        Fantasía,
-        Terror,
-        Tecnología
-    }
-
-    public enum Sexo
-    {
-        Hombre,
-        Mujer
-    }
-
-    public enum SexoOpuesto
-    {
-        Hombre,
-        Mujer
-    }
-
     public partial class Form1 : Form
     {
-        private List<StructFormat> frikis = new List<StructFormat>();
-        struct {
-
-        }
-        private string nombre;
-        private int edad;
-        private string foto;
+        private List<Friki> frikis = new List<Friki>();
+        private Friki friki = new Friki();
 
         //Timer
         int titleLength; // Se usa para obtener la longitud de la string del título.
@@ -59,17 +32,83 @@ namespace FormBol10
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            Entrada entrada = new Entrada();
 
+            if (entrada.ShowDialog() == DialogResult.OK)
+            {
+                // Se usa el método de Comprobar para asegurarse de que los campos están correctos
+                if (entrada.validateTextBoxNombre.Comprobar(entrada.validateTextBoxNombre.Texto) && entrada.validateTextBoxEdad.Comprobar(entrada.validateTextBoxEdad.Texto))
+                {
+                    lbldatoIncorrecto.Text = "";
+
+                    if (entrada.rb1Hombre.Checked) // Primero se comprueba si la propia persona seleccionó hombre o mujer
+                    {
+                        friki.Sexo = Sexo.Hombre;
+                    }
+                    else
+                    {
+                        friki.Sexo = Sexo.Mujer;
+                    }
+
+                    if (entrada.rb2Hombre.Checked) // Luego se comprueba qué es lo que busca
+                    {
+                        friki.SexoOpuesto = SexoOpuesto.Hombre;
+                    }
+                    else
+                    {
+                        friki.SexoOpuesto = SexoOpuesto.Mujer;
+                    }
+
+                    friki = new Friki(entrada.validateTextBoxNombre.Texto, int.Parse(entrada.validateTextBoxEdad.Texto), entrada.pictureBox1.Image.ToString(), friki.Aficion = (eAficion)entrada.comboBox1.SelectedItem, friki.Sexo, friki.SexoOpuesto);
+                    frikis.Add(friki);
+                    listBox1.Items.Add($"{friki.Nombre}, {friki.Edad}, {friki.Sexo} | Afición: {friki.Aficion} | Buscando: {friki.SexoOpuesto}");
+                }
+                else
+                {
+                    lbldatoIncorrecto.Text = "Datos incorrectos.";
+                }
+            }
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-
+            while (listBox1.SelectedIndex != -1)
+            {
+                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+            }
         }
 
         private void menuSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void menuAcercaDe_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Nombre del software: Frikilove.\nAutor del software: Álvaro Vila.", "Frikilove", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex == 0)
+            {
+                try
+                {
+                    foreach (Friki friki in frikis)
+                    {
+                        picCliente.Image = Image.FromFile(friki.Foto);
+                    }
+                }
+                catch (ArgumentNullException)
+                {
+                    Console.WriteLine("Argument null");
+                }
+                catch (System.IO.FileNotFoundException)
+                {
+                    Console.WriteLine("File not found");
+                }
+
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

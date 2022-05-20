@@ -74,27 +74,47 @@ namespace BoletinJunio10
 
         public bool Comprobar(string cadena)
         {
-            bool esNum = false;
+            bool esLetra = false;
 
             //bool esNum = int.TryParse(cadena.Trim(), out _);
+            //esNum = cadena.Trim().Any(char.IsDigit);
+            //esNum = cadena.Trim().Any(char.IsLetter);
+
             if (!string.IsNullOrWhiteSpace(cadena))
             {
-                //esNum = cadena.Trim().Any(char.IsDigit);
-                //esNum = cadena.Trim().Any(char.IsLetter);
-
-                for (int i = 0; i < cadena.Length; i++)
+                if (tipo == eTipo.Textual)
                 {
-                    if (char.IsLetter(cadena[i]))
+                    for (int i = 0; i < cadena.Length; i++)
                     {
-                        esNum = true;
-                    } else
+                        if (char.IsLetter(cadena[i]))
+                        {
+                            esLetra = true;
+                        }
+                        else
+                        {
+                            esLetra = false;
+                            return esLetra;
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < cadena.Length; i++)
                     {
-                        esNum = false;
+                        if (char.IsDigit(cadena[i]))
+                        {
+                            esLetra = true;
+                        }
+                        else
+                        {
+                            esLetra = false;
+                            return esLetra;
+                        }
                     }
                 }
             }
 
-            return esNum;
+            return esLetra;
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -104,11 +124,11 @@ namespace BoletinJunio10
             Graphics graphics = e.Graphics;
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
-            if (tipo == eTipo.Textual && Comprobar(textBox1.Text)) // Si tipo es numérico y Comprobar que sea num da true
+            if (tipo == eTipo.Textual && Comprobar(textBox1.Text)) // Si tipo es textual y Comprobar que sea letra da true
             {
                 graphics.DrawRectangle(new Pen(Color.Green), 5, 5, Width - 10, Height - 10);
             }
-            else if (tipo == eTipo.Numérico && !Comprobar(textBox1.Text)) // Si tipo es textual y Comprobar que sea num da false
+            else if (tipo == eTipo.Numérico && Comprobar(textBox1.Text)) // Si tipo es numérico y Comprobar que sea letra da false
             {
                 graphics.DrawRectangle(new Pen(Color.Green), 5, 5, Width - 10, Height - 10);
             }

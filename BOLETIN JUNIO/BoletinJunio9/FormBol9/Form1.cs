@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,13 +11,14 @@ using System.Windows.Forms;
 
 namespace FormBol9
 {
-    // Hay que poner gotos en el switch del componente y si tal hacer lo de P1 y P2 de forma opcional y poner la label en CambiaError, pero el programa está bien
     public partial class Form1 : Form
     {
         private string palabra; // La palabra a adivinar
         private string subrayado; // Un string con solo subrayada la longitud de la palabra a adivinar que se muestra al principio en el TextBox
         private string subrayaArrayLetras; // String que es igual que el otro subrayado pero sin espacios. Se usa para rellenar arrayLetras
         private char[] arrayLetras = { }; // Array de chars que ayudan a ir cambiando la palabra según se va acertando letras
+        private string rutaPalabras = Directory.GetCurrentDirectory() + "\\palabras.txt";
+        private string[] arrayPalabras;
 
         public Form1()
         {
@@ -41,16 +43,27 @@ namespace FormBol9
             {
                 palabra = txtAdivinar.Text.ToUpper();
 
-                txtAdivinar.Text = "";
-                txtAdivinar.Enabled = false;
-                btnJugar.Enabled = true;
-                btnUsarLetra.Enabled = true;
-                txtLetra.Enabled = true;
+            } else
+            {
+                arrayPalabras = File.ReadAllLines(rutaPalabras);
+                Random random = new Random();
+                int rand = random.Next(0, arrayPalabras.Length + 10);
 
-                SubrayaPalabra();
-
-                btnJugar.Enabled = false;
+                for (int i = 0; i < rand; i++)
+                {
+                    palabra = arrayPalabras[i];
+                }
             }
+
+            txtAdivinar.Text = "";
+            txtAdivinar.Enabled = false;
+            btnJugar.Enabled = true;
+            btnUsarLetra.Enabled = true;
+            txtLetra.Enabled = true;
+
+            SubrayaPalabra();
+
+            btnJugar.Enabled = false;
         }
 
         private void btnReiniciar_Click(object sender, EventArgs e)

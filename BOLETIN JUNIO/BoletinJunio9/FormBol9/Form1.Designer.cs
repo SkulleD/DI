@@ -45,28 +45,30 @@
             // 
             // txtLetra
             // 
-            this.txtLetra.Location = new System.Drawing.Point(15, 97);
+            this.txtLetra.Location = new System.Drawing.Point(20, 119);
+            this.txtLetra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLetra.Name = "txtLetra";
-            this.txtLetra.Size = new System.Drawing.Size(38, 20);
+            this.txtLetra.Size = new System.Drawing.Size(49, 22);
             this.txtLetra.TabIndex = 4;
             // 
             // lblPalabra
             // 
             this.lblPalabra.AutoSize = true;
             this.lblPalabra.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPalabra.Location = new System.Drawing.Point(12, 65);
+            this.lblPalabra.Location = new System.Drawing.Point(16, 80);
+            this.lblPalabra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPalabra.Name = "lblPalabra";
-            this.lblPalabra.Size = new System.Drawing.Size(0, 13);
+            this.lblPalabra.Size = new System.Drawing.Size(0, 17);
             this.lblPalabra.TabIndex = 3;
             // 
             // btnReiniciar
             // 
             this.btnReiniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReiniciar.ForeColor = System.Drawing.Color.Teal;
-            this.btnReiniciar.Location = new System.Drawing.Point(14, 171);
-            this.btnReiniciar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReiniciar.Location = new System.Drawing.Point(19, 210);
+            this.btnReiniciar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReiniciar.Name = "btnReiniciar";
-            this.btnReiniciar.Size = new System.Drawing.Size(98, 42);
+            this.btnReiniciar.Size = new System.Drawing.Size(131, 52);
             this.btnReiniciar.TabIndex = 7;
             this.btnReiniciar.Text = "REINICIAR";
             this.btnReiniciar.UseVisualStyleBackColor = true;
@@ -75,20 +77,19 @@
             // lbl_Info
             // 
             this.lbl_Info.AutoSize = true;
-            this.lbl_Info.Location = new System.Drawing.Point(58, 101);
-            this.lbl_Info.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_Info.Location = new System.Drawing.Point(77, 124);
             this.lbl_Info.Name = "lbl_Info";
-            this.lbl_Info.Size = new System.Drawing.Size(102, 13);
+            this.lbl_Info.Size = new System.Drawing.Size(136, 17);
             this.lbl_Info.TabIndex = 5;
             this.lbl_Info.Text = "<-- Inserta letra aquí";
             // 
             // btnUsarLetra
             // 
             this.btnUsarLetra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnUsarLetra.Location = new System.Drawing.Point(14, 121);
-            this.btnUsarLetra.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUsarLetra.Location = new System.Drawing.Point(19, 149);
+            this.btnUsarLetra.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUsarLetra.Name = "btnUsarLetra";
-            this.btnUsarLetra.Size = new System.Drawing.Size(67, 28);
+            this.btnUsarLetra.Size = new System.Drawing.Size(89, 34);
             this.btnUsarLetra.TabIndex = 6;
             this.btnUsarLetra.Text = "Usar letra";
             this.btnUsarLetra.UseVisualStyleBackColor = true;
@@ -97,37 +98,38 @@
             // lblUsadas
             // 
             this.lblUsadas.AutoSize = true;
-            this.lblUsadas.Location = new System.Drawing.Point(12, 245);
-            this.lblUsadas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUsadas.Location = new System.Drawing.Point(16, 302);
             this.lblUsadas.Name = "lblUsadas";
-            this.lblUsadas.Size = new System.Drawing.Size(123, 13);
+            this.lblUsadas.Size = new System.Drawing.Size(167, 17);
             this.lblUsadas.TabIndex = 9;
             this.lblUsadas.Text = "Letras erróneas usadas: ";
             // 
             // lblResult
             // 
             this.lblResult.AutoSize = true;
-            this.lblResult.Location = new System.Drawing.Point(219, 215);
+            this.lblResult.Location = new System.Drawing.Point(292, 265);
+            this.lblResult.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(0, 13);
+            this.lblResult.Size = new System.Drawing.Size(0, 17);
             this.lblResult.TabIndex = 11;
             // 
             // lblFallos
             // 
             this.lblFallos.AutoSize = true;
-            this.lblFallos.Location = new System.Drawing.Point(12, 232);
+            this.lblFallos.Location = new System.Drawing.Point(16, 286);
+            this.lblFallos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFallos.Name = "lblFallos";
-            this.lblFallos.Size = new System.Drawing.Size(40, 13);
+            this.lblFallos.Size = new System.Drawing.Size(53, 17);
             this.lblFallos.TabIndex = 8;
             this.lblFallos.Text = "Fallos: ";
             // 
             // dibujoAhorcado1
             // 
             this.dibujoAhorcado1.Errores = 0;
-            this.dibujoAhorcado1.Location = new System.Drawing.Point(192, 11);
-            this.dibujoAhorcado1.Margin = new System.Windows.Forms.Padding(2);
+            this.dibujoAhorcado1.Location = new System.Drawing.Point(256, 14);
+            this.dibujoAhorcado1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dibujoAhorcado1.Name = "dibujoAhorcado1";
-            this.dibujoAhorcado1.Size = new System.Drawing.Size(122, 202);
+            this.dibujoAhorcado1.Size = new System.Drawing.Size(163, 249);
             this.dibujoAhorcado1.TabIndex = 10;
             this.dibujoAhorcado1.Text = "dibujoAhorcado1";
             this.dibujoAhorcado1.CambiaError += new System.EventHandler(this.dibujoAhorcado1_CambiaError);
@@ -136,17 +138,19 @@
             // lblPalabraAdivinar
             // 
             this.lblPalabraAdivinar.AutoSize = true;
-            this.lblPalabraAdivinar.Location = new System.Drawing.Point(9, 11);
+            this.lblPalabraAdivinar.Location = new System.Drawing.Point(13, 5);
+            this.lblPalabraAdivinar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPalabraAdivinar.Name = "lblPalabraAdivinar";
-            this.lblPalabraAdivinar.Size = new System.Drawing.Size(92, 13);
+            this.lblPalabraAdivinar.Size = new System.Drawing.Size(232, 34);
             this.lblPalabraAdivinar.TabIndex = 0;
-            this.lblPalabraAdivinar.Text = "Palabra a adivinar";
+            this.lblPalabraAdivinar.Text = "Palabra a adivinar\r\n(si se deja vacío sale una aleatoria)";
             // 
             // txtAdivinar
             // 
-            this.txtAdivinar.Location = new System.Drawing.Point(12, 27);
+            this.txtAdivinar.Location = new System.Drawing.Point(16, 43);
+            this.txtAdivinar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAdivinar.Name = "txtAdivinar";
-            this.txtAdivinar.Size = new System.Drawing.Size(100, 20);
+            this.txtAdivinar.Size = new System.Drawing.Size(132, 22);
             this.txtAdivinar.TabIndex = 1;
             this.txtAdivinar.Text = "PROGRAM";
             // 
@@ -154,9 +158,10 @@
             // 
             this.btnJugar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnJugar.ForeColor = System.Drawing.Color.Green;
-            this.btnJugar.Location = new System.Drawing.Point(118, 24);
+            this.btnJugar.Location = new System.Drawing.Point(157, 40);
+            this.btnJugar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnJugar.Name = "btnJugar";
-            this.btnJugar.Size = new System.Drawing.Size(69, 23);
+            this.btnJugar.Size = new System.Drawing.Size(92, 28);
             this.btnJugar.TabIndex = 2;
             this.btnJugar.Text = "JUGAR";
             this.btnJugar.UseVisualStyleBackColor = true;
@@ -165,9 +170,9 @@
             // Form1
             // 
             this.AcceptButton = this.btnUsarLetra;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 288);
+            this.ClientSize = new System.Drawing.Size(433, 354);
             this.Controls.Add(this.btnJugar);
             this.Controls.Add(this.txtAdivinar);
             this.Controls.Add(this.lblPalabraAdivinar);
@@ -181,7 +186,7 @@
             this.Controls.Add(this.lblPalabra);
             this.Controls.Add(this.txtLetra);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";

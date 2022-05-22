@@ -4,3 +4,9 @@ C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\obj\Debug\BoletinJunio9
 C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\obj\Debug\BoletinJunio9.csproj.CoreCompileInputs.cache
 C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\obj\Debug\BoletinJunio9.dll
 C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\obj\Debug\BoletinJunio9.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\bin\Debug\BoletinJunio9.dll
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\bin\Debug\BoletinJunio9.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\obj\Debug\BoletinJunio9.csprojAssemblyReference.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\obj\Debug\BoletinJunio9.csproj.CoreCompileInputs.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\obj\Debug\BoletinJunio9.dll
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\obj\Debug\BoletinJunio9.pdb

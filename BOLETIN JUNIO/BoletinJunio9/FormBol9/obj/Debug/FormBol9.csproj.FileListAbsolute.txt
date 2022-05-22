@@ -11,3 +11,16 @@ C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\Form
 C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\FormBol9\bin\Debug\BoletinJunio9.dll
 C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\FormBol9\bin\Debug\BoletinJunio9.pdb
 C:\Users\Alvaro\source\repos\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.csproj.CopyComplete
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.csprojAssemblyReference.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.Form1.resources
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.Properties.Resources.resources
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.csproj.GenerateResource.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.csproj.CoreCompileInputs.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.exe
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\FormBol9\bin\Debug\FormBol9.exe.config
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\FormBol9\bin\Debug\FormBol9.exe
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\FormBol9\bin\Debug\FormBol9.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\FormBol9\bin\Debug\BoletinJunio9.dll
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\FormBol9\bin\Debug\BoletinJunio9.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\BoletinJunio9\FormBol9\obj\Debug\FormBol9.csproj.CopyComplete

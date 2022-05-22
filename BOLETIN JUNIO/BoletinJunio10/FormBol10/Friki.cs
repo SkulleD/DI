@@ -51,5 +51,20 @@ namespace FormBol10
             this.Sexo = Sexo;
             this.SexoOpuesto = SexoOpuesto;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj != null && obj.GetType() == GetType())
+            {
+                Friki checkFriki = (Friki)obj;
+
+                if (Nombre.Equals(checkFriki.Nombre))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

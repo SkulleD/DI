@@ -14,12 +14,13 @@ namespace FormBol10
     public partial class Entrada : Form
     {
         private string currentDirectory = Directory.GetCurrentDirectory();
-        public Friki friki = new Friki();
+        public string rutaFoto;
 
         public Entrada()
         {
             InitializeComponent();
             pictureBox1.Image = Image.FromFile(currentDirectory + "\\cliente0.jpg");
+            rutaFoto = currentDirectory + "\\cliente0.jpg";
             comboBox1.DataSource = Enum.GetValues(typeof(eAficion));
         }
 
@@ -33,6 +34,7 @@ namespace FormBol10
                     fileDialog.Filter = "Imágenes|*.png; *.jpg; *.jpeg";
                     fileDialog.ShowDialog();
 
+                    rutaFoto = fileDialog.FileName;
                     pictureBox1.Image = Image.FromFile(fileDialog.FileName);
                 }
                 catch (ArgumentException)

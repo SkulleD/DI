@@ -59,7 +59,7 @@ namespace FormBol10
                         friki.SexoOpuesto = SexoOpuesto.Mujer;
                     }
 
-                    friki = new Friki(entrada.validateTextBoxNombre.Texto, int.Parse(entrada.validateTextBoxEdad.Texto), entrada.pictureBox1.Image.ToString(), friki.Aficion = (eAficion)entrada.comboBox1.SelectedItem, friki.Sexo, friki.SexoOpuesto);
+                    friki = new Friki(entrada.validateTextBoxNombre.Texto, int.Parse(entrada.validateTextBoxEdad.Texto), entrada.rutaFoto, friki.Aficion = (eAficion)entrada.comboBox1.SelectedItem, friki.Sexo, friki.SexoOpuesto);
                     frikis.Add(friki);
                     listBox1.Items.Add($"{friki.Nombre}, {friki.Edad}, {friki.Sexo} | Afición: {friki.Aficion} | Buscando: {friki.SexoOpuesto}");
                 }
@@ -74,7 +74,13 @@ namespace FormBol10
         {
             while (listBox1.SelectedIndex != -1)
             {
+                if (frikis[listBox1.SelectedIndex].Equals(listBox1.SelectedItem))
+                {
+                    frikis.RemoveAt(listBox1.SelectedIndex);
+                }
+
                 listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+                picCliente.Image = null;
             }
         }
 
@@ -90,13 +96,19 @@ namespace FormBol10
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex == 0)
+            Friki frikiCheck;
+
+            if (listBox1.SelectedItems != null && listBox1.SelectedIndex == 0)
             {
+                while (listBox2.Items.Count > 0) // Se vacía la lista cada vez que un cliente es seleccionado
+                {
+                    listBox2.Items.RemoveAt(0);
+                }
                 try
                 {
                     foreach (Friki friki in frikis)
                     {
-                        picCliente.Image = Image.FromFile(friki.Foto);
+                        picCliente.Image = Image.FromFile(frikis[listBox1.SelectedIndex].Foto);
                     }
                 }
                 catch (ArgumentNullException)
@@ -108,6 +120,18 @@ namespace FormBol10
                     Console.WriteLine("File not found");
                 }
 
+                // Se muestran en la lista 2 solo las personas con aficiones y género buscado que coincidan con las del primer cliente seleccionado de lista 1
+                for (int i = 0; i < listBox1.Items.Count; i++)
+                {
+                    if (friki.Equals(listBox1.Items[i]))
+                    {
+                        frikiCheck = (Friki)listBox1.Items[i];
+                        if (frikis[listBox1.SelectedIndex].Aficion == frikiCheck.Aficion && frikis[listBox1.SelectedIndex].SexoOpuesto != frikiCheck.SexoOpuesto)
+                        {
+                            listBox2.Items.Insert(0, listBox1.Items[i]);
+                        }
+                    }
+                }
             }
         }
 

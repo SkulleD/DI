@@ -1,0 +1,8 @@
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\bin\Debug\ExamenCartas.dll
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\bin\Debug\ExamenCartas.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\obj\Debug\ExamenCartas.csprojAssemblyReference.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\obj\Debug\ExamenCartas.Carta.resources
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\obj\Debug\ExamenCartas.csproj.GenerateResource.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\obj\Debug\ExamenCartas.csproj.CoreCompileInputs.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\obj\Debug\ExamenCartas.dll
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\obj\Debug\ExamenCartas.pdb

@@ -1,0 +1,13 @@
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\FormCartas\bin\Debug\FormCartas.exe.config
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\FormCartas\bin\Debug\FormCartas.exe
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\FormCartas\bin\Debug\FormCartas.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\FormCartas\obj\Debug\FormCartas.csprojAssemblyReference.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\FormCartas\obj\Debug\FormCartas.Form1.resources
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\FormCartas\obj\Debug\FormCartas.Properties.Resources.resources
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\FormCartas\obj\Debug\FormCartas.csproj.GenerateResource.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\FormCartas\obj\Debug\FormCartas.csproj.CoreCompileInputs.cache
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\FormCartas\obj\Debug\FormCartas.exe
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\FormCartas\obj\Debug\FormCartas.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\FormCartas\bin\Debug\ExamenCartas.dll
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\FormCartas\bin\Debug\ExamenCartas.pdb
+C:\Users\Álvaro Vila\source\repos\2021_2022\Interfaces\BOLETIN JUNIO\ExamenCartas\FormCartas\obj\Debug\FormCartas.csproj.CopyComplete

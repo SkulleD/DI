@@ -117,7 +117,7 @@ namespace ExamenCartas
                 color = Color.Green;
             }
 
-            if (!Enabled)
+            if (!Enabled) // NO FUNCIONA
             {
                 color = Color.LightGray;
             }

@@ -21,8 +21,6 @@ namespace BoletinJunio10
         public ValidateTextBox()
         {
             InitializeComponent();
-            Height = textBox1.Height + 20;
-            textBox1.Width = Width - 20;
         }
 
         private eTipo tipo = eTipo.Numérico;
@@ -53,7 +51,6 @@ namespace BoletinJunio10
             set
             {
                 textBox1.Text = value;
-                Refresh();
             }
 
             get
@@ -120,22 +117,26 @@ namespace BoletinJunio10
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+            Height = textBox1.Height + 15;
+            textBox1.Width = Width - 15;
 
             Graphics graphics = e.Graphics;
             graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
-            if (tipo == eTipo.Textual && Comprobar(textBox1.Text)) // Si tipo es textual y Comprobar que sea letra da true
+            Pen pen;
+
+            // Si tipo es textual y Comprobar que sea letra da true || Si tipo es numérico y Comprobar que sea letra da false
+            if ((tipo == eTipo.Textual && Comprobar(textBox1.Text)) || (tipo == eTipo.Numérico && Comprobar(textBox1.Text)))
             {
-                graphics.DrawRectangle(new Pen(Color.Green), 5, 5, Width - 10, Height - 10);
-            }
-            else if (tipo == eTipo.Numérico && Comprobar(textBox1.Text)) // Si tipo es numérico y Comprobar que sea letra da false
-            {
-                graphics.DrawRectangle(new Pen(Color.Green), 5, 5, Width - 10, Height - 10);
+                pen = new Pen(Color.Green);
             }
             else
             {
-                graphics.DrawRectangle(new Pen(Color.Red), 5, 5, Width - 10, Height - 10);
+                pen = new Pen(Color.Red);
             }
+            pen = tipo == eTipo.Textual && Comprobar(textBox1.Text) || (tipo == eTipo.Numérico && Comprobar(textBox1.Text)) ? new Pen(Color.Green) : new Pen(Color.Red);
+
+            graphics.DrawRectangle(pen, 5, 5, textBox1.Width + 5, textBox1.Height + 5);
         }
     }
 }

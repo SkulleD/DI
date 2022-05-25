@@ -66,5 +66,10 @@ namespace FormBol10
 
             return false;
         }
+
+        public override string ToString()
+        {
+            return $"{Nombre}, {Edad}, {Sexo} | Afición: {Aficion} | Buscando: {SexoOpuesto}";
+        }
     }
 }

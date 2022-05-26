@@ -46,7 +46,7 @@ namespace FormBol10
             friki = new Friki("Kirbo", 42, rutaFotos + "\\cliente6.png", eAficion.SciFi, Sexo.Hombre, SexoOpuesto.Mujer);
             frikis.Add(friki);
             listBox1.Items.Add(friki);
-            friki = new Friki("Hamsterene", 30, rutaFotos + "\\cliente5.png", eAficion.Manga, Sexo.Mujer, SexoOpuesto.Mujer);
+            friki = new Friki("Hamsterene", 30, rutaFotos + "\\cliente7.png", eAficion.Manga, Sexo.Mujer, SexoOpuesto.Mujer);
             frikis.Add(friki);
             listBox1.Items.Add(friki);
             friki = new Friki("Hamsterilla", 27, rutaFotos + "\\cliente5.png", eAficion.Manga, Sexo.Mujer, SexoOpuesto.Mujer);
@@ -144,6 +144,11 @@ namespace FormBol10
                 }
 
                 frikiCheck = (Friki)listBox1.SelectedItem; // El cliente actual de quien se van a buscar parejas compatibles
+                int ancho = 0;
+                int alto = 0;
+                panel1.Controls.Clear();
+
+                PictureBox picParejas;
 
                 // Se muestran en la lista 2 solo las personas con aficiones y género buscado que coincidan con las del primer cliente seleccionado de lista 1 (no va)
                 for (int i = 0; i < listBox1.Items.Count; i++)
@@ -155,8 +160,15 @@ namespace FormBol10
                             if (frikiCheck != frikis[i])
                             {
                                 listBox2.Items.Insert(0, frikis[i]);
-                                //picPareja = new PictureBox();
-                                picPareja.Image = Image.FromFile(frikis[i].Foto);
+
+                                picParejas = new PictureBox();
+                                picParejas.Name = "picturebox";
+                                picParejas.Size = new Size(80, 80);
+                                picParejas.Location = new Point(ancho, 0);
+                                picParejas.SizeMode = PictureBoxSizeMode.StretchImage;
+                                picParejas.Image = Image.FromFile(frikis[i].Foto);
+                                panel1.Controls.Add(picParejas);
+                                ancho += 80;
                             }
                         }
                     }

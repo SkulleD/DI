@@ -41,6 +41,11 @@ namespace FormBol10
                 {
                     Console.WriteLine("Argument Exception");
                 }
+                catch (OutOfMemoryException)
+                {
+                    rutaFoto = currentDirectory + "\\cliente0.jpg";
+                    Console.WriteLine("Out of memory exception");
+                }
             }
         }
     }

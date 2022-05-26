@@ -24,8 +24,8 @@ namespace FormBol10
 
     public enum SexoOpuesto
     {
-        Hombre,
-        Mujer
+        Mujer,
+        Hombre
     }
 
     public class Friki

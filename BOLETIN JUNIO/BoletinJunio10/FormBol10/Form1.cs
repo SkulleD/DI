@@ -31,27 +31,27 @@ namespace FormBol10
             i = titleLength - 1;
             Text = "";
 
-            Friki friki1 = new Friki("Bocatagarto", 54, rutaFotos + "\\cliente1.png", eAficion.SciFi, Sexo.Hombre, SexoOpuesto.Mujer);
-            Friki friki2 = new Friki("Burgallina", 57, rutaFotos + "\\cliente3.png", eAficion.Terror, Sexo.Mujer, SexoOpuesto.Hombre);
-            Friki friki3 = new Friki("Perrito", 2, rutaFotos + "\\cliente4.png", eAficion.Tecnología, Sexo.Hombre, SexoOpuesto.Hombre);
-            Friki friki4 = new Friki("Sapocadillo", 99, rutaFotos + "\\cliente2.png", eAficion.Tecnología, Sexo.Hombre, SexoOpuesto.Hombre);
-            Friki friki5 = new Friki("Kirbo", 42, rutaFotos + "\\cliente6.png", eAficion.Fantasía, Sexo.Hombre, SexoOpuesto.Mujer);
-            Friki friki6 = new Friki("Hamsterilla", 27, rutaFotos + "\\cliente5.png", eAficion.Manga, Sexo.Mujer, SexoOpuesto.Mujer);
-            Friki friki7 = new Friki("Hamsterene", 30, rutaFotos + "\\cliente5.png", eAficion.Manga, Sexo.Mujer, SexoOpuesto.Mujer);
-            frikis.Add(friki1);
-            frikis.Add(friki2);
-            frikis.Add(friki3);
-            frikis.Add(friki4);
-            frikis.Add(friki5);
-            frikis.Add(friki6);
-            frikis.Add(friki7);
-            listBox1.Items.Add(friki1);
-            listBox1.Items.Add(friki2);
-            listBox1.Items.Add(friki3);
-            listBox1.Items.Add(friki4);
-            listBox1.Items.Add(friki5);
-            listBox1.Items.Add(friki6);
-            listBox1.Items.Add(friki7);
+            friki = new Friki("Bocatagarto", 54, rutaFotos + "\\cliente1.png", eAficion.SciFi, Sexo.Hombre, SexoOpuesto.Mujer);
+            frikis.Add(friki);
+            listBox1.Items.Add(friki);
+            friki = new Friki("Burgallina", 57, rutaFotos + "\\cliente3.png", eAficion.SciFi, Sexo.Mujer, SexoOpuesto.Hombre);
+            frikis.Add(friki);
+            listBox1.Items.Add(friki);
+            friki = new Friki("Perrito", 2, rutaFotos + "\\cliente4.png", eAficion.Tecnología, Sexo.Hombre, SexoOpuesto.Hombre);
+            frikis.Add(friki);
+            listBox1.Items.Add(friki);
+            friki = new Friki("Sapocadillo", 99, rutaFotos + "\\cliente2.png", eAficion.Tecnología, Sexo.Hombre, SexoOpuesto.Hombre);
+            frikis.Add(friki);
+            listBox1.Items.Add(friki);
+            friki = new Friki("Kirbo", 42, rutaFotos + "\\cliente6.png", eAficion.SciFi, Sexo.Hombre, SexoOpuesto.Mujer);
+            frikis.Add(friki);
+            listBox1.Items.Add(friki);
+            friki = new Friki("Hamsterene", 30, rutaFotos + "\\cliente5.png", eAficion.Manga, Sexo.Mujer, SexoOpuesto.Mujer);
+            frikis.Add(friki);
+            listBox1.Items.Add(friki);
+            friki = new Friki("Hamsterilla", 27, rutaFotos + "\\cliente5.png", eAficion.Manga, Sexo.Mujer, SexoOpuesto.Mujer);
+            frikis.Add(friki);
+            listBox1.Items.Add(friki);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -138,22 +138,33 @@ namespace FormBol10
                 {
                     Console.WriteLine("Argument exception");
                 }
-                catch (System.IO.FileNotFoundException)
+                catch (FileNotFoundException)
                 {
                     Console.WriteLine("File not found");
                 }
 
+                frikiCheck = (Friki)listBox1.SelectedItem; // El cliente actual de quien se van a buscar parejas compatibles
+
                 // Se muestran en la lista 2 solo las personas con aficiones y género buscado que coincidan con las del primer cliente seleccionado de lista 1 (no va)
                 for (int i = 0; i < listBox1.Items.Count; i++)
                 {
-                    if (friki.Equals(listBox1.Items[i]))
+                    if (frikiCheck.Aficion == frikis[i].Aficion)
                     {
-                        frikiCheck = (Friki)listBox1.Items[i];
-                        if (frikis[listBox1.SelectedIndex].Aficion == frikiCheck.Aficion && frikis[listBox1.SelectedIndex].SexoOpuesto != frikiCheck.SexoOpuesto)
+                        if (frikiCheck.Sexo.ToString() == frikis[i].SexoOpuesto.ToString())
                         {
-                            listBox2.Items.Insert(0, listBox1.Items[i]);
+                            if (frikiCheck != frikis[i])
+                            {
+                                listBox2.Items.Insert(0, frikis[i]);
+                                //picPareja = new PictureBox();
+                                picPareja.Image = Image.FromFile(frikis[i].Foto);
+                            }
                         }
                     }
+
+                    //if (frikiCheck.Aficion == frikis[i].Aficion && frikiCheck.Sexo.ToString() == frikis[i].SexoOpuesto.ToString() && frikiCheck != frikis[i])
+                    //{
+                    //    listBox2.Items.Insert(0, frikis[i]);
+                    //}
                 }
             }
         }

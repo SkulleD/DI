@@ -44,6 +44,7 @@
             // rb1
             // 
             this.rb1.AutoSize = true;
+            this.rb1.Checked = true;
             this.rb1.Location = new System.Drawing.Point(12, 168);
             this.rb1.Name = "rb1";
             this.rb1.Size = new System.Drawing.Size(17, 16);
@@ -59,7 +60,6 @@
             this.rb2.Name = "rb2";
             this.rb2.Size = new System.Drawing.Size(17, 16);
             this.rb2.TabIndex = 4;
-            this.rb2.TabStop = true;
             this.rb2.UseVisualStyleBackColor = true;
             this.rb2.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
             // 
@@ -70,7 +70,6 @@
             this.rb3.Name = "rb3";
             this.rb3.Size = new System.Drawing.Size(17, 16);
             this.rb3.TabIndex = 5;
-            this.rb3.TabStop = true;
             this.rb3.UseVisualStyleBackColor = true;
             this.rb3.CheckedChanged += new System.EventHandler(this.rb_CheckedChanged);
             // 
@@ -113,6 +112,7 @@
             this.cartaRival.Size = new System.Drawing.Size(150, 150);
             this.cartaRival.TabIndex = 6;
             this.cartaRival.Valor = 0;
+            this.cartaRival.AlcanzaMax += new System.EventHandler(this.carta1_AlcanzaMax);
             // 
             // carta3
             // 
@@ -123,6 +123,7 @@
             this.carta3.Size = new System.Drawing.Size(150, 150);
             this.carta3.TabIndex = 2;
             this.carta3.Valor = 0;
+            this.carta3.AlcanzaMax += new System.EventHandler(this.carta1_AlcanzaMax);
             // 
             // carta2
             // 
@@ -133,6 +134,7 @@
             this.carta2.Size = new System.Drawing.Size(150, 150);
             this.carta2.TabIndex = 1;
             this.carta2.Valor = 0;
+            this.carta2.AlcanzaMax += new System.EventHandler(this.carta1_AlcanzaMax);
             // 
             // carta1
             // 
@@ -143,6 +145,7 @@
             this.carta1.Size = new System.Drawing.Size(150, 150);
             this.carta1.TabIndex = 0;
             this.carta1.Valor = 0;
+            this.carta1.AlcanzaMax += new System.EventHandler(this.carta1_AlcanzaMax);
             // 
             // Form1
             // 

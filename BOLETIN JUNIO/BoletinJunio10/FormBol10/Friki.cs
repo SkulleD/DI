@@ -31,7 +31,23 @@ namespace FormBol10
     public class Friki
     {
         public string Nombre { set; get; }
-        public int Edad { set; get; }
+        private int edad;
+        public int Edad
+        {
+            set
+            {
+                if (value > 120)
+                {
+                    value = 120;
+                }
+
+                edad = value;
+            }
+            get
+            {
+                return edad;
+            }
+        }
         public string Foto { set; get; }
         public eAficion Aficion { set; get; }
         public Sexo Sexo { set; get; }

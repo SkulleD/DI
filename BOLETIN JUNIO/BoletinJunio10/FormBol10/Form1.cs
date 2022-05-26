@@ -83,9 +83,18 @@ namespace FormBol10
                         friki.SexoOpuesto = SexoOpuesto.Mujer;
                     }
 
-                    friki = new Friki(entrada.validateTextBoxNombre.Texto, int.Parse(entrada.validateTextBoxEdad.Texto), entrada.rutaFoto, friki.Aficion = (eAficion)entrada.comboBox1.SelectedItem, friki.Sexo, friki.SexoOpuesto);
-                    frikis.Add(friki);
-                    listBox1.Items.Add(friki);
+                    try
+                    {
+                        friki = new Friki(entrada.validateTextBoxNombre.Texto, int.Parse(entrada.validateTextBoxEdad.Texto), entrada.rutaFoto, friki.Aficion = (eAficion)entrada.comboBox1.SelectedItem, friki.Sexo, friki.SexoOpuesto);
+                        frikis.Add(friki);
+                        listBox1.Items.Add(friki);
+                    }
+                    catch (OverflowException)
+                    {
+                        lbldatoIncorrecto.Text = "Datos incorrectos.";
+                        Console.WriteLine("Overflow exception");
+                    }
+
                 }
                 else
                 {

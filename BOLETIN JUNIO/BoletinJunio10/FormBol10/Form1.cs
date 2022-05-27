@@ -17,7 +17,7 @@ namespace FormBol10
         private Friki friki = new Friki();
         private string rutaFotos = Directory.GetCurrentDirectory();
 
-        //Timer
+        // Timer
         int titleLength; // Se usa para obtener la longitud de la string del título.
         int i; // Se usa para colocar cada caracter del título en el timer.
         char[] charasTitulo; // Se usa para ir colocando los caracteres del título desde el último al primero.
@@ -46,11 +46,13 @@ namespace FormBol10
             friki = new Friki("Kirbo", 42, rutaFotos + "\\cliente6.png", eAficion.SciFi, Sexo.Hombre, SexoOpuesto.Mujer);
             frikis.Add(friki);
             listBox1.Items.Add(friki);
+            friki = new Friki("Hamsterilla", 27, rutaFotos + "\\cliente5.png", eAficion.Manga, Sexo.Mujer, SexoOpuesto.Mujer);
+            frikis.Add(friki);
+            listBox1.Items.Add(friki);
             friki = new Friki("Hamsterene", 30, rutaFotos + "\\cliente7.png", eAficion.Manga, Sexo.Mujer, SexoOpuesto.Mujer);
             frikis.Add(friki);
             listBox1.Items.Add(friki);
-            friki = new Friki("Hamsterilla", 27, rutaFotos + "\\cliente5.png", eAficion.Manga, Sexo.Mujer, SexoOpuesto.Mujer);
-            frikis.Add(friki);
+            frikis.Add(new Friki("a", 99, rutaFotos + "\\cliente1.png", eAficion.Tecnología, Sexo.Hombre, SexoOpuesto.Hombre));
             listBox1.Items.Add(friki);
         }
 
@@ -63,6 +65,7 @@ namespace FormBol10
                 // Se usa el método de Comprobar para asegurarse de que los campos están correctos
                 if (entrada.validateTextBoxNombre.Comprobar(entrada.validateTextBoxNombre.Texto) && entrada.validateTextBoxEdad.Comprobar(entrada.validateTextBoxEdad.Texto))
                 {
+                    friki = new Friki();
                     lbldatoIncorrecto.Text = "";
 
                     if (entrada.rb1Hombre.Checked) // Primero se comprueba si la propia persona seleccionó hombre o mujer
@@ -105,15 +108,23 @@ namespace FormBol10
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
+            int aux;
+         
             while (listBox1.SelectedIndex != -1)
             {
-                if (frikis[listBox1.SelectedIndex].Equals(listBox1.SelectedItem))
+                aux = listBox1.SelectedIndex;
+                Friki frikiAux = frikis[aux];
+
+                // Se borra primero de la lista y luego de la colección.
+                listBox1.Items.RemoveAt(aux);
+
+                if (frikis[aux].Equals(frikiAux))
                 {
-                    frikis.RemoveAt(listBox1.SelectedIndex);
+                    frikis.RemoveAt(aux);
                 }
 
-                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
                 picCliente.Image = null;
+                Console.WriteLine(frikis.Count()); ;
             }
         }
 
@@ -129,11 +140,18 @@ namespace FormBol10
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Friki frikiCheck;
+            lbldatoIncorrecto.Text = "";
+            Friki frikiCheck = new Friki();
+            int aux = listBox1.SelectedIndex;
 
-            if (listBox1.SelectedIndices != null)
+            // Panel
+            int x = 0;
+            int y = 0;
+
+            if (listBox1.SelectedIndices != null && listBox1.SelectedIndices.Count > 0)
             {
                 listBox2.Items.Clear();
+                panel1.Controls.Clear();
 
                 try
                 {
@@ -152,10 +170,8 @@ namespace FormBol10
                     Console.WriteLine("File not found");
                 }
 
-                frikiCheck = (Friki)listBox1.SelectedItem; // El cliente actual de quien se van a buscar parejas compatibles
-                int ancho = 0;
-                int alto = 0;
-                panel1.Controls.Clear();
+                // El cliente actual de quien se van a buscar parejas compatibles
+                frikiCheck = frikis[aux];
 
                 PictureBox picParejas;
 
@@ -173,11 +189,20 @@ namespace FormBol10
                                 picParejas = new PictureBox();
                                 picParejas.Name = "picturebox";
                                 picParejas.Size = new Size(80, 80);
-                                picParejas.Location = new Point(ancho, 0);
+                                picParejas.Location = new Point(x, y);
                                 picParejas.SizeMode = PictureBoxSizeMode.StretchImage;
                                 picParejas.Image = Image.FromFile(frikis[i].Foto);
                                 panel1.Controls.Add(picParejas);
-                                ancho += 80;
+
+                                if (x >= 160)
+                                {
+                                    x = 0;
+                                    y = 90;
+                                }
+                                else
+                                {
+                                    x += 80;
+                                }
                             }
                         }
                     }
@@ -200,14 +225,14 @@ namespace FormBol10
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (i < 0) // Se reinicia el nombre y se le vuelve a asignar el último caracter.
+            if (i >= titleLength) // Se reinicia el nombre y se le vuelve a asignar el último caracter.
             {
-                i = titleLength - 1;
+                i = 0;
                 Text = "";
             }
 
-            Text = charasTitulo[i] + Text;  // Se le van sumando los caracteres, del último al primero.
-            i--;
+            Text = Text + charasTitulo[i];  // Se le van sumando los caracteres, del último al primero.
+            i++;
         }
     }
 }

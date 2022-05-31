@@ -29,6 +29,7 @@ namespace FormCartas
             cartaElegida = (int)((RadioButton)sender).Tag;
         }
 
+        private int posX = 0;
         private void btnJugar_Click(object sender, EventArgs e)
         {
             Carta miCarta = cartas[cartaElegida];
@@ -58,6 +59,18 @@ namespace FormCartas
             }
 
             miCarta.Valor += random.Next(10, 21); // La carta jugada obtiene entre 10 y 20 puntos de experiencia.
+            panel1.Controls.Add(new Carta(miCarta.Imagen, miCarta.Nivel, miCarta.Valor, posX, 0, 40, 70));
+            panel1.Controls.Add(new Carta(cartaRival.Imagen, cartaRival.Nivel, cartaRival.Valor, posX, 90, 40, 70));
+
+            if (posX >= panel1.Width - 50)
+            {
+                panel1.Controls.Clear();
+                posX = 0;
+            }
+            else
+            {
+                posX += 50;
+            }
         }
 
         private bool Ganar(int cartaPlayer, int cartaCPU)

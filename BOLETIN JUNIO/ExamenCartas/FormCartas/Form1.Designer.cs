@@ -89,9 +89,8 @@
             this.lblResult.AutoSize = true;
             this.lblResult.Location = new System.Drawing.Point(522, 167);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(46, 17);
+            this.lblResult.Size = new System.Drawing.Size(0, 17);
             this.lblResult.TabIndex = 8;
-            this.lblResult.Text = "label1";
             // 
             // panel1
             // 
@@ -164,6 +163,7 @@
             this.Controls.Add(this.carta1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Piedra, Papel, Tijera cards";
             this.ResumeLayout(false);
             this.PerformLayout();

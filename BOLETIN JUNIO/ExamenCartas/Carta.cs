@@ -18,15 +18,23 @@ namespace ExamenCartas
             InitializeComponent();
         }
 
-        private Image imagen;
+        public Carta(Image imagen, int nivel, int valor, int posX, int posY, int width, int height)
+        {
+            InitializeComponent();
+            Imagen = imagen;
+            Nivel = nivel;
+            Valor = valor;
+            Location = new Point(posX, posY);
+            Size = new Size(width, height);
+        }
+
         [Category("Examen")]
         [Description("Imagen de la carta.")]
         public Image Imagen
         {
             set
             {
-                imagen = value;
-                pb.Image = imagen;
+                pb.Image = value;
             }
 
             get
@@ -61,25 +69,25 @@ namespace ExamenCartas
             {
                 if (value > 100)
                 {
-                    valor = 100;
-
                     if (Enabled) // El evento solo se lanza si el compomente está habilitado.
                     {
                         AlcanzaMax?.Invoke(this, new EventArgs());
                     }
 
+                    valor = 0;
                     //if (AlcanzaMax != null)
                     //{
                     //    AlcanzaMax(this, new EventArgs()); // La otra manera de llamar al evento.
                     //}
                 }
-
-                if (value < 0)
+                else if (value < 0)
                 {
                     valor = 0;
                 }
-
-                valor = value;
+                else
+                {
+                    valor = value;
+                }
 
                 Refresh();
             }
@@ -96,7 +104,7 @@ namespace ExamenCartas
 
         private void lbl_DoubleClick(object sender, EventArgs e)
         {
-
+            lbl.Text = "aaaa";
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -117,7 +125,7 @@ namespace ExamenCartas
                 color = Color.Green;
             }
 
-            if (!Enabled) // NO FUNCIONA
+            if (!Enabled)
             {
                 color = Color.LightGray;
             }

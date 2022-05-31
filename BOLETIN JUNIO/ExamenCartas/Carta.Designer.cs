@@ -64,7 +64,6 @@
             this.Controls.Add(this.lbl);
             this.Controls.Add(this.pb);
             this.Name = "Carta";
-            this.DoubleClick += new System.EventHandler(this.lbl_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.pb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
